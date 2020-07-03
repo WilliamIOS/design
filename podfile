@@ -1,0 +1,10 @@
+platform:ios,'10.0'
+target 'design' do
+  pod 'SDWebImage'
+  pod 'IQKeyboardManager'
+  pod 'MJExtension'
+  pod 'MJRefresh'
+  pod 'DZNEmptyDataSet'
+  pod 'Masonry'
+  use_frameworks!
+end
