@@ -15,6 +15,15 @@
 		6077325E24AEFA7300192576 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6077325D24AEFA7300192576 /* Assets.xcassets */; };
 		6077326124AEFA7300192576 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6077325F24AEFA7300192576 /* LaunchScreen.storyboard */; };
 		6077326424AEFA7300192576 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6077326324AEFA7300192576 /* main.m */; };
+		60E7EB5E24B358CC0056A252 /* RootTabBarContro.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7EB5C24B358CC0056A252 /* RootTabBarContro.m */; };
+		60E7EB6124B359810056A252 /* HomePageListNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7EB6024B359810056A252 /* HomePageListNavigationController.m */; };
+		60E7EB6424B359A00056A252 /* HomePageListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7EB6324B359A00056A252 /* HomePageListVC.m */; };
+		60E7EB6824B359CA0056A252 /* ScheduleNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7EB6724B359CA0056A252 /* ScheduleNavigationController.m */; };
+		60E7EB6B24B359EF0056A252 /* ScheduleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7EB6A24B359EF0056A252 /* ScheduleVC.m */; };
+		60E7EB6E24B35A100056A252 /* AddressBookNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7EB6D24B35A100056A252 /* AddressBookNavigationController.m */; };
+		60E7EB7124B35A2F0056A252 /* AddressBookVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7EB7024B35A2F0056A252 /* AddressBookVC.m */; };
+		60E7EB7424B35A490056A252 /* MineNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7EB7324B35A490056A252 /* MineNavigationController.m */; };
+		60E7EB7724B35A5E0056A252 /* MineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7EB7624B35A5E0056A252 /* MineVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +42,24 @@
 		6077326024AEFA7300192576 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6077326224AEFA7300192576 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6077326324AEFA7300192576 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		60E7EB5C24B358CC0056A252 /* RootTabBarContro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTabBarContro.m; sourceTree = "<group>"; };
+		60E7EB5D24B358CC0056A252 /* RootTabBarContro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabBarContro.h; sourceTree = "<group>"; };
+		60E7EB5F24B359810056A252 /* HomePageListNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageListNavigationController.h; sourceTree = "<group>"; };
+		60E7EB6024B359810056A252 /* HomePageListNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageListNavigationController.m; sourceTree = "<group>"; };
+		60E7EB6224B359A00056A252 /* HomePageListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageListVC.h; sourceTree = "<group>"; };
+		60E7EB6324B359A00056A252 /* HomePageListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageListVC.m; sourceTree = "<group>"; };
+		60E7EB6624B359CA0056A252 /* ScheduleNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleNavigationController.h; sourceTree = "<group>"; };
+		60E7EB6724B359CA0056A252 /* ScheduleNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleNavigationController.m; sourceTree = "<group>"; };
+		60E7EB6924B359EF0056A252 /* ScheduleVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleVC.h; sourceTree = "<group>"; };
+		60E7EB6A24B359EF0056A252 /* ScheduleVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleVC.m; sourceTree = "<group>"; };
+		60E7EB6C24B35A100056A252 /* AddressBookNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressBookNavigationController.h; sourceTree = "<group>"; };
+		60E7EB6D24B35A100056A252 /* AddressBookNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressBookNavigationController.m; sourceTree = "<group>"; };
+		60E7EB6F24B35A2F0056A252 /* AddressBookVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressBookVC.h; sourceTree = "<group>"; };
+		60E7EB7024B35A2F0056A252 /* AddressBookVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressBookVC.m; sourceTree = "<group>"; };
+		60E7EB7224B35A490056A252 /* MineNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineNavigationController.h; sourceTree = "<group>"; };
+		60E7EB7324B35A490056A252 /* MineNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineNavigationController.m; sourceTree = "<group>"; };
+		60E7EB7524B35A5E0056A252 /* MineVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineVC.h; sourceTree = "<group>"; };
+		60E7EB7624B35A5E0056A252 /* MineVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +112,7 @@
 		6077325024AEFA7100192576 /* design */ = {
 			isa = PBXGroup;
 			children = (
-				6077326A24AEFDF800192576 /* Classess */,
+				60E7EB4524B3576A0056A252 /* Classes */,
 				6077327224AEFEF000192576 /* InterfaceBuider */,
 				6077325124AEFA7100192576 /* AppDelegate.h */,
 				6077325224AEFA7100192576 /* AppDelegate.m */,
@@ -101,67 +128,213 @@
 			path = design;
 			sourceTree = "<group>";
 		};
-		6077326A24AEFDF800192576 /* Classess */ = {
-			isa = PBXGroup;
-			children = (
-				6077326B24AEFE0C00192576 /* Controller */,
-				6077326C24AEFE2800192576 /* Model */,
-				6077326D24AEFE3200192576 /* View */,
-				6077326F24AEFE7B00192576 /* Utils */,
-			);
-			path = Classess;
-			sourceTree = "<group>";
-		};
-		6077326B24AEFE0C00192576 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		6077326C24AEFE2800192576 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		6077326D24AEFE3200192576 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		6077326F24AEFE7B00192576 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				6077327024AEFE9B00192576 /* Libraries */,
-				6077327124AEFEA300192576 /* Methods */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		6077327024AEFE9B00192576 /* Libraries */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Libraries;
-			sourceTree = "<group>";
-		};
-		6077327124AEFEA300192576 /* Methods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Methods;
-			sourceTree = "<group>";
-		};
 		6077327224AEFEF000192576 /* InterfaceBuider */ = {
 			isa = PBXGroup;
 			children = (
 				6077325A24AEFA7100192576 /* Main.storyboard */,
 			);
 			path = InterfaceBuider;
+			sourceTree = "<group>";
+		};
+		60E7EB4524B3576A0056A252 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				60E7EB4C24B3576A0056A252 /* Controller */,
+				60E7EB5124B3576A0056A252 /* Model */,
+				60E7EB5624B3576A0056A252 /* View */,
+				60E7EB4624B3576A0056A252 /* Utils */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		60E7EB4624B3576A0056A252 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				60E7EB4724B3576A0056A252 /* Schedule */,
+				60E7EB4824B3576A0056A252 /* HomePage */,
+				60E7EB4924B3576A0056A252 /* Common */,
+				60E7EB4A24B3576A0056A252 /* Mine */,
+				60E7EB4B24B3576A0056A252 /* AddressBook */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		60E7EB4724B3576A0056A252 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		60E7EB4824B3576A0056A252 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		60E7EB4924B3576A0056A252 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		60E7EB4A24B3576A0056A252 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		60E7EB4B24B3576A0056A252 /* AddressBook */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AddressBook;
+			sourceTree = "<group>";
+		};
+		60E7EB4C24B3576A0056A252 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				60E7EB4D24B3576A0056A252 /* Schedule */,
+				60E7EB4E24B3576A0056A252 /* HomePage */,
+				60E7EB4F24B3576A0056A252 /* Mine */,
+				60E7EB5024B3576A0056A252 /* AddressBook */,
+				60E7EB5B24B357C20056A252 /* Root */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		60E7EB4D24B3576A0056A252 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				60E7EB6624B359CA0056A252 /* ScheduleNavigationController.h */,
+				60E7EB6724B359CA0056A252 /* ScheduleNavigationController.m */,
+				60E7EB6924B359EF0056A252 /* ScheduleVC.h */,
+				60E7EB6A24B359EF0056A252 /* ScheduleVC.m */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		60E7EB4E24B3576A0056A252 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				60E7EB5F24B359810056A252 /* HomePageListNavigationController.h */,
+				60E7EB6024B359810056A252 /* HomePageListNavigationController.m */,
+				60E7EB6224B359A00056A252 /* HomePageListVC.h */,
+				60E7EB6324B359A00056A252 /* HomePageListVC.m */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		60E7EB4F24B3576A0056A252 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				60E7EB7224B35A490056A252 /* MineNavigationController.h */,
+				60E7EB7324B35A490056A252 /* MineNavigationController.m */,
+				60E7EB7524B35A5E0056A252 /* MineVC.h */,
+				60E7EB7624B35A5E0056A252 /* MineVC.m */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		60E7EB5024B3576A0056A252 /* AddressBook */ = {
+			isa = PBXGroup;
+			children = (
+				60E7EB6C24B35A100056A252 /* AddressBookNavigationController.h */,
+				60E7EB6D24B35A100056A252 /* AddressBookNavigationController.m */,
+				60E7EB6F24B35A2F0056A252 /* AddressBookVC.h */,
+				60E7EB7024B35A2F0056A252 /* AddressBookVC.m */,
+			);
+			path = AddressBook;
+			sourceTree = "<group>";
+		};
+		60E7EB5124B3576A0056A252 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				60E7EB5224B3576A0056A252 /* Schedule */,
+				60E7EB5324B3576A0056A252 /* HomePage */,
+				60E7EB5424B3576A0056A252 /* Mine */,
+				60E7EB5524B3576A0056A252 /* AddressBook */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		60E7EB5224B3576A0056A252 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		60E7EB5324B3576A0056A252 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		60E7EB5424B3576A0056A252 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		60E7EB5524B3576A0056A252 /* AddressBook */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AddressBook;
+			sourceTree = "<group>";
+		};
+		60E7EB5624B3576A0056A252 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				60E7EB5724B3576A0056A252 /* Schedule */,
+				60E7EB5824B3576A0056A252 /* HomePage */,
+				60E7EB5924B3576A0056A252 /* Mine */,
+				60E7EB5A24B3576A0056A252 /* AddressBook */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		60E7EB5724B3576A0056A252 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		60E7EB5824B3576A0056A252 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		60E7EB5924B3576A0056A252 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		60E7EB5A24B3576A0056A252 /* AddressBook */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AddressBook;
+			sourceTree = "<group>";
+		};
+		60E7EB5B24B357C20056A252 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				60E7EB5D24B358CC0056A252 /* RootTabBarContro.h */,
+				60E7EB5C24B358CC0056A252 /* RootTabBarContro.m */,
+			);
+			path = Root;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,8 +450,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60E7EB6B24B359EF0056A252 /* ScheduleVC.m in Sources */,
+				60E7EB6E24B35A100056A252 /* AddressBookNavigationController.m in Sources */,
+				60E7EB5E24B358CC0056A252 /* RootTabBarContro.m in Sources */,
+				60E7EB7124B35A2F0056A252 /* AddressBookVC.m in Sources */,
 				6077325924AEFA7100192576 /* ViewController.m in Sources */,
+				60E7EB6824B359CA0056A252 /* ScheduleNavigationController.m in Sources */,
+				60E7EB7724B35A5E0056A252 /* MineVC.m in Sources */,
+				60E7EB7424B35A490056A252 /* MineNavigationController.m in Sources */,
 				6077325324AEFA7100192576 /* AppDelegate.m in Sources */,
+				60E7EB6124B359810056A252 /* HomePageListNavigationController.m in Sources */,
+				60E7EB6424B359A00056A252 /* HomePageListVC.m in Sources */,
 				6077326424AEFA7300192576 /* main.m in Sources */,
 				6077325624AEFA7100192576 /* SceneDelegate.m in Sources */,
 			);

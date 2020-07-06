@@ -1,0 +1,23 @@
+//
+//  MineNavigationController.m
+//  design
+//
+//  Created by panwei on 2020/7/6.
+//
+
+#import "MineNavigationController.h"
+
+@interface MineNavigationController ()
+
+@end
+
+@implementation MineNavigationController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+}
+
+
+
+@end
