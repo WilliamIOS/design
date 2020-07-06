@@ -16,6 +16,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    UIViewController *homePageListVC = [self.storyboard instantiateViewControllerWithIdentifier:@"HomePageListVC"];
+    self.viewControllers = @[homePageListVC];
+    [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
 }
 
 

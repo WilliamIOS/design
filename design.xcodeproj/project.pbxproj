@@ -60,6 +60,7 @@
 		60E7EB7324B35A490056A252 /* MineNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineNavigationController.m; sourceTree = "<group>"; };
 		60E7EB7524B35A5E0056A252 /* MineVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineVC.h; sourceTree = "<group>"; };
 		60E7EB7624B35A5E0056A252 /* MineVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineVC.m; sourceTree = "<group>"; };
+		60E7EB7824B3641A0056A252 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +177,7 @@
 		60E7EB4924B3576A0056A252 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				60E7EB7824B3641A0056A252 /* Macro.h */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -611,7 +613,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.company.design;
 				PRODUCT_NAME = design;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -628,7 +630,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.company.design;
 				PRODUCT_NAME = design;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

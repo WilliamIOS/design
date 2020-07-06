@@ -7,7 +7,7 @@
 //
 
 #import "RootTabBarContro.h"
-//#import "Macro.h"
+#import "Macro.h"
 //#import "UITabBar+Badge.h"
 //#import <MNFloatBtn/MNFloatBtn.h>
 //#import "ServerApi.h"
@@ -37,8 +37,8 @@
     // UINavigationBar的UIBarButtonItem的颜色
     [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
     // UITabBarItem默认/选中标题的颜色
-    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]} forState:UIControlStateNormal];
-    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]} forState:UIControlStateSelected];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor grayColor]} forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:PWColor(235, 141, 26)} forState:UIControlStateSelected];
     
     [[UINavigationBar appearance] setTranslucent:NO];
 
@@ -55,16 +55,16 @@
  */
 -(void)addAllChildVCs{
     UINavigationController *homePageListNavigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"HomePageListNavigationController"];
-    [self addOneChlildVc:homePageListNavigationController tabBarItemTitle:@"项目资料" imageName:@"chaxun_normal" selectedImageName:@"chaxun_selected"];
+    [self addOneChlildVc:homePageListNavigationController tabBarItemTitle:@"项目资料" imageName:@"xiangmu" selectedImageName:@"xiangmuCheck"];
     
     UINavigationController *scheduleNavigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"ScheduleNavigationController"];
-    [self addOneChlildVc:scheduleNavigationController tabBarItemTitle:@"变更日程" imageName:@"xiangmu_normal" selectedImageName:@"xiangmu_selected"];
+    [self addOneChlildVc:scheduleNavigationController tabBarItemTitle:@"变更日程" imageName:@"richeng" selectedImageName:@"richengCheck"];
     
     UINavigationController *addressBookNavigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"AddressBookNavigationController"];
-    [self addOneChlildVc:addressBookNavigationController tabBarItemTitle:@"项目通讯录" imageName:@"fuwu_normal" selectedImageName:@"fuwu_selected"];
+    [self addOneChlildVc:addressBookNavigationController tabBarItemTitle:@"项目通讯录" imageName:@"tongxun" selectedImageName:@"tongxunCheck"];
     
     UINavigationController *mineNavigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"MineNavigationController"];
-    [self addOneChlildVc:mineNavigationController tabBarItemTitle:@"我的项目" imageName:@"fuwu_normal" selectedImageName:@"fuwu_selected"];
+    [self addOneChlildVc:mineNavigationController tabBarItemTitle:@"我的项目" imageName:@"liebiao" selectedImageName:@"liebiao"];
 }
 
 /**
