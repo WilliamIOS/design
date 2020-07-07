@@ -20,7 +20,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UpH-Oj-cXN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1794" y="276"/>
+            <point key="canvasLocation" x="-1787" y="962"/>
         </scene>
         <!--Home Page List Navigation Controller-->
         <scene sceneID="BUZ-8Q-Fly">
@@ -134,5 +134,34 @@
             </objects>
             <point key="canvasLocation" x="-100" y="2018"/>
         </scene>
+        <!--LoginVC-->
+        <scene sceneID="Od5-mx-aXB">
+            <objects>
+                <viewController storyboardIdentifier="LoginVC" id="aIZ-DK-A1w" customClass="LoginVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vi6-ku-32c">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_background" translatesAutoresizingMaskIntoConstraints="NO" id="rSN-Ct-5V7">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="rSN-Ct-5V7" firstAttribute="top" secondItem="Vi6-ku-32c" secondAttribute="top" id="9yH-jd-miq"/>
+                            <constraint firstItem="kuA-7W-kN6" firstAttribute="trailing" secondItem="rSN-Ct-5V7" secondAttribute="trailing" id="KLe-QG-byG"/>
+                            <constraint firstItem="rSN-Ct-5V7" firstAttribute="leading" secondItem="kuA-7W-kN6" secondAttribute="leading" id="uW1-KE-ozy"/>
+                            <constraint firstAttribute="bottom" secondItem="rSN-Ct-5V7" secondAttribute="bottom" id="xBc-tA-ec1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kuA-7W-kN6"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uFC-Js-U9A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="651" y="2017"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="login_background" width="188" height="374.5"/>
+    </resources>
 </document>

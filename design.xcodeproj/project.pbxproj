@@ -15,6 +15,7 @@
 		6077325E24AEFA7300192576 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6077325D24AEFA7300192576 /* Assets.xcassets */; };
 		6077326124AEFA7300192576 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6077325F24AEFA7300192576 /* LaunchScreen.storyboard */; };
 		6077326424AEFA7300192576 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6077326324AEFA7300192576 /* main.m */; };
+		6077327B24B40B3100192576 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6077327A24B40B3100192576 /* LoginVC.m */; };
 		60E7EB5E24B358CC0056A252 /* RootTabBarContro.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7EB5C24B358CC0056A252 /* RootTabBarContro.m */; };
 		60E7EB6124B359810056A252 /* HomePageListNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7EB6024B359810056A252 /* HomePageListNavigationController.m */; };
 		60E7EB6424B359A00056A252 /* HomePageListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7EB6324B359A00056A252 /* HomePageListVC.m */; };
@@ -42,6 +43,8 @@
 		6077326024AEFA7300192576 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6077326224AEFA7300192576 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6077326324AEFA7300192576 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6077327924B40B3100192576 /* LoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		6077327A24B40B3100192576 /* LoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		60E7EB5C24B358CC0056A252 /* RootTabBarContro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTabBarContro.m; sourceTree = "<group>"; };
 		60E7EB5D24B358CC0056A252 /* RootTabBarContro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabBarContro.h; sourceTree = "<group>"; };
 		60E7EB5F24B359810056A252 /* HomePageListNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageListNavigationController.h; sourceTree = "<group>"; };
@@ -237,6 +240,8 @@
 				60E7EB7324B35A490056A252 /* MineNavigationController.m */,
 				60E7EB7524B35A5E0056A252 /* MineVC.h */,
 				60E7EB7624B35A5E0056A252 /* MineVC.m */,
+				6077327924B40B3100192576 /* LoginVC.h */,
+				6077327A24B40B3100192576 /* LoginVC.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -464,6 +469,7 @@
 				60E7EB6124B359810056A252 /* HomePageListNavigationController.m in Sources */,
 				60E7EB6424B359A00056A252 /* HomePageListVC.m in Sources */,
 				6077326424AEFA7300192576 /* main.m in Sources */,
+				6077327B24B40B3100192576 /* LoginVC.m in Sources */,
 				6077325624AEFA7100192576 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

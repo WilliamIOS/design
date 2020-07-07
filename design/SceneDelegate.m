@@ -7,6 +7,7 @@
 
 #import "SceneDelegate.h"
 #import "RootTabBarContro.h"
+#import "LoginVC.h"
 
 @interface SceneDelegate ()
 
@@ -21,8 +22,9 @@
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    RootTabBarContro *rootTabBarContro = [mainStoryboard instantiateViewControllerWithIdentifier:@"RootTabBarContro"];
-    self.window.rootViewController = rootTabBarContro;
+//    RootTabBarContro *rootTabBarContro = [mainStoryboard instantiateViewControllerWithIdentifier:@"RootTabBarContro"];
+    LoginVC *loginVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"LoginVC"];
+    self.window.rootViewController = loginVC;
     [self.window makeKeyAndVisible];
 }
 
@@ -33,7 +35,6 @@
     // Release any resources associated with this scene that can be re-created the next time the scene connects.
     // The scene may re-connect later, as its session was not neccessarily discarded (see `application:didDiscardSceneSessions` instead).
 }
-
 
 - (void)sceneDidBecomeActive:(UIScene *)scene {
     // Called when the scene has moved from an inactive state to an active state.
