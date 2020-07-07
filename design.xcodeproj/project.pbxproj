@@ -18,6 +18,7 @@
 		60ADEDDD24B4ABE400629EC3 /* LoginTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ADEDDC24B4ABE400629EC3 /* LoginTableViewController.m */; };
 		60ADEDE024B4BE6F00629EC3 /* MineProjectTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ADEDDF24B4BE6F00629EC3 /* MineProjectTVC.m */; };
 		60ADEDE424B4C1B700629EC3 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ADEDE324B4C1B700629EC3 /* UIView+Extension.m */; };
+		60ADEDE724B4C88900629EC3 /* HomePageBtnsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ADEDE624B4C88900629EC3 /* HomePageBtnsTVC.m */; };
 		60E7EB5E24B358CC0056A252 /* RootTabBarContro.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7EB5C24B358CC0056A252 /* RootTabBarContro.m */; };
 		60E7EB6124B359810056A252 /* HomePageListNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7EB6024B359810056A252 /* HomePageListNavigationController.m */; };
 		60E7EB6424B359A00056A252 /* HomePageListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7EB6324B359A00056A252 /* HomePageListVC.m */; };
@@ -51,6 +52,8 @@
 		60ADEDDF24B4BE6F00629EC3 /* MineProjectTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineProjectTVC.m; sourceTree = "<group>"; };
 		60ADEDE224B4C1B700629EC3 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		60ADEDE324B4C1B700629EC3 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		60ADEDE524B4C88900629EC3 /* HomePageBtnsTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageBtnsTVC.h; sourceTree = "<group>"; };
+		60ADEDE624B4C88900629EC3 /* HomePageBtnsTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageBtnsTVC.m; sourceTree = "<group>"; };
 		60E7EB5C24B358CC0056A252 /* RootTabBarContro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTabBarContro.m; sourceTree = "<group>"; };
 		60E7EB5D24B358CC0056A252 /* RootTabBarContro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabBarContro.h; sourceTree = "<group>"; };
 		60E7EB5F24B359810056A252 /* HomePageListNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageListNavigationController.h; sourceTree = "<group>"; };
@@ -333,6 +336,8 @@
 		60E7EB5824B3576A0056A252 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				60ADEDE524B4C88900629EC3 /* HomePageBtnsTVC.h */,
+				60ADEDE624B4C88900629EC3 /* HomePageBtnsTVC.m */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -479,6 +484,7 @@
 				60ADEDDD24B4ABE400629EC3 /* LoginTableViewController.m in Sources */,
 				60E7EB6E24B35A100056A252 /* AddressBookNavigationController.m in Sources */,
 				60E7EB5E24B358CC0056A252 /* RootTabBarContro.m in Sources */,
+				60ADEDE724B4C88900629EC3 /* HomePageBtnsTVC.m in Sources */,
 				60ADEDE024B4BE6F00629EC3 /* MineProjectTVC.m in Sources */,
 				60E7EB7124B35A2F0056A252 /* AddressBookVC.m in Sources */,
 				6077325924AEFA7100192576 /* ViewController.m in Sources */,

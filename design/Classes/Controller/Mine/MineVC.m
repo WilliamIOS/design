@@ -26,7 +26,8 @@
     self.navigationItem.title = @"我的项目";
     self.projectListTV.dataSource = self;
     self.projectListTV.delegate = self;
-    
+    self.projectListTV.estimatedRowHeight = 100.0f;//估算高度
+    self.projectListTV.rowHeight = UITableViewAutomaticDimension;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

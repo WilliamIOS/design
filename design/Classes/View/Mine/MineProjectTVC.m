@@ -6,6 +6,7 @@
 //
 
 #import "MineProjectTVC.h"
+#import "UIView+Extension.h"
 
 @interface MineProjectTVC()
 
@@ -21,6 +22,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    [self setupSettings];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -36,6 +38,12 @@
         cell = [[MineProjectTVC alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellidentifier];
     }
     return cell;
+}
+
+- (void)setupSettings{
+    [self.imageBackgroundView setRoundedView:self.imageBackgroundView cornerRadius:8 borderWidth:0.5 borderColor:[UIColor lightGrayColor]];
+    [self.projectImageView setRoundedView:self.projectImageView cornerRadius:8 borderWidth:0.5 borderColor:[UIColor clearColor]];
+
 }
 
 @end
