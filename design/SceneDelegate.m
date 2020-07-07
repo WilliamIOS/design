@@ -7,7 +7,7 @@
 
 #import "SceneDelegate.h"
 #import "RootTabBarContro.h"
-#import "LoginVC.h"
+#import "LoginTableViewController.h"
 
 @interface SceneDelegate ()
 
@@ -23,8 +23,8 @@
     
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 //    RootTabBarContro *rootTabBarContro = [mainStoryboard instantiateViewControllerWithIdentifier:@"RootTabBarContro"];
-    LoginVC *loginVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"LoginVC"];
-    self.window.rootViewController = loginVC;
+    LoginTableViewController *loginTableViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"LoginTableViewController"];
+    self.window.rootViewController = loginTableViewController;
     [self.window makeKeyAndVisible];
 }
 

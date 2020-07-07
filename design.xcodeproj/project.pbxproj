@@ -15,7 +15,9 @@
 		6077325E24AEFA7300192576 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6077325D24AEFA7300192576 /* Assets.xcassets */; };
 		6077326124AEFA7300192576 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6077325F24AEFA7300192576 /* LaunchScreen.storyboard */; };
 		6077326424AEFA7300192576 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6077326324AEFA7300192576 /* main.m */; };
-		6077327B24B40B3100192576 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6077327A24B40B3100192576 /* LoginVC.m */; };
+		60ADEDDD24B4ABE400629EC3 /* LoginTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ADEDDC24B4ABE400629EC3 /* LoginTableViewController.m */; };
+		60ADEDE024B4BE6F00629EC3 /* MineProjectTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ADEDDF24B4BE6F00629EC3 /* MineProjectTVC.m */; };
+		60ADEDE424B4C1B700629EC3 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ADEDE324B4C1B700629EC3 /* UIView+Extension.m */; };
 		60E7EB5E24B358CC0056A252 /* RootTabBarContro.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7EB5C24B358CC0056A252 /* RootTabBarContro.m */; };
 		60E7EB6124B359810056A252 /* HomePageListNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7EB6024B359810056A252 /* HomePageListNavigationController.m */; };
 		60E7EB6424B359A00056A252 /* HomePageListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7EB6324B359A00056A252 /* HomePageListVC.m */; };
@@ -43,8 +45,12 @@
 		6077326024AEFA7300192576 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6077326224AEFA7300192576 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6077326324AEFA7300192576 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6077327924B40B3100192576 /* LoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
-		6077327A24B40B3100192576 /* LoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
+		60ADEDDB24B4ABE400629EC3 /* LoginTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginTableViewController.h; sourceTree = "<group>"; };
+		60ADEDDC24B4ABE400629EC3 /* LoginTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginTableViewController.m; sourceTree = "<group>"; };
+		60ADEDDE24B4BE6F00629EC3 /* MineProjectTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineProjectTVC.h; sourceTree = "<group>"; };
+		60ADEDDF24B4BE6F00629EC3 /* MineProjectTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineProjectTVC.m; sourceTree = "<group>"; };
+		60ADEDE224B4C1B700629EC3 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		60ADEDE324B4C1B700629EC3 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		60E7EB5C24B358CC0056A252 /* RootTabBarContro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTabBarContro.m; sourceTree = "<group>"; };
 		60E7EB5D24B358CC0056A252 /* RootTabBarContro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabBarContro.h; sourceTree = "<group>"; };
 		60E7EB5F24B359810056A252 /* HomePageListNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageListNavigationController.h; sourceTree = "<group>"; };
@@ -140,6 +146,15 @@
 			path = InterfaceBuider;
 			sourceTree = "<group>";
 		};
+		60ADEDE124B4C1B700629EC3 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				60ADEDE224B4C1B700629EC3 /* UIView+Extension.h */,
+				60ADEDE324B4C1B700629EC3 /* UIView+Extension.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		60E7EB4524B3576A0056A252 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +195,7 @@
 		60E7EB4924B3576A0056A252 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				60ADEDE124B4C1B700629EC3 /* Category */,
 				60E7EB7824B3641A0056A252 /* Macro.h */,
 			);
 			path = Common;
@@ -240,8 +256,8 @@
 				60E7EB7324B35A490056A252 /* MineNavigationController.m */,
 				60E7EB7524B35A5E0056A252 /* MineVC.h */,
 				60E7EB7624B35A5E0056A252 /* MineVC.m */,
-				6077327924B40B3100192576 /* LoginVC.h */,
-				6077327A24B40B3100192576 /* LoginVC.m */,
+				60ADEDDB24B4ABE400629EC3 /* LoginTableViewController.h */,
+				60ADEDDC24B4ABE400629EC3 /* LoginTableViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -324,6 +340,8 @@
 		60E7EB5924B3576A0056A252 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				60ADEDDE24B4BE6F00629EC3 /* MineProjectTVC.h */,
+				60ADEDDF24B4BE6F00629EC3 /* MineProjectTVC.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -458,8 +476,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				60E7EB6B24B359EF0056A252 /* ScheduleVC.m in Sources */,
+				60ADEDDD24B4ABE400629EC3 /* LoginTableViewController.m in Sources */,
 				60E7EB6E24B35A100056A252 /* AddressBookNavigationController.m in Sources */,
 				60E7EB5E24B358CC0056A252 /* RootTabBarContro.m in Sources */,
+				60ADEDE024B4BE6F00629EC3 /* MineProjectTVC.m in Sources */,
 				60E7EB7124B35A2F0056A252 /* AddressBookVC.m in Sources */,
 				6077325924AEFA7100192576 /* ViewController.m in Sources */,
 				60E7EB6824B359CA0056A252 /* ScheduleNavigationController.m in Sources */,
@@ -469,7 +489,7 @@
 				60E7EB6124B359810056A252 /* HomePageListNavigationController.m in Sources */,
 				60E7EB6424B359A00056A252 /* HomePageListVC.m in Sources */,
 				6077326424AEFA7300192576 /* main.m in Sources */,
-				6077327B24B40B3100192576 /* LoginVC.m in Sources */,
+				60ADEDE424B4C1B700629EC3 /* UIView+Extension.m in Sources */,
 				6077325624AEFA7100192576 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
