@@ -32,8 +32,7 @@ sizeWithAttributes:@{NSFontAttributeName:font}] : CGSizeZero;
 #endif
 
 
-typedef NS_ENUM(NSInteger, PersonalInfoUpdateType) {
-    PersonalInfoUpdateTypeWithPersonalCenter, // 个人中心
-    PersonalInfoUpdateTypeWithJoinProject // 申请加入项目
+typedef NS_ENUM(NSInteger, ViewControllerType) {
+    ViewControllerTypeWithConceptScheme
 };
 

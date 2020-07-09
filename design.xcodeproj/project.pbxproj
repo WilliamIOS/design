@@ -33,6 +33,9 @@
 		60ADEDE024B4BE6F00629EC3 /* MineProjectTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ADEDDF24B4BE6F00629EC3 /* MineProjectTVC.m */; };
 		60ADEDE424B4C1B700629EC3 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ADEDE324B4C1B700629EC3 /* UIView+Extension.m */; };
 		60ADEDE724B4C88900629EC3 /* HomePageBtnsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ADEDE624B4C88900629EC3 /* HomePageBtnsTVC.m */; };
+		60B4FA9D24B753710072FEE7 /* LoadingFileTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B4FA9C24B753710072FEE7 /* LoadingFileTVC.m */; };
+		60B4FAA024B759DE0072FEE7 /* PersonInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B4FA9F24B759DE0072FEE7 /* PersonInfoModel.m */; };
+		60B4FAA324B75C830072FEE7 /* ConceptSchemeHistoryListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B4FAA224B75C830072FEE7 /* ConceptSchemeHistoryListVC.m */; };
 		60E7EB5E24B358CC0056A252 /* RootTabBarContro.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7EB5C24B358CC0056A252 /* RootTabBarContro.m */; };
 		60E7EB6124B359810056A252 /* HomePageListNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7EB6024B359810056A252 /* HomePageListNavigationController.m */; };
 		60E7EB6424B359A00056A252 /* HomePageListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7EB6324B359A00056A252 /* HomePageListVC.m */; };
@@ -97,6 +100,12 @@
 		60ADEDE324B4C1B700629EC3 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		60ADEDE524B4C88900629EC3 /* HomePageBtnsTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageBtnsTVC.h; sourceTree = "<group>"; };
 		60ADEDE624B4C88900629EC3 /* HomePageBtnsTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageBtnsTVC.m; sourceTree = "<group>"; };
+		60B4FA9B24B753710072FEE7 /* LoadingFileTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadingFileTVC.h; sourceTree = "<group>"; };
+		60B4FA9C24B753710072FEE7 /* LoadingFileTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadingFileTVC.m; sourceTree = "<group>"; };
+		60B4FA9E24B759DE0072FEE7 /* PersonInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonInfoModel.h; sourceTree = "<group>"; };
+		60B4FA9F24B759DE0072FEE7 /* PersonInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonInfoModel.m; sourceTree = "<group>"; };
+		60B4FAA124B75C830072FEE7 /* ConceptSchemeHistoryListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConceptSchemeHistoryListVC.h; sourceTree = "<group>"; };
+		60B4FAA224B75C830072FEE7 /* ConceptSchemeHistoryListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConceptSchemeHistoryListVC.m; sourceTree = "<group>"; };
 		60E7EB5C24B358CC0056A252 /* RootTabBarContro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTabBarContro.m; sourceTree = "<group>"; };
 		60E7EB5D24B358CC0056A252 /* RootTabBarContro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabBarContro.h; sourceTree = "<group>"; };
 		60E7EB5F24B359810056A252 /* HomePageListNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageListNavigationController.h; sourceTree = "<group>"; };
@@ -319,6 +328,8 @@
 				607732CF24B71DCC00192576 /* NetworkRequest.m */,
 				607732D224B71DEA00192576 /* ServerApi.h */,
 				607732D324B71DEA00192576 /* ServerApi.m */,
+				60B4FA9E24B759DE0072FEE7 /* PersonInfoModel.h */,
+				60B4FA9F24B759DE0072FEE7 /* PersonInfoModel.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -355,6 +366,8 @@
 				60E7EB6324B359A00056A252 /* HomePageListVC.m */,
 				607732A424B70E5000192576 /* ConceptSchemeListVC.h */,
 				607732A524B70E5000192576 /* ConceptSchemeListVC.m */,
+				60B4FAA124B75C830072FEE7 /* ConceptSchemeHistoryListVC.h */,
+				60B4FAA224B75C830072FEE7 /* ConceptSchemeHistoryListVC.m */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -401,6 +414,8 @@
 				60ADEDE624B4C88900629EC3 /* HomePageBtnsTVC.m */,
 				607732A124B6CBDB00192576 /* ProjectScheduleTVC.h */,
 				607732A224B6CBDB00192576 /* ProjectScheduleTVC.m */,
+				60B4FA9B24B753710072FEE7 /* LoadingFileTVC.h */,
+				60B4FA9C24B753710072FEE7 /* LoadingFileTVC.m */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -537,6 +552,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60B4FAA024B759DE0072FEE7 /* PersonInfoModel.m in Sources */,
 				607732CE24B71DA700192576 /* AFSecurityPolicy.m in Sources */,
 				607732D124B71DCC00192576 /* NetworkRequest.m in Sources */,
 				607732CB24B71DA700192576 /* AFURLSessionManager.m in Sources */,
@@ -545,9 +561,11 @@
 				607732A324B6CBDB00192576 /* ProjectScheduleTVC.m in Sources */,
 				60E7EB6E24B35A100056A252 /* AddressBookNavigationController.m in Sources */,
 				607732D424B71DEA00192576 /* ServerApi.m in Sources */,
+				60B4FAA324B75C830072FEE7 /* ConceptSchemeHistoryListVC.m in Sources */,
 				607732A924B7156D00192576 /* Configure.m in Sources */,
 				60E7EB5E24B358CC0056A252 /* RootTabBarContro.m in Sources */,
 				60ADEDE724B4C88900629EC3 /* HomePageBtnsTVC.m in Sources */,
+				60B4FA9D24B753710072FEE7 /* LoadingFileTVC.m in Sources */,
 				60ADEDE024B4BE6F00629EC3 /* MineProjectTVC.m in Sources */,
 				60E7EB7124B35A2F0056A252 /* AddressBookVC.m in Sources */,
 				6077325924AEFA7100192576 /* ViewController.m in Sources */,

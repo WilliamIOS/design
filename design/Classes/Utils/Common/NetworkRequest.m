@@ -10,10 +10,7 @@
 #import "ServerApi.h"
 #import "Configure.h"
 #import "PersonInfoModel.h"
-#import "UIViewController+Extension.h"
-#import "ResponseObjectModel.h"
 #import "MJExtension.h"
-#import "MiPushSDK.h"
 #import "RootTabBarContro.h"
 
 @interface NetworkRequest()
@@ -102,46 +99,7 @@
     NSURLSessionDataTask *task = [self.manager POST:url parameters:param progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        ResponseObjectModel *responseObjectModel = [ResponseObjectModel mj_objectWithKeyValues:responseObject];
-        if ([responseObjectModel.error isEqualToString:@"无效访问密钥"]) {
-            UIViewController *topVC = [UIViewController topViewController];
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"登录失效，请重新登录" message:nil preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"是" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                // 删除沙盒和内存中的用户数据
-                Configure *configure = [Configure singletonInstance];
-                PersonInfoModel *personInfoModel = configure.personInfoModel;
-                configure.personInfoModel = nil;
-                configure.personBaseInfoModel = nil;
-                
-                NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-                NSString *accountpath = [doc stringByAppendingPathComponent:@"account.archive"];
-                NSFileManager* fileManager=[NSFileManager defaultManager];
-                BOOL accountpathHave=[[NSFileManager defaultManager] fileExistsAtPath:accountpath];
-                if (accountpathHave) {
-                    [fileManager removeItemAtPath:accountpath error:nil];
-                }
-                
-                NSString *publishCooperationDetailModelPath = [doc stringByAppendingPathComponent:@"publishCooperationDetailModel.archive"];
-                BOOL publishCooperationDetailModelHave=[[NSFileManager defaultManager] fileExistsAtPath:publishCooperationDetailModelPath];
-                if (publishCooperationDetailModelHave) {
-                    [fileManager removeItemAtPath:publishCooperationDetailModelPath error:nil];
-                }
-                
-                [MiPushSDK unsetAccount:personInfoModel.userId];
-                
-                NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
-                [user setObject:@"" forKey:@"UMStatistics"];
-                
-                UIStoryboard *rootStoryboard = [UIStoryboard storyboardWithName:@"Root" bundle:nil];
-                RootTabBarContro *rootTabBarContro = [rootStoryboard instantiateViewControllerWithIdentifier:@"RootTabBarContro"];
-                [UIApplication sharedApplication].keyWindow.rootViewController = rootTabBarContro;
-            }];
-            [alertController addAction:confirmAction];
-            [topVC presentViewController:alertController animated:YES completion:nil];
-           
-        }else{
-            successHandle(task,responseObject);
-        }
+        successHandle(task,responseObject);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failHandle(task,error);
