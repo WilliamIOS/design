@@ -15,6 +15,20 @@
 		6077325E24AEFA7300192576 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6077325D24AEFA7300192576 /* Assets.xcassets */; };
 		6077326124AEFA7300192576 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6077325F24AEFA7300192576 /* LaunchScreen.storyboard */; };
 		6077326424AEFA7300192576 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6077326324AEFA7300192576 /* main.m */; };
+		607732A324B6CBDB00192576 /* ProjectScheduleTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 607732A224B6CBDB00192576 /* ProjectScheduleTVC.m */; };
+		607732A624B70E5100192576 /* ConceptSchemeListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 607732A524B70E5000192576 /* ConceptSchemeListVC.m */; };
+		607732A924B7156D00192576 /* Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = 607732A824B7156D00192576 /* Configure.m */; };
+		607732B724B71D2900192576 /* MBProgressHUD+PW.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607732B224B71D2800192576 /* MBProgressHUD+PW.xcassets */; };
+		607732B824B71D2900192576 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 607732B324B71D2800192576 /* MBProgressHUD.m */; };
+		607732B924B71D2900192576 /* MBProgressHUD+PW.m in Sources */ = {isa = PBXBuildFile; fileRef = 607732B424B71D2800192576 /* MBProgressHUD+PW.m */; };
+		607732C924B71DA700192576 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 607732BF24B71DA700192576 /* AFURLResponseSerialization.m */; };
+		607732CA24B71DA700192576 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 607732C024B71DA700192576 /* AFHTTPSessionManager.m */; };
+		607732CB24B71DA700192576 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 607732C224B71DA700192576 /* AFURLSessionManager.m */; };
+		607732CC24B71DA700192576 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 607732C324B71DA700192576 /* AFURLRequestSerialization.m */; };
+		607732CD24B71DA700192576 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 607732C524B71DA700192576 /* AFNetworkReachabilityManager.m */; };
+		607732CE24B71DA700192576 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 607732C624B71DA700192576 /* AFSecurityPolicy.m */; };
+		607732D124B71DCC00192576 /* NetworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 607732CF24B71DCC00192576 /* NetworkRequest.m */; };
+		607732D424B71DEA00192576 /* ServerApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 607732D324B71DEA00192576 /* ServerApi.m */; };
 		60ADEDDD24B4ABE400629EC3 /* LoginTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ADEDDC24B4ABE400629EC3 /* LoginTableViewController.m */; };
 		60ADEDE024B4BE6F00629EC3 /* MineProjectTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ADEDDF24B4BE6F00629EC3 /* MineProjectTVC.m */; };
 		60ADEDE424B4C1B700629EC3 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ADEDE324B4C1B700629EC3 /* UIView+Extension.m */; };
@@ -46,6 +60,35 @@
 		6077326024AEFA7300192576 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6077326224AEFA7300192576 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6077326324AEFA7300192576 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		607732A124B6CBDB00192576 /* ProjectScheduleTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectScheduleTVC.h; sourceTree = "<group>"; };
+		607732A224B6CBDB00192576 /* ProjectScheduleTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectScheduleTVC.m; sourceTree = "<group>"; };
+		607732A424B70E5000192576 /* ConceptSchemeListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConceptSchemeListVC.h; sourceTree = "<group>"; };
+		607732A524B70E5000192576 /* ConceptSchemeListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConceptSchemeListVC.m; sourceTree = "<group>"; };
+		607732A724B7156D00192576 /* Configure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Configure.h; sourceTree = "<group>"; };
+		607732A824B7156D00192576 /* Configure.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Configure.m; sourceTree = "<group>"; };
+		607732B224B71D2800192576 /* MBProgressHUD+PW.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "MBProgressHUD+PW.xcassets"; sourceTree = "<group>"; };
+		607732B324B71D2800192576 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		607732B424B71D2800192576 /* MBProgressHUD+PW.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+PW.m"; sourceTree = "<group>"; };
+		607732B524B71D2800192576 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		607732B624B71D2800192576 /* MBProgressHUD+PW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+PW.h"; sourceTree = "<group>"; };
+		607732BB24B71DA700192576 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		607732BC24B71DA700192576 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		607732BD24B71DA700192576 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		607732BE24B71DA700192576 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		607732BF24B71DA700192576 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		607732C024B71DA700192576 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		607732C124B71DA700192576 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		607732C224B71DA700192576 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		607732C324B71DA700192576 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		607732C424B71DA700192576 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		607732C524B71DA700192576 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		607732C624B71DA700192576 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		607732C724B71DA700192576 /* AFCompatibilityMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFCompatibilityMacros.h; sourceTree = "<group>"; };
+		607732C824B71DA700192576 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		607732CF24B71DCC00192576 /* NetworkRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkRequest.m; sourceTree = "<group>"; };
+		607732D024B71DCC00192576 /* NetworkRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkRequest.h; sourceTree = "<group>"; };
+		607732D224B71DEA00192576 /* ServerApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerApi.h; sourceTree = "<group>"; };
+		607732D324B71DEA00192576 /* ServerApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerApi.m; sourceTree = "<group>"; };
 		60ADEDDB24B4ABE400629EC3 /* LoginTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginTableViewController.h; sourceTree = "<group>"; };
 		60ADEDDC24B4ABE400629EC3 /* LoginTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginTableViewController.m; sourceTree = "<group>"; };
 		60ADEDDE24B4BE6F00629EC3 /* MineProjectTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineProjectTVC.h; sourceTree = "<group>"; };
@@ -149,9 +192,96 @@
 			path = InterfaceBuider;
 			sourceTree = "<group>";
 		};
+		607732AA24B71B7D00192576 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				607732AB24B71B7D00192576 /* Schedule */,
+				607732AC24B71B7D00192576 /* HomePage */,
+				607732AD24B71B7D00192576 /* Mine */,
+				607732AE24B71B7D00192576 /* AddressBook */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		607732AB24B71B7D00192576 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		607732AC24B71B7D00192576 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		607732AD24B71B7D00192576 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		607732AE24B71B7D00192576 /* AddressBook */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AddressBook;
+			sourceTree = "<group>";
+		};
+		607732AF24B71BA800192576 /* AddressBook */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AddressBook;
+			sourceTree = "<group>";
+		};
+		607732B024B71BA800192576 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		607732B124B71D2800192576 /* MBProgressHUD+PW */ = {
+			isa = PBXGroup;
+			children = (
+				607732B224B71D2800192576 /* MBProgressHUD+PW.xcassets */,
+				607732B324B71D2800192576 /* MBProgressHUD.m */,
+				607732B424B71D2800192576 /* MBProgressHUD+PW.m */,
+				607732B524B71D2800192576 /* MBProgressHUD.h */,
+				607732B624B71D2800192576 /* MBProgressHUD+PW.h */,
+			);
+			path = "MBProgressHUD+PW";
+			sourceTree = "<group>";
+		};
+		607732BA24B71DA700192576 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				607732BB24B71DA700192576 /* AFSecurityPolicy.h */,
+				607732BC24B71DA700192576 /* AFNetworkReachabilityManager.h */,
+				607732BD24B71DA700192576 /* AFURLSessionManager.h */,
+				607732BE24B71DA700192576 /* AFURLRequestSerialization.h */,
+				607732BF24B71DA700192576 /* AFURLResponseSerialization.m */,
+				607732C024B71DA700192576 /* AFHTTPSessionManager.m */,
+				607732C124B71DA700192576 /* AFURLResponseSerialization.h */,
+				607732C224B71DA700192576 /* AFURLSessionManager.m */,
+				607732C324B71DA700192576 /* AFURLRequestSerialization.m */,
+				607732C424B71DA700192576 /* AFNetworking.h */,
+				607732C524B71DA700192576 /* AFNetworkReachabilityManager.m */,
+				607732C624B71DA700192576 /* AFSecurityPolicy.m */,
+				607732C724B71DA700192576 /* AFCompatibilityMacros.h */,
+				607732C824B71DA700192576 /* AFHTTPSessionManager.h */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
 		60ADEDE124B4C1B700629EC3 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				607732B124B71D2800192576 /* MBProgressHUD+PW */,
 				60ADEDE224B4C1B700629EC3 /* UIView+Extension.h */,
 				60ADEDE324B4C1B700629EC3 /* UIView+Extension.m */,
 			);
@@ -162,8 +292,8 @@
 			isa = PBXGroup;
 			children = (
 				60E7EB4C24B3576A0056A252 /* Controller */,
-				60E7EB5124B3576A0056A252 /* Model */,
 				60E7EB5624B3576A0056A252 /* View */,
+				607732AA24B71B7D00192576 /* Model */,
 				60E7EB4624B3576A0056A252 /* Utils */,
 			);
 			path = Classes;
@@ -172,50 +302,25 @@
 		60E7EB4624B3576A0056A252 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				60E7EB4724B3576A0056A252 /* Schedule */,
-				60E7EB4824B3576A0056A252 /* HomePage */,
 				60E7EB4924B3576A0056A252 /* Common */,
-				60E7EB4A24B3576A0056A252 /* Mine */,
-				60E7EB4B24B3576A0056A252 /* AddressBook */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		60E7EB4724B3576A0056A252 /* Schedule */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Schedule;
-			sourceTree = "<group>";
-		};
-		60E7EB4824B3576A0056A252 /* HomePage */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = HomePage;
 			sourceTree = "<group>";
 		};
 		60E7EB4924B3576A0056A252 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				60ADEDE124B4C1B700629EC3 /* Category */,
+				607732BA24B71DA700192576 /* AFNetworking */,
 				60E7EB7824B3641A0056A252 /* Macro.h */,
+				607732A724B7156D00192576 /* Configure.h */,
+				607732A824B7156D00192576 /* Configure.m */,
+				607732D024B71DCC00192576 /* NetworkRequest.h */,
+				607732CF24B71DCC00192576 /* NetworkRequest.m */,
+				607732D224B71DEA00192576 /* ServerApi.h */,
+				607732D324B71DEA00192576 /* ServerApi.m */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		60E7EB4A24B3576A0056A252 /* Mine */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Mine;
-			sourceTree = "<group>";
-		};
-		60E7EB4B24B3576A0056A252 /* AddressBook */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = AddressBook;
 			sourceTree = "<group>";
 		};
 		60E7EB4C24B3576A0056A252 /* Controller */ = {
@@ -248,6 +353,8 @@
 				60E7EB6024B359810056A252 /* HomePageListNavigationController.m */,
 				60E7EB6224B359A00056A252 /* HomePageListVC.h */,
 				60E7EB6324B359A00056A252 /* HomePageListVC.m */,
+				607732A424B70E5000192576 /* ConceptSchemeListVC.h */,
+				607732A524B70E5000192576 /* ConceptSchemeListVC.m */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -276,61 +383,15 @@
 			path = AddressBook;
 			sourceTree = "<group>";
 		};
-		60E7EB5124B3576A0056A252 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				60E7EB5224B3576A0056A252 /* Schedule */,
-				60E7EB5324B3576A0056A252 /* HomePage */,
-				60E7EB5424B3576A0056A252 /* Mine */,
-				60E7EB5524B3576A0056A252 /* AddressBook */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		60E7EB5224B3576A0056A252 /* Schedule */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Schedule;
-			sourceTree = "<group>";
-		};
-		60E7EB5324B3576A0056A252 /* HomePage */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = HomePage;
-			sourceTree = "<group>";
-		};
-		60E7EB5424B3576A0056A252 /* Mine */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Mine;
-			sourceTree = "<group>";
-		};
-		60E7EB5524B3576A0056A252 /* AddressBook */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = AddressBook;
-			sourceTree = "<group>";
-		};
 		60E7EB5624B3576A0056A252 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				60E7EB5724B3576A0056A252 /* Schedule */,
 				60E7EB5824B3576A0056A252 /* HomePage */,
 				60E7EB5924B3576A0056A252 /* Mine */,
-				60E7EB5A24B3576A0056A252 /* AddressBook */,
+				607732AF24B71BA800192576 /* AddressBook */,
+				607732B024B71BA800192576 /* Schedule */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		60E7EB5724B3576A0056A252 /* Schedule */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Schedule;
 			sourceTree = "<group>";
 		};
 		60E7EB5824B3576A0056A252 /* HomePage */ = {
@@ -338,6 +399,8 @@
 			children = (
 				60ADEDE524B4C88900629EC3 /* HomePageBtnsTVC.h */,
 				60ADEDE624B4C88900629EC3 /* HomePageBtnsTVC.m */,
+				607732A124B6CBDB00192576 /* ProjectScheduleTVC.h */,
+				607732A224B6CBDB00192576 /* ProjectScheduleTVC.m */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -349,13 +412,6 @@
 				60ADEDDF24B4BE6F00629EC3 /* MineProjectTVC.m */,
 			);
 			path = Mine;
-			sourceTree = "<group>";
-		};
-		60E7EB5A24B3576A0056A252 /* AddressBook */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = AddressBook;
 			sourceTree = "<group>";
 		};
 		60E7EB5B24B357C20056A252 /* Root */ = {
@@ -425,6 +481,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				607732B724B71D2900192576 /* MBProgressHUD+PW.xcassets in Resources */,
 				6077326124AEFA7300192576 /* LaunchScreen.storyboard in Resources */,
 				6077325E24AEFA7300192576 /* Assets.xcassets in Resources */,
 				6077325C24AEFA7100192576 /* Main.storyboard in Resources */,
@@ -480,23 +537,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				607732CE24B71DA700192576 /* AFSecurityPolicy.m in Sources */,
+				607732D124B71DCC00192576 /* NetworkRequest.m in Sources */,
+				607732CB24B71DA700192576 /* AFURLSessionManager.m in Sources */,
 				60E7EB6B24B359EF0056A252 /* ScheduleVC.m in Sources */,
 				60ADEDDD24B4ABE400629EC3 /* LoginTableViewController.m in Sources */,
+				607732A324B6CBDB00192576 /* ProjectScheduleTVC.m in Sources */,
 				60E7EB6E24B35A100056A252 /* AddressBookNavigationController.m in Sources */,
+				607732D424B71DEA00192576 /* ServerApi.m in Sources */,
+				607732A924B7156D00192576 /* Configure.m in Sources */,
 				60E7EB5E24B358CC0056A252 /* RootTabBarContro.m in Sources */,
 				60ADEDE724B4C88900629EC3 /* HomePageBtnsTVC.m in Sources */,
 				60ADEDE024B4BE6F00629EC3 /* MineProjectTVC.m in Sources */,
 				60E7EB7124B35A2F0056A252 /* AddressBookVC.m in Sources */,
 				6077325924AEFA7100192576 /* ViewController.m in Sources */,
+				607732B924B71D2900192576 /* MBProgressHUD+PW.m in Sources */,
 				60E7EB6824B359CA0056A252 /* ScheduleNavigationController.m in Sources */,
+				607732A624B70E5100192576 /* ConceptSchemeListVC.m in Sources */,
 				60E7EB7724B35A5E0056A252 /* MineVC.m in Sources */,
+				607732B824B71D2900192576 /* MBProgressHUD.m in Sources */,
+				607732CA24B71DA700192576 /* AFHTTPSessionManager.m in Sources */,
 				60E7EB7424B35A490056A252 /* MineNavigationController.m in Sources */,
 				6077325324AEFA7100192576 /* AppDelegate.m in Sources */,
+				607732CD24B71DA700192576 /* AFNetworkReachabilityManager.m in Sources */,
+				607732CC24B71DA700192576 /* AFURLRequestSerialization.m in Sources */,
 				60E7EB6124B359810056A252 /* HomePageListNavigationController.m in Sources */,
 				60E7EB6424B359A00056A252 /* HomePageListVC.m in Sources */,
 				6077326424AEFA7300192576 /* main.m in Sources */,
 				60ADEDE424B4C1B700629EC3 /* UIView+Extension.m in Sources */,
 				6077325624AEFA7100192576 /* SceneDelegate.m in Sources */,
+				607732C924B71DA700192576 /* AFURLResponseSerialization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -638,6 +708,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9X7C849RMQ;
 				INFOPLIST_FILE = design/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -655,6 +726,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9X7C849RMQ;
 				INFOPLIST_FILE = design/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -11,6 +11,7 @@
 @interface MineVC ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *projectListTV;
+@property (weak, nonatomic) IBOutlet UIButton *signoutBtn;
 
 @end
 
@@ -28,6 +29,8 @@
     self.projectListTV.delegate = self;
     self.projectListTV.estimatedRowHeight = 100.0f;//估算高度
     self.projectListTV.rowHeight = UITableViewAutomaticDimension;
+    
+    [self.signoutBtn addTarget:self action:@selector(signoutBtnClick:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -41,6 +44,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MineProjectTVC *mineProjectTVC = [MineProjectTVC cellWithTableView:tableView cellidentifier:@"MineProjectTVC"];
     return mineProjectTVC;
+}
+
+- (void)signoutBtnClick:(id)sender{
+    
 }
 
 @end

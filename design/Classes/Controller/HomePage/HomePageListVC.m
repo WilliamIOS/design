@@ -7,8 +7,10 @@
 
 #import "HomePageListVC.h"
 #import "HomePageBtnsTVC.h"
+#import "ProjectScheduleTVC.h"
+#import "ConceptSchemeListVC.h"
 
-@interface HomePageListVC ()<UITableViewDelegate,UITableViewDataSource>
+@interface HomePageListVC ()<UITableViewDelegate,UITableViewDataSource,HomePageBtnsTVCDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *homePageTV;
 
@@ -31,7 +33,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -39,9 +41,34 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    HomePageBtnsTVC *homePageBtnsTVC = [HomePageBtnsTVC cellWithTableView:tableView cellidentifier:@"HomePageBtnsTVC"];
-    return homePageBtnsTVC;
+    UITableViewCell *cell;
+    if (indexPath.section == 0) {
+       HomePageBtnsTVC *homePageBtnsTVC = [HomePageBtnsTVC cellWithTableView:tableView cellidentifier:@"HomePageBtnsTVC"];
+        homePageBtnsTVC.delegate = self;
+        cell = homePageBtnsTVC;
+
+    }else if (indexPath.section == 1){
+        ProjectScheduleTVC *projectScheduleTVC = [ProjectScheduleTVC cellWithTableView:tableView cellidentifier:@"ProjectScheduleTVC"];
+        cell = projectScheduleTVC;
+    }else{
+
+    }
+    return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    CGFloat h = 0.0001;
+    if (section == 0 ) {
+        h = 10.0f;
+    }
+    return h;
+}
 
+#pragma mark - HomePageBtnsTVCDelegate
+- (void)didConceptSchemeBtn{
+    ConceptSchemeListVC *conceptSchemeListVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ConceptSchemeListVC"];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = item;
+    [self.navigationController pushViewController:conceptSchemeListVC animated:true];
+}
 @end

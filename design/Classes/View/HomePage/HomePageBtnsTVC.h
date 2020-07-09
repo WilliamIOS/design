@@ -9,7 +9,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol HomePageBtnsTVCDelegate <NSObject>
+
+- (void)didConceptSchemeBtn;
+
+
+@end
+
 @interface HomePageBtnsTVC : UITableViewCell
+
+@property (nonatomic, assign) id<HomePageBtnsTVCDelegate> delegate;
 
 + (instancetype)cellWithTableView:(UITableView *)tableView cellidentifier:(NSString*)cellidentifierName;
 
