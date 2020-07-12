@@ -10,6 +10,7 @@
 #import "UIView+Extension.h"
 #import "Macro.h"
 #import "ConceptSchemeHistoryListVC.h"
+#import "MJRefresh.h"
 
 @interface ConceptSchemeListVC ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -31,12 +32,19 @@
     self.navigationItem.title = @"我的项目";
     self.fileListTV.delegate = self;
     self.fileListTV.dataSource = self;
+    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        
+    }];
+    self.fileListTV.mj_footer = footer;
+    [footer setTitle:@"暂无更多概念方案文件" forState:MJRefreshStateNoMoreData];
     [self.loadingFileView setRoundedView:self.loadingFileView cornerRadius:10 borderWidth:4 borderColor:PWColor(33, 136, 184)];
     [self.checkHistoryFileView setRoundedView:self.checkHistoryFileView cornerRadius:10 borderWidth:4 borderColor:PWColor(33, 136, 184)];
     UITapGestureRecognizer *loadingFileViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(loadingFileViewGesture:)];
     [self.loadingFileView addGestureRecognizer:loadingFileViewTap];
     UITapGestureRecognizer *checkHistoryFileViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(checkHistoryFileViewGesture:)];
     [self.checkHistoryFileView addGestureRecognizer:checkHistoryFileViewTap];
+    
+    [self.fileListTV.mj_footer setState:(MJRefreshStateNoMoreData)];
     
 }
 

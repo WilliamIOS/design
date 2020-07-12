@@ -8,6 +8,7 @@
 
 #import "RootTabBarContro.h"
 #import "Macro.h"
+#import "ServerApi.h"
 //#import "UITabBar+Badge.h"
 //#import <MNFloatBtn/MNFloatBtn.h>
 //#import "ServerApi.h"
@@ -45,6 +46,9 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     [self.selectedViewController viewWillAppear:animated];
+    
+    ServerApi *serverApi = [[ServerApi alloc] init];
+    [serverApi setupBaseUrl];
 }
 
 /**

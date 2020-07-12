@@ -9,6 +9,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^ SuccessBlock)(id responseBody);
+typedef void(^ FailureBlock)(id error);
+
 @interface LoginTableViewController : UITableViewController
 
 @end

@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A25D08E8-3735-415C-86E3-43DF398B8DE5"
+            uuid = "EB89F36B-843E-48A1-A2D1-A2A53613FC10"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "design/Classes/Controller/Mine/LoginTableViewController.m"
+            filePath = "design/Classes/Controller/Mine/MineVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "-loginBtnClick:"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "-myProjectInterface"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

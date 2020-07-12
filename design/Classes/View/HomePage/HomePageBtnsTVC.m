@@ -94,7 +94,7 @@
 }
 
 - (void)softLoadingBtnClick:(id)sender{
-    
+    [self.delegate didSoftLoadingBtn];
 }
 
 - (void)otherFileBtnClick:(id)sender{

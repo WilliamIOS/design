@@ -8,6 +8,8 @@
 #import "SceneDelegate.h"
 #import "RootTabBarContro.h"
 #import "LoginTableViewController.h"
+#import "PersonInfoModel.h"
+#import "Configure.h"
 
 @interface SceneDelegate ()
 
@@ -17,14 +19,22 @@
 
 
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
-    // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-    // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-    // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-    
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    RootTabBarContro *rootTabBarContro = [mainStoryboard instantiateViewControllerWithIdentifier:@"RootTabBarContro"];
-//    LoginTableViewController *loginTableViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"LoginTableViewController"];
-    self.window.rootViewController = rootTabBarContro;
+    // 从沙盒中获取用户信息
+    NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *path = [doc stringByAppendingPathComponent:@"account.archive"];
+    PersonInfoModel *personInfoModel = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    if (personInfoModel != nil) {
+        Configure *configure = [Configure singletonInstance];
+        configure.personInfoModel = personInfoModel;
+        RootTabBarContro *rootTabBarContro = [mainStoryboard instantiateViewControllerWithIdentifier:@"RootTabBarContro"];
+        self.window.rootViewController = rootTabBarContro;
+        
+    }else{
+        LoginTableViewController *loginTableViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"LoginTableViewController"];
+        self.window.rootViewController = loginTableViewController;
+        
+    }
     [self.window makeKeyAndVisible];
 }
 

@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol HomePageBtnsTVCDelegate <NSObject>
 
 - (void)didConceptSchemeBtn;
-
+- (void)didSoftLoadingBtn;
 
 @end
 

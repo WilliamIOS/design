@@ -42,7 +42,7 @@
     
     if (![url isEqualToString:@"app/userLogin.do"]) {
         // 添加accessToken
-        NSString *accessToken = [Configure singletonInstance].personInfoModel.accessToken;
+        NSString *accessToken = [Configure singletonInstance].personInfoModel.token;
         [param setObject:accessToken forKey:@"_accessToken_"];
     }
     
@@ -68,21 +68,11 @@
     if (self.manager == nil) {
         self.manager = [AFHTTPSessionManager manager];
     }
-    self.manager.responseSerializer.acceptableContentTypes =  [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", nil];
+    self.manager.responseSerializer.acceptableContentTypes =  [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html",@"text/plain", nil];
     [self.manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
     self.manager.requestSerializer.timeoutInterval = 60.0f;
     [self.manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     
-    
-    NSString *accessToken = [Configure singletonInstance].personInfoModel.accessToken;
-    if (accessToken == nil || [accessToken isEqualToString:@""]) {
-        
-    }else{
-        [param setObject:accessToken forKey:@"_accessToken_"];
-    }
-    [param setObject:@"ios" forKey:@"system"];
-    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
-    [param setObject:currentVersion forKey:@"versionName"];
     
     url = [NSString stringWithFormat:@"%@%@",Base_URL_Project,url];
     

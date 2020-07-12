@@ -50,7 +50,7 @@
 }
 
 - (void)scheduleCalendarBtnClick:(id)sender{
-    
+    [self.delegate didscheduleCalendarBtn];
 }
 
 @end

@@ -9,8 +9,10 @@
 #import "HomePageBtnsTVC.h"
 #import "ProjectScheduleTVC.h"
 #import "ConceptSchemeListVC.h"
+#import "SoftLoadingListVC.h"
+#import "ProjectScheduleVC.h"
 
-@interface HomePageListVC ()<UITableViewDelegate,UITableViewDataSource,HomePageBtnsTVCDelegate>
+@interface HomePageListVC ()<UITableViewDelegate,UITableViewDataSource,HomePageBtnsTVCDelegate,ProjectScheduleTVCDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *homePageTV;
 
@@ -49,7 +51,9 @@
 
     }else if (indexPath.section == 1){
         ProjectScheduleTVC *projectScheduleTVC = [ProjectScheduleTVC cellWithTableView:tableView cellidentifier:@"ProjectScheduleTVC"];
+        projectScheduleTVC.delegate = self;
         cell = projectScheduleTVC;
+        
     }else{
 
     }
@@ -70,5 +74,20 @@
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = item;
     [self.navigationController pushViewController:conceptSchemeListVC animated:true];
+}
+
+- (void)didSoftLoadingBtn{
+    SoftLoadingListVC *softLoadingListVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SoftLoadingListVC"];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = item;
+    [self.navigationController pushViewController:softLoadingListVC animated:true];
+}
+
+#pragma mark - ProjectScheduleTVCDelegate
+- (void)didscheduleCalendarBtn{
+   ProjectScheduleVC *projectScheduleVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ProjectScheduleVC"];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = item;
+    [self.navigationController pushViewController:projectScheduleVC animated:true];
 }
 @end

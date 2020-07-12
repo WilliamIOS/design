@@ -19,9 +19,9 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:targetView animated:YES];
     targetView.userInteractionEnabled = NO;
     hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
-    hud.bezelView.backgroundColor = [UIColor darkGrayColor];
+//    hud.bezelView.backgroundColor = [UIColor darkGrayColor];
     hud.detailsLabel.text = @"请稍等...";
-    hud.detailsLabel.textColor = [UIColor whiteColor];
+//    hud.detailsLabel.textColor = [UIColor whiteColor];
     [hud.detailsLabel setFont:[UIFont systemFontOfSize:18]];
     
 
@@ -36,7 +36,7 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:targetView animated:YES];  
     targetView.userInteractionEnabled = NO;
     hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
-    hud.bezelView.backgroundColor = [UIColor darkGrayColor];
+//    hud.bezelView.backgroundColor = [UIColor darkGrayColor];
     [hud.detailsLabel setFont:[UIFont systemFontOfSize:18]];
     hud.delegate = delegate;
 }
@@ -52,7 +52,7 @@
     targetView.userInteractionEnabled = NO;
     hud.backgroundColor = [UIColor whiteColor];
     hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
-    hud.bezelView.backgroundColor = [UIColor lightGrayColor];
+//    hud.bezelView.backgroundColor = [UIColor lightGrayColor];
     [hud.detailsLabel setFont:[UIFont systemFontOfSize:18]];
     hud.delegate = delegate;
 }
@@ -66,8 +66,8 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:targetView animated:YES];
     targetView.userInteractionEnabled = NO;
     hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
-    hud.bezelView.backgroundColor = [UIColor darkGrayColor];
-    hud.detailsLabel.textColor = [UIColor whiteColor];
+//    hud.bezelView.backgroundColor = [UIColor darkGrayColor];
+//    hud.detailsLabel.textColor = [UIColor whiteColor];
     hud.detailsLabel.text = msg;
     [hud.detailsLabel setFont:[UIFont systemFontOfSize:18]];
     hud.delegate = delegate;
@@ -119,8 +119,8 @@
     [hud.detailsLabel setFont:[UIFont systemFontOfSize:18]];
     hud.delegate = delegate;
     hud.offset = CGPointMake(0.f, 150.0f);
-    hud.detailsLabel.textColor = [UIColor whiteColor];
-    hud.bezelView.backgroundColor = [UIColor darkGrayColor];
+//    hud.detailsLabel.textColor = [UIColor whiteColor];
+//    hud.bezelView.backgroundColor = [UIColor darkGrayColor];
     [hud hideAnimated:YES afterDelay:1.5f];
 }
 
@@ -144,8 +144,8 @@
     hud.customView = [[UIImageView alloc] initWithImage:image];
     hud.detailsLabel.text = text;
     [hud.detailsLabel setFont:[UIFont systemFontOfSize:18]];
-    hud.detailsLabel.textColor = [UIColor whiteColor];
-    hud.bezelView.backgroundColor = [UIColor darkGrayColor];
+//    hud.detailsLabel.textColor = [UIColor whiteColor];
+//    hud.bezelView.backgroundColor = [UIColor darkGrayColor];
     
     if (imageNameStr == nil || [imageNameStr isEqualToString:@""]) {
         hud.offset = CGPointMake(0.f, 150.0f);
@@ -166,8 +166,8 @@
     hud.customView = [[UIImageView alloc] initWithImage:image];
     hud.detailsLabel.text = text;
     [hud.detailsLabel setFont:[UIFont systemFontOfSize:18]];
-    hud.detailsLabel.textColor = [UIColor whiteColor];
-    hud.bezelView.backgroundColor = [UIColor darkGrayColor];
+//    hud.detailsLabel.textColor = [UIColor whiteColor];
+//    hud.bezelView.backgroundColor = [UIColor darkGrayColor];
     hud.offset = CGPointMake(0.f, 150.0f);
     // 隐藏时候从父控件中移除
     hud.removeFromSuperViewOnHide = YES;

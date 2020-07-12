@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Configure : NSObject
 
-@property (nonatomic,strong) PersonInfoModel *personInfoModel;
+@property (nonatomic,strong,nullable) PersonInfoModel *personInfoModel;
 
 + (instancetype)singletonInstance;
 

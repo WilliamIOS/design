@@ -11,7 +11,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PersonInfoModel : NSObject
 
-@property (nonatomic,strong) NSString *accessToken;
+@property (nonatomic,strong) NSString *username;
+@property (nonatomic,strong) NSString *token;
+@property (nonatomic,strong) NSString *expire;
 
 @end
 
