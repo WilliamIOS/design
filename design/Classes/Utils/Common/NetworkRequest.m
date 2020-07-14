@@ -33,20 +33,31 @@
     if (self.manager == nil) {
         self.manager = [AFHTTPSessionManager manager];
     }
-
-    self.manager.responseSerializer.acceptableContentTypes =  [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", nil];
-    self.manager.requestSerializer.HTTPShouldHandleCookies = YES;
-    [self.manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
-    self.manager.requestSerializer.timeoutInterval = 30.0f;
-    [self.manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
-    
-    if (![url isEqualToString:@"app/userLogin.do"]) {
-        // 添加accessToken
-        NSString *accessToken = [Configure singletonInstance].personInfoModel.token;
-        [param setObject:accessToken forKey:@"_accessToken_"];
-    }
     
     url = [NSString stringWithFormat:@"%@%@",Base_URL_Project,url];
+
+    self.manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [self.manager.requestSerializer requestWithMethod:@"GET" URLString:url parameters:param error:nil];
+    self.manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    [self.manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    self.manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json",@"text/javascript",@"text/html", nil];
+    self.manager.requestSerializer.timeoutInterval = 15.f;
+    
+    if (![url isEqualToString:@"loginAPP"]) {
+        // 添加token
+        NSString *token = [Configure singletonInstance].personInfoModel.token;
+        [self.manager.requestSerializer setValue:token forHTTPHeaderField:@"token"];
+    }
+    
+    __block NSString *logUrl = @"";
+    [param enumerateKeysAndObjectsUsingBlock:^(NSString *  _Nonnull key, NSString *  _Nonnull obj, BOOL * _Nonnull stop) {
+        if ([logUrl isEqualToString:@""] || logUrl == nil) {
+            logUrl = [NSString stringWithFormat:@"%@?%@=%@",url,key,obj];
+        }else{
+            logUrl = [NSString stringWithFormat:@"%@&%@=%@",logUrl,key,obj];
+        }
+    }];
+    NSLog(@"请求url连接：%@",logUrl);
 
     NSURLSessionDataTask *datatask = [self.manager GET:url parameters:param progress:^(NSProgress * _Nonnull uploadProgress) {
         
@@ -68,14 +79,21 @@
     if (self.manager == nil) {
         self.manager = [AFHTTPSessionManager manager];
     }
-    self.manager.responseSerializer.acceptableContentTypes =  [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html",@"text/plain", nil];
-    [self.manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
-    self.manager.requestSerializer.timeoutInterval = 60.0f;
-    [self.manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
-    
-    
     url = [NSString stringWithFormat:@"%@%@",Base_URL_Project,url];
     
+    self.manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [self.manager.requestSerializer requestWithMethod:@"POST" URLString:url parameters:param error:nil];
+    self.manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    [self.manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    self.manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json",@"text/javascript",@"text/html", nil];
+    self.manager.requestSerializer.timeoutInterval = 15.f;
+    if (![url isEqualToString:@"loginAPP"]) {
+        // 添加token
+        NSString *token = [Configure singletonInstance].personInfoModel.token;
+        [self.manager.requestSerializer setValue:token forHTTPHeaderField:@"token"];
+    }
+    
+
     __block NSString *logUrl = @"";
     [param enumerateKeysAndObjectsUsingBlock:^(NSString *  _Nonnull key, NSString *  _Nonnull obj, BOOL * _Nonnull stop) {
         if ([logUrl isEqualToString:@""] || logUrl == nil) {

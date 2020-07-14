@@ -14,8 +14,11 @@ NSString *Base_URL_H5 = @"";
 
 /**登录*/
 NSString *const Api_Login = @"loginAPP";
+NSString *const Api_Signout = @"logoutWX";
 /**我的项目*/
 NSString *const Api_MyProject = @"project/projectTask/getListByTel";
+/**文件列表*/
+NSString *const Api_FileList = @"project/projectFiles/getFileListByProId";
 
 @implementation ServerApi
 

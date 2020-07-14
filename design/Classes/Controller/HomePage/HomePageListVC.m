@@ -11,6 +11,7 @@
 #import "ConceptSchemeListVC.h"
 #import "SoftLoadingListVC.h"
 #import "ProjectScheduleVC.h"
+#import "Configure.h"
 
 @interface HomePageListVC ()<UITableViewDelegate,UITableViewDataSource,HomePageBtnsTVCDelegate,ProjectScheduleTVCDelegate>
 
@@ -27,7 +28,7 @@
 }
 
 - (void)setupSettings{
-    self.navigationItem.title = @"我的项目";
+    self.navigationItem.title = [Configure singletonInstance].currentProjectModel.projectName;
     self.homePageTV.dataSource = self;
     self.homePageTV.delegate = self;
     self.homePageTV.estimatedRowHeight = 300.0f;//估算高度

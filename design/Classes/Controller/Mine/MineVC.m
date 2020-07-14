@@ -17,11 +17,14 @@
 #import "AFNetworking.h"
 #import "MBProgressHUD+PW.h"
 #import "LoginTableViewController.h"
+#import "ProjectModel.h"
+#import "NetworkRequest.h"
 
 @interface MineVC ()<UITableViewDelegate,UITableViewDataSource,MBProgressHUDDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *projectListTV;
 @property (weak, nonatomic) IBOutlet UIButton *signoutBtn;
+@property (nonatomic,strong) NSMutableArray *prjectDataListMutableArray;
 
 @end
 
@@ -45,23 +48,19 @@
     
 }
 
+- (NSMutableArray*)prjectDataListMutableArray{
+    if (!_prjectDataListMutableArray) {
+        self.prjectDataListMutableArray = [NSMutableArray array];
+    }
+    return _prjectDataListMutableArray;
+}
+
 - (void)signoutBtnClick:(id)sender{
     // 退出登录
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"确定要退出登录吗？" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        // 删除沙盒和内存中的用户数据
-        Configure *configure = [Configure singletonInstance];
-        configure.personInfoModel = nil;
-        
-        NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-        NSString *accountpath = [doc stringByAppendingPathComponent:@"account.archive"];
-        NSFileManager* fileManager=[NSFileManager defaultManager];
-        BOOL accountpathHave=[[NSFileManager defaultManager] fileExistsAtPath:accountpath];
-        if (accountpathHave) {
-            [fileManager removeItemAtPath:accountpath error:nil];
-        }
-        LoginTableViewController *loginTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginTableViewController"];
-        [UIApplication sharedApplication].keyWindow.rootViewController = loginTableViewController;
+        [MBProgressHUD showOnlyChrysanthemumWithView:self.view delegateTarget:self];
+        [self signoutInterface];
         
     }];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -77,39 +76,67 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 2;
+    return [self.prjectDataListMutableArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MineProjectTVC *mineProjectTVC = [MineProjectTVC cellWithTableView:tableView cellidentifier:@"MineProjectTVC"];
+    mineProjectTVC.projectModel = self.prjectDataListMutableArray[indexPath.row];
     return mineProjectTVC;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    ProjectModel *selectedProjectModel = self.prjectDataListMutableArray[indexPath.row];
+    [Configure singletonInstance].currentProjectModel = selectedProjectModel;
+    RootTabBarContro *rootTabBarContro = [self.storyboard instantiateViewControllerWithIdentifier:@"RootTabBarContro"];
+    [UIApplication sharedApplication].keyWindow.rootViewController = rootTabBarContro;
 }
 
 - (void)myProjectInterface{
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    [dic setObject:[Configure singletonInstance].personInfoModel.username forKey:@"username"];
-//    [dic setObject:[Configure singletonInstance].personInfoModel.token forKey:@"token"];
+    [dic setValue:[Configure singletonInstance].personInfoModel.username forKey:@"username"];
     
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@",Base_URL_Project,Api_MyProject];
-    
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager.requestSerializer requestWithMethod:@"POST" URLString:urlStr parameters:dic error:nil];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json",@"text/javascript",@"text/html", nil];
-    manager.requestSerializer.timeoutInterval = 15.f;
-    [manager.requestSerializer setValue:[Configure singletonInstance].personInfoModel.token forHTTPHeaderField:@"token"];
-    [manager POST:urlStr parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[NetworkRequest shared] getRequest:dic serverUrl:Api_MyProject success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [MBProgressHUD hideHUDForView:self.view];
         ResponseObjectModel *responseObjectModel = [ResponseObjectModel mj_objectWithKeyValues:responseObject];
         if ([responseObjectModel.msg isEqualToString:@"success"]) {
-           
+            self.prjectDataListMutableArray = [ProjectModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
             
         }else{
             [MBProgressHUD showMessage:responseObjectModel.msg targetView:self.view delegateTarget:self];
         }
-        
+        [self.projectListTV reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [MBProgressHUD hideHUDForView:self.view];
+        [MBProgressHUD showMessage:@"网络延迟请稍后再试" targetView:self.view delegateTarget:self];
+    }];
+}
+
+- (void)signoutInterface{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    [[NetworkRequest shared] postRequest:dic serverUrl:Api_Signout success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [MBProgressHUD hideHUDForView:self.view];
+        ResponseObjectModel *responseObjectModel = [ResponseObjectModel mj_objectWithKeyValues:responseObject];
+        if ([responseObjectModel.msg isEqualToString:@"success"]) {
+            // 删除沙盒和内存中的用户数据
+            Configure *configure = [Configure singletonInstance];
+            configure.personInfoModel = nil;
+            
+            NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+            NSString *accountpath = [doc stringByAppendingPathComponent:@"account.archive"];
+            NSFileManager* fileManager=[NSFileManager defaultManager];
+            BOOL accountpathHave=[[NSFileManager defaultManager] fileExistsAtPath:accountpath];
+            if (accountpathHave) {
+                [fileManager removeItemAtPath:accountpath error:nil];
+            }
+            LoginTableViewController *loginTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginTableViewController"];
+            [UIApplication sharedApplication].keyWindow.rootViewController = loginTableViewController;
+            
+        }else{
+            [MBProgressHUD showMessage:responseObjectModel.msg targetView:self.view delegateTarget:self];
+        }
+        [self.projectListTV reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [MBProgressHUD hideHUDForView:self.view];
         [MBProgressHUD showMessage:@"网络延迟请稍后再试" targetView:self.view delegateTarget:self];

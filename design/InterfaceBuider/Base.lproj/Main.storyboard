@@ -772,23 +772,6 @@ Cg
                                                         <constraint firstAttribute="width" constant="50" id="jCB-XE-7nY"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <state key="normal" title="转发">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </state>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="5"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxo-8C-NUn">
-                                                    <rect key="frame" x="253" y="60" width="50" height="35"/>
-                                                    <color key="backgroundColor" red="0.13050436970000001" green="0.53419178720000005" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="NuF-e3-HRh"/>
-                                                        <constraint firstAttribute="width" constant="50" id="n2Q-rJ-3iy"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <state key="normal" title="下载">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
@@ -801,13 +784,10 @@ Cg
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="X66-Sq-lbu" firstAttribute="top" secondItem="HxQ-f8-Tup" secondAttribute="top" constant="20" id="2BS-jV-MJO"/>
-                                                <constraint firstItem="Bgh-xR-FjV" firstAttribute="leading" secondItem="hxo-8C-NUn" secondAttribute="trailing" constant="10" id="3Va-Fw-flb"/>
                                                 <constraint firstAttribute="bottom" secondItem="Bp5-Jc-43x" secondAttribute="bottom" constant="10" id="4nN-vs-woi"/>
                                                 <constraint firstItem="PcG-bl-inX" firstAttribute="leading" secondItem="HxQ-f8-Tup" secondAttribute="leading" constant="20" id="74G-EO-Xoj"/>
                                                 <constraint firstAttribute="trailing" secondItem="dNI-hk-FPf" secondAttribute="trailing" constant="10" id="7TK-vY-41j"/>
-                                                <constraint firstAttribute="bottom" secondItem="hxo-8C-NUn" secondAttribute="bottom" constant="4" id="A9c-YZ-whF"/>
                                                 <constraint firstAttribute="bottom" secondItem="Bgh-xR-FjV" secondAttribute="bottom" constant="4" id="PHx-oR-bq0"/>
-                                                <constraint firstItem="hxo-8C-NUn" firstAttribute="top" secondItem="dNI-hk-FPf" secondAttribute="bottom" id="W6a-Xn-q4T"/>
                                                 <constraint firstItem="Bp5-Jc-43x" firstAttribute="leading" secondItem="HxQ-f8-Tup" secondAttribute="leading" constant="60" id="ZJ3-49-Tna"/>
                                                 <constraint firstItem="PcG-bl-inX" firstAttribute="centerY" secondItem="HxQ-f8-Tup" secondAttribute="centerY" id="aBo-MM-oIZ"/>
                                                 <constraint firstItem="dNI-hk-FPf" firstAttribute="top" secondItem="HxQ-f8-Tup" secondAttribute="top" constant="20" id="dRF-Cm-HY3"/>
@@ -822,7 +802,6 @@ Cg
                                             <outlet property="checkBtn" destination="PcG-bl-inX" id="3KV-58-h7s"/>
                                             <outlet property="fileImageView" destination="X66-Sq-lbu" id="4Ao-kL-VWG"/>
                                             <outlet property="fileTitleLabel" destination="dNI-hk-FPf" id="M84-jp-qwV"/>
-                                            <outlet property="loadingBtn" destination="hxo-8C-NUn" id="flh-Io-DUs"/>
                                             <outlet property="timeLable" destination="Bp5-Jc-43x" id="AL0-fr-PZf"/>
                                             <outlet property="transmitBtn" destination="Bgh-xR-FjV" id="4Hp-zl-zN5"/>
                                         </connections>
@@ -927,7 +906,7 @@ Cg
         <!--MineVC-->
         <scene sceneID="bKh-iK-7Kn">
             <objects>
-                <viewController storyboardIdentifier="MineVC" id="tLD-fj-6HM" customClass="MineVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MineVC" hidesBottomBarWhenPushed="YES" id="tLD-fj-6HM" customClass="MineVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NqG-Ve-Vat">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1442,23 +1421,6 @@ Cg
                                                         <constraint firstAttribute="width" constant="50" id="VCk-kG-xdn"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <state key="normal" title="转发">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </state>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="5"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpJ-4N-e9b">
-                                                    <rect key="frame" x="253" y="60" width="50" height="35"/>
-                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="50" id="1Dr-uY-HXr"/>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="Xbw-as-x1G"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <state key="normal" title="下载">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
@@ -1470,7 +1432,6 @@ Cg
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="dpJ-4N-e9b" secondAttribute="bottom" constant="4" id="3bS-uW-wcZ"/>
                                                 <constraint firstItem="LDb-cs-YhU" firstAttribute="leading" secondItem="EhT-rT-QTW" secondAttribute="trailing" constant="10" id="4t4-JT-QBf"/>
                                                 <constraint firstAttribute="bottom" secondItem="rAf-dr-B7D" secondAttribute="bottom" constant="4" id="9tC-Vx-Yan"/>
                                                 <constraint firstAttribute="trailing" secondItem="rAf-dr-B7D" secondAttribute="trailing" constant="20" id="FOd-bM-cbn"/>
@@ -1479,20 +1440,17 @@ Cg
                                                 <constraint firstItem="FO8-ec-YcW" firstAttribute="leading" secondItem="mJg-rd-C8w" secondAttribute="leading" constant="60" id="Nzq-38-vIH"/>
                                                 <constraint firstItem="EhT-rT-QTW" firstAttribute="top" secondItem="mJg-rd-C8w" secondAttribute="top" constant="20" id="UXs-nQ-TSd"/>
                                                 <constraint firstItem="rAf-dr-B7D" firstAttribute="top" secondItem="LDb-cs-YhU" secondAttribute="bottom" id="Vsn-i4-w25"/>
-                                                <constraint firstItem="rAf-dr-B7D" firstAttribute="leading" secondItem="dpJ-4N-e9b" secondAttribute="trailing" constant="10" id="Xd1-hR-y45"/>
                                                 <constraint firstItem="EhT-rT-QTW" firstAttribute="leading" secondItem="AHA-HH-dei" secondAttribute="trailing" constant="20" id="bpW-Mn-ufb"/>
                                                 <constraint firstItem="FO8-ec-YcW" firstAttribute="top" secondItem="EhT-rT-QTW" secondAttribute="bottom" constant="8" id="din-k1-CbS"/>
                                                 <constraint firstItem="LDb-cs-YhU" firstAttribute="top" secondItem="mJg-rd-C8w" secondAttribute="top" constant="20" id="ecM-6H-nbS"/>
                                                 <constraint firstItem="AHA-HH-dei" firstAttribute="centerY" secondItem="mJg-rd-C8w" secondAttribute="centerY" id="nRK-qu-E3g"/>
                                                 <constraint firstItem="AHA-HH-dei" firstAttribute="leading" secondItem="mJg-rd-C8w" secondAttribute="leading" constant="20" id="uiA-LL-Hpb"/>
-                                                <constraint firstItem="dpJ-4N-e9b" firstAttribute="top" secondItem="LDb-cs-YhU" secondAttribute="bottom" id="zjI-M6-E5v"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="checkBtn" destination="AHA-HH-dei" id="9yo-xQ-5Lc"/>
                                             <outlet property="fileImageView" destination="EhT-rT-QTW" id="cAQ-6n-cu5"/>
                                             <outlet property="fileTitleLabel" destination="LDb-cs-YhU" id="kZN-dt-EbE"/>
-                                            <outlet property="loadingBtn" destination="dpJ-4N-e9b" id="Lmr-6Q-gb9"/>
                                             <outlet property="timeLable" destination="FO8-ec-YcW" id="yeO-Ux-5fZ"/>
                                             <outlet property="transmitBtn" destination="rAf-dr-B7D" id="ZuM-Q1-2jY"/>
                                         </connections>

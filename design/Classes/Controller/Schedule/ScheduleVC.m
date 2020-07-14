@@ -6,6 +6,8 @@
 //
 
 #import "ScheduleVC.h"
+#import "Configure.h"
+#import "ProjectModel.h"
 
 @interface ScheduleVC ()
 
@@ -16,16 +18,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self setupSettings];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)setupSettings{
+    self.navigationItem.title = [Configure singletonInstance].currentProjectModel.projectName;
 }
-*/
+
 
 @end

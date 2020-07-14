@@ -43,7 +43,14 @@
 - (void)setupSettings{
     [self.imageBackgroundView setRoundedView:self.imageBackgroundView cornerRadius:8 borderWidth:0.5 borderColor:[UIColor lightGrayColor]];
     [self.projectImageView setRoundedView:self.projectImageView cornerRadius:8 borderWidth:0.5 borderColor:[UIColor clearColor]];
+}
 
+- (void)setProjectModel:(ProjectModel *)projectModel{
+    _projectModel = projectModel;
+    self.projectTitleLabel.text = projectModel.projectName;
+    NSArray *createDateArray = [projectModel.createDate componentsSeparatedByString:@" "];
+    self.projectTimeLabel.text = createDateArray[0];
+    
 }
 
 @end

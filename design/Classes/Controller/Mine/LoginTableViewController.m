@@ -76,17 +76,8 @@
     [dic setObject:self.accountNameTextField.text forKey:@"username"];
     [dic setObject:self.passwordTextField.text forKey:@"password"];
     [dic setObject:@"wx" forKey:@"userType"];
-    
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@",Base_URL_Project,Api_Login];
-    
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager.requestSerializer requestWithMethod:@"POST" URLString:urlStr parameters:dic error:nil];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json",@"text/javascript",@"text/html", nil];
-    manager.requestSerializer.timeoutInterval = 15.f;
-    [manager POST:urlStr parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+
+    [[NetworkRequest shared] postRequest:dic serverUrl:Api_Login success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [MBProgressHUD hideHUDForView:self.view];
         ResponseObjectModel *responseObjectModel = [ResponseObjectModel mj_objectWithKeyValues:responseObject];
         if ([responseObjectModel.msg isEqualToString:@"success"]) {
@@ -100,6 +91,7 @@
             
             RootTabBarContro *rootTabBarContro = [self.storyboard instantiateViewControllerWithIdentifier:@"RootTabBarContro"];
             [UIApplication sharedApplication].keyWindow.rootViewController = rootTabBarContro;
+            rootTabBarContro.selectedIndex = 3;
             
         }else{
             [MBProgressHUD showMessage:responseObjectModel.msg targetView:self.view delegateTarget:self];

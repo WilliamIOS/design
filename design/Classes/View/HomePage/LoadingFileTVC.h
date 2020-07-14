@@ -7,12 +7,15 @@
 
 #import <UIKit/UIKit.h>
 #import "Macro.h"
+#import "LoadingFileModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LoadingFileTVC : UITableViewCell
 
 @property (nonatomic,assign) ViewControllerType viewControllerType;
+
+@property (nonatomic,strong) LoadingFileModel *loadingFileModel;
 
 + (instancetype)cellWithTableView:(UITableView *)tableView cellidentifier:(NSString*)cellidentifierName;
 

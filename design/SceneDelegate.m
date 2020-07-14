@@ -10,6 +10,7 @@
 #import "LoginTableViewController.h"
 #import "PersonInfoModel.h"
 #import "Configure.h"
+#import "MineVC.h"
 
 @interface SceneDelegate ()
 
@@ -29,13 +30,14 @@
         configure.personInfoModel = personInfoModel;
         RootTabBarContro *rootTabBarContro = [mainStoryboard instantiateViewControllerWithIdentifier:@"RootTabBarContro"];
         self.window.rootViewController = rootTabBarContro;
+        [self.window makeKeyAndVisible];
+        rootTabBarContro.selectedIndex = 3;
         
     }else{
         LoginTableViewController *loginTableViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"LoginTableViewController"];
         self.window.rootViewController = loginTableViewController;
-        
+        [self.window makeKeyAndVisible];
     }
-    [self.window makeKeyAndVisible];
 }
 
 

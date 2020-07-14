@@ -13,8 +13,12 @@ extern NSString *Base_URL_H5;
 
 /**登录*/
 extern NSString *const Api_Login;
+/**退出登录*/
+extern NSString *const Api_Signout;
 /**我的项目*/
 extern NSString *const Api_MyProject;
+/**文件列表*/
+extern NSString *const Api_FileList;
 
 @interface ServerApi : NSObject
 

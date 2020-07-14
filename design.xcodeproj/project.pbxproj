@@ -65,6 +65,9 @@
 		60E7EB7124B35A2F0056A252 /* AddressBookVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7EB7024B35A2F0056A252 /* AddressBookVC.m */; };
 		60E7EB7424B35A490056A252 /* MineNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7EB7324B35A490056A252 /* MineNavigationController.m */; };
 		60E7EB7724B35A5E0056A252 /* MineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E7EB7624B35A5E0056A252 /* MineVC.m */; };
+		60FA951524BBF1FF009578AC /* ProjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FA951424BBF1FF009578AC /* ProjectModel.m */; };
+		60FA951824BC3492009578AC /* LoadingFileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FA951724BC3492009578AC /* LoadingFileModel.m */; };
+		60FA954B24BD5A12009578AC /* UIViewController+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FA954924BD5A12009578AC /* UIViewController+Extension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -186,6 +189,12 @@
 		60E7EB7524B35A5E0056A252 /* MineVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineVC.h; sourceTree = "<group>"; };
 		60E7EB7624B35A5E0056A252 /* MineVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineVC.m; sourceTree = "<group>"; };
 		60E7EB7824B3641A0056A252 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		60FA951324BBF1FF009578AC /* ProjectModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectModel.h; sourceTree = "<group>"; };
+		60FA951424BBF1FF009578AC /* ProjectModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectModel.m; sourceTree = "<group>"; };
+		60FA951624BC3492009578AC /* LoadingFileModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadingFileModel.h; sourceTree = "<group>"; };
+		60FA951724BC3492009578AC /* LoadingFileModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadingFileModel.m; sourceTree = "<group>"; };
+		60FA954924BD5A12009578AC /* UIViewController+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Extension.m"; sourceTree = "<group>"; };
+		60FA954A24BD5A12009578AC /* UIViewController+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Extension.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -369,6 +378,10 @@
 		6077331524BAD14F00192576 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				60FA951324BBF1FF009578AC /* ProjectModel.h */,
+				60FA951424BBF1FF009578AC /* ProjectModel.m */,
+				60FA951624BC3492009578AC /* LoadingFileModel.h */,
+				60FA951724BC3492009578AC /* LoadingFileModel.m */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -402,6 +415,8 @@
 				607732B124B71D2800192576 /* MBProgressHUD+PW */,
 				60ADEDE224B4C1B700629EC3 /* UIView+Extension.h */,
 				60ADEDE324B4C1B700629EC3 /* UIView+Extension.m */,
+				60FA954A24BD5A12009578AC /* UIViewController+Extension.h */,
+				60FA954924BD5A12009578AC /* UIViewController+Extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -699,6 +714,7 @@
 				60B4FA9D24B753710072FEE7 /* LoadingFileTVC.m in Sources */,
 				60ADEDE024B4BE6F00629EC3 /* MineProjectTVC.m in Sources */,
 				60E7EB7124B35A2F0056A252 /* AddressBookVC.m in Sources */,
+				60FA951824BC3492009578AC /* LoadingFileModel.m in Sources */,
 				607732FF24B863CC00192576 /* FSCalendarDelegationProxy.m in Sources */,
 				6077325924AEFA7100192576 /* ViewController.m in Sources */,
 				607732B924B71D2900192576 /* MBProgressHUD+PW.m in Sources */,
@@ -707,11 +723,13 @@
 				607732A624B70E5100192576 /* ConceptSchemeListVC.m in Sources */,
 				60E7EB7724B35A5E0056A252 /* MineVC.m in Sources */,
 				607732B824B71D2900192576 /* MBProgressHUD.m in Sources */,
+				60FA951524BBF1FF009578AC /* ProjectModel.m in Sources */,
 				607732CA24B71DA700192576 /* AFHTTPSessionManager.m in Sources */,
 				60E7EB7424B35A490056A252 /* MineNavigationController.m in Sources */,
 				6077330B24B863CC00192576 /* FSCalendarTransitionCoordinator.m in Sources */,
 				607732FE24B863CC00192576 /* FSCalendarCollectionView.m in Sources */,
 				6077325324AEFA7100192576 /* AppDelegate.m in Sources */,
+				60FA954B24BD5A12009578AC /* UIViewController+Extension.m in Sources */,
 				607732CD24B71DA700192576 /* AFNetworkReachabilityManager.m in Sources */,
 				607732CC24B71DA700192576 /* AFURLRequestSerialization.m in Sources */,
 				60E7EB6124B359810056A252 /* HomePageListNavigationController.m in Sources */,
