@@ -82,15 +82,15 @@
 }
 
 - (void)planeFigureBtnClick:(id)sender{
-    
+    [self.delegate didPlaneFigureBtn];
 }
 
 - (void)designSketchBtnClick:(id)sender{
-    
+    [self.delegate didDesignSketchBtn];
 }
 
 - (void)constructionPlansBtnClick:(id)sender{
-    
+    [self.delegate didConstructionPlansBtn];
 }
 
 - (void)softLoadingBtnClick:(id)sender{
@@ -98,11 +98,11 @@
 }
 
 - (void)otherFileBtnClick:(id)sender{
-    
+    [self.delegate didOtherFileBtn];
 }
 
 - (void)allLoadingBtnClick:(id)sender{
-    
+    [self.delegate didAllLoadingBtn];
 }
 
 - (void)conceptSchemePreviewImageViewGesture:(UITapGestureRecognizer*)recognizer {

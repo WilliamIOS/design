@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *fileTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLable;
 @property (weak, nonatomic) IBOutlet UIButton *transmitBtn;
+@property (weak, nonatomic) IBOutlet UIButton *previewBtn;
 
 @end
 
@@ -45,22 +46,37 @@
 - (void)setupSetings{
     [self.checkBtn addTarget:self action:@selector(checkBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.transmitBtn addTarget:self action:@selector(transmitBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.previewBtn addTarget:self action:@selector(previewBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.transmitBtn setTitle:@"" forState:UIControlStateNormal];
+    
 }
 
 - (void)setLoadingFileModel:(LoadingFileModel *)loadingFileModel{
     _loadingFileModel = loadingFileModel;
     self.fileTitleLabel.text = loadingFileModel.documentName;
     self.timeLable.text = loadingFileModel.createDate;
-//    // 记录文件后缀名
-//    if ([loadingFileModel.documentName containsString:@"."]) {
-//         NSArray *documentNameArray = [loadingFileModel.documentName componentsSeparatedByString:@"."];
-//        NSInteger count =  [documentNameArray count];
-//        loadingFileModel.fileSuffixStr = documentNameArray[count - 1];
-//
-//    }else{
-//        loadingFileModel.fileSuffixStr = @"";
-//    }
+    // 记录文件后缀名
+    if ([loadingFileModel.documentName containsString:@"."]) {
+         NSArray *documentNameArray = [loadingFileModel.documentName componentsSeparatedByString:@"."];
+        NSInteger count =  [documentNameArray count];
+        loadingFileModel.fileSuffixStr = documentNameArray[count - 1];
+
+    }else{
+        loadingFileModel.fileSuffixStr = @"";
+    }
+    if ([loadingFileModel.fileSuffixStr isEqualToString:@"pdf"]) {
+        self.fileImageView.image = [UIImage imageNamed:@"pdf"];
+        
+    }else if ([loadingFileModel.fileSuffixStr isEqualToString:@"dwg"]) {
+        self.fileImageView.image = [UIImage imageNamed:@"cad"];
+        
+    }else if ([loadingFileModel.fileSuffixStr isEqualToString:@"rar"]) {
+        self.fileImageView.image = [UIImage imageNamed:@"rar"];
+        
+    }else{
+        self.fileImageView.image = [UIImage imageNamed:@"otherFile"];
+    }
+    
     NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
     NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
     NSFileManager * manager = [NSFileManager defaultManager];
@@ -71,12 +87,17 @@
         [self.transmitBtn setTitle:@"下载" forState:UIControlStateNormal];
     }
     
+    self.checkBtn.selected = self.loadingFileModel.isChecked;
 }
 
 - (void)checkBtnClick:(id)sender{
     UIButton *btn = (UIButton*)sender;
     btn.selected = !btn.selected;
     self.loadingFileModel.isChecked = btn.selected;
+}
+
+- (void)previewBtnClick:(id)sender{
+    [self.delegate didpreviewBtn:self.loadingFileModel currentIndexPath:self.currentIndexPath];
 }
 
 - (void)transmitBtnClick:(id)sender{

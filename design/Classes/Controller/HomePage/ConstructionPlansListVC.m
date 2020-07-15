@@ -1,11 +1,11 @@
 //
-//  ConceptSchemeListVC.m
+//  ConstructionPlansListVC.m
 //  design
 //
-//  Created by panwei on 7/9/20.
+//  Created by panwei on 7/14/20.
 //
 
-#import "ConceptSchemeListVC.h"
+#import "ConstructionPlansListVC.h"
 #import "LoadingFileTVC.h"
 #import "UIView+Extension.h"
 #import "Macro.h"
@@ -21,11 +21,14 @@
 #import "LoadingFileModel.h"
 #import <QuickLook/QuickLook.h>
 
-@interface ConceptSchemeListVC ()<UITableViewDataSource,UITableViewDelegate,MBProgressHUDDelegate,QLPreviewControllerDataSource,QLPreviewControllerDelegate,LoadingFileTVCDelegate>
+@interface ConstructionPlansListVC ()<UITableViewDataSource,UITableViewDelegate,MBProgressHUDDelegate,QLPreviewControllerDataSource,QLPreviewControllerDelegate,LoadingFileTVCDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *fileListTV;
 @property (weak, nonatomic) IBOutlet UIView *loadingFileView;
 @property (weak, nonatomic) IBOutlet UIView *checkHistoryFileView;
+@property (weak, nonatomic) IBOutlet UIButton *flatSurfaceBtn;
+@property (weak, nonatomic) IBOutlet UIButton *partitionBtn;
+@property (weak, nonatomic) IBOutlet UIButton *diagramBtn;
 @property (nonatomic,strong) NSMutableArray *loadingFileModelMutableArray;
 @property (nonatomic,strong) NSMutableArray *pdfMutableArray;
 @property (nonatomic,strong) NSMutableArray *dwgMutableArray;
@@ -33,16 +36,23 @@
 @property (nonatomic,strong) NSMutableArray *otherMutableArray;
 @property (nonatomic,strong) LoadingFileModel *willPreviewLoadingFileModel;
 
+// 平顶面
+@property (nonatomic,strong) NSMutableArray *flatSurfaceMutableArray;
+// 隔墙
+@property (nonatomic,strong) NSMutableArray *partitionMutableArray;
+// 水电图
+@property (nonatomic,strong) NSMutableArray *diagramMutableArray;
+
 @end
 
-@implementation ConceptSchemeListVC
+@implementation ConstructionPlansListVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setupSettings];
     [MBProgressHUD showOnlyChrysanthemumWithView:self.view delegateTarget:self];
-    [self conceptSchemeInterface];
+    [self constructionPlansInterface];
 }
 
 - (void)setupSettings{
@@ -54,8 +64,8 @@
     }];
     self.fileListTV.mj_footer = footer;
     [footer setTitle:@"暂无更多概念方案文件" forState:MJRefreshStateNoMoreData];
-    [self.loadingFileView setRoundedView:self.loadingFileView cornerRadius:10 borderWidth:4 borderColor:PWColor(33, 136, 184)];
-    [self.checkHistoryFileView setRoundedView:self.checkHistoryFileView cornerRadius:10 borderWidth:4 borderColor:PWColor(33, 136, 184)];
+    [self.loadingFileView setRoundedView:self.loadingFileView cornerRadius:10 borderWidth:4 borderColor:PWColor(225, 188, 2)];
+    [self.checkHistoryFileView setRoundedView:self.checkHistoryFileView cornerRadius:10 borderWidth:4 borderColor:PWColor(225, 188, 2)];
     UITapGestureRecognizer *loadingFileViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(loadingFileViewGesture:)];
     [self.loadingFileView addGestureRecognizer:loadingFileViewTap];
     UITapGestureRecognizer *checkHistoryFileViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(checkHistoryFileViewGesture:)];
@@ -65,6 +75,14 @@
     UIView *footerView = [[UIView alloc] init];
     footerView.backgroundColor = PWColor(244, 244, 244);
     self.fileListTV.tableFooterView = footerView;
+    
+    [self.flatSurfaceBtn setRoundedView:self.flatSurfaceBtn cornerRadius:8 borderWidth:2 borderColor:PWColor(225, 188, 2)];
+    [self.partitionBtn setRoundedView:self.partitionBtn cornerRadius:8 borderWidth:2 borderColor:PWColor(225, 188, 2)];
+    [self.diagramBtn setRoundedView:self.diagramBtn cornerRadius:8 borderWidth:2 borderColor:PWColor(225, 188, 2)];
+    
+    [self.flatSurfaceBtn addTarget:self action:@selector(flatSurfaceBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.partitionBtn addTarget:self action:@selector(partitionBtnurfaceBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.diagramBtn addTarget:self action:@selector(diagramBtnClick:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (NSMutableArray*)loadingFileModelMutableArray{
@@ -102,6 +120,158 @@
     return _otherMutableArray;
 }
 
+- (NSMutableArray*)flatSurfaceMutableArray{
+    if (!_flatSurfaceMutableArray) {
+        self.flatSurfaceMutableArray = [NSMutableArray array];
+    }
+    return _flatSurfaceMutableArray;
+}
+
+- (NSMutableArray*)partitionMutableArray{
+    if (!_partitionMutableArray) {
+        self.partitionMutableArray = [NSMutableArray array];
+    }
+    return _partitionMutableArray;
+}
+
+- (NSMutableArray*)diagramMutableArray{
+    if (!_diagramMutableArray) {
+        self.diagramMutableArray = [NSMutableArray array];
+    }
+    return _diagramMutableArray;
+}
+
+- (void)flatSurfaceBtnClick:(id)sender{
+    [MBProgressHUD showOnlyChrysanthemumWithView:self.view delegateTarget:self];
+    LoadingFileModel *loadingFileModel = self.flatSurfaceMutableArray[0];
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    NSString * urlStr = [loadingFileModel.documentUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSURL *URL = [NSURL URLWithString:urlStr];
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+    __weak typeof(self) weakSelf = self;
+    NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress *downloadProgress) {
+        
+    } destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
+        NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+        NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
+        return [NSURL fileURLWithPath:path];
+        
+    } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+        [MBProgressHUD hideHUDForView:weakSelf.view];
+        [self preview:loadingFileModel];
+    }];
+    // 4. 开启下载任务
+    [downloadTask resume];
+}
+
+- (void)partitionBtnurfaceBtnClick:(id)sender{
+    [MBProgressHUD showOnlyChrysanthemumWithView:self.view delegateTarget:self];
+    LoadingFileModel *loadingFileModel = self.partitionMutableArray[0];
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    NSString * urlStr = [loadingFileModel.documentUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSURL *URL = [NSURL URLWithString:urlStr];
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+    __weak typeof(self) weakSelf = self;
+    NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress *downloadProgress) {
+        
+    } destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
+        NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+        NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
+        return [NSURL fileURLWithPath:path];
+        
+    } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+        [MBProgressHUD hideHUDForView:weakSelf.view];
+        [self preview:loadingFileModel];
+    }];
+    // 4. 开启下载任务
+    [downloadTask resume];
+}
+
+- (void)diagramBtnClick:(id)sender{
+    [MBProgressHUD showOnlyChrysanthemumWithView:self.view delegateTarget:self];
+    LoadingFileModel *loadingFileModel = self.diagramMutableArray[0];
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    NSString * urlStr = [loadingFileModel.documentUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSURL *URL = [NSURL URLWithString:urlStr];
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+    __weak typeof(self) weakSelf = self;
+    NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress *downloadProgress) {
+        
+    } destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
+        NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+        NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
+        return [NSURL fileURLWithPath:path];
+        
+    } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+        [MBProgressHUD hideHUDForView:weakSelf.view];
+        [self preview:loadingFileModel];
+    }];
+    // 4. 开启下载任务
+    [downloadTask resume];
+}
+
+
+- (void)preview:(LoadingFileModel*)loadingFileModel{
+    self.willPreviewLoadingFileModel = loadingFileModel;
+    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
+    NSFileManager * manager = [NSFileManager defaultManager];
+    BOOL pathHave = [manager fileExistsAtPath:path];
+    
+    if (pathHave) {
+        if ([QLPreviewController canPreviewItem:(id<QLPreviewItem>)[NSURL fileURLWithPath:path]]) {
+            QLPreviewController *previewController = [[QLPreviewController alloc] init];
+            previewController.delegate = self;
+            previewController.dataSource = self;
+            [self presentViewController:previewController animated:YES completion:nil];
+            
+        }else{
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"文件无法预览" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            [alertController addAction:confirmAction];
+            [self presentViewController:alertController animated:YES completion:nil];
+        }
+        
+    }else{
+        [MBProgressHUD showOnlyChrysanthemumWithView:self.view delegateTarget:self];
+        __weak typeof(self) weakSelf = self;
+        [loadingFileModel fileLoading:^(NSURLResponse * _Nonnull response, NSURL * _Nonnull filePath, NSError * _Nonnull error) {
+            [MBProgressHUD hideHUDForView:weakSelf.view];
+            if (error == nil) {
+                NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+                NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
+                if ([QLPreviewController canPreviewItem:(id<QLPreviewItem>)[NSURL fileURLWithPath:path]]) {
+                    QLPreviewController *previewController = [[QLPreviewController alloc] init];
+                    previewController.delegate = self;
+                    previewController.dataSource = self;
+                    [self presentViewController:previewController animated:YES completion:nil];
+                    
+                }else{
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"文件无法预览" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                        
+                    }];
+                    [alertController addAction:confirmAction];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                }
+            }else{
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"文件加载出现意外" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    
+                }];
+                [alertController addAction:confirmAction];
+                [self presentViewController:alertController animated:YES completion:nil];
+            }
+        }];
+    }
+}
+
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;;
 }
@@ -111,7 +281,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    LoadingFileTVC *loadingFileTVC = [LoadingFileTVC cellWithTableView:tableView cellidentifier:@"LoadingFileTVCWithConceptScheme"];
+    LoadingFileTVC *loadingFileTVC = [LoadingFileTVC cellWithTableView:tableView cellidentifier:@"LoadingFileTVCWithConstructionPlans"];
     loadingFileTVC.delegate = self;
     loadingFileTVC.currentIndexPath = indexPath;
     loadingFileTVC.loadingFileModel = self.loadingFileModelMutableArray[indexPath.row];
@@ -208,17 +378,17 @@
 
 - (void)checkHistoryFileViewGesture:(UITapGestureRecognizer*)recognizer {
     ConceptSchemeHistoryListVC *conceptSchemeHistoryListVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ConceptSchemeHistoryListVC"];
-    conceptSchemeHistoryListVC.viewControllerType = ViewControllerTypeWithConceptScheme;
+    conceptSchemeHistoryListVC.viewControllerType = ViewControllerTypeWithConstructionPlans;
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = item;
     [self.navigationController pushViewController:conceptSchemeHistoryListVC animated:true];
 }
 
 #pragma mark - 文件列表
-- (void)conceptSchemeInterface{
+- (void)constructionPlansInterface{
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setObject:[Configure singletonInstance].currentProjectModel.projectId forKey:@"projectId"];
-    [dic setObject:@"41" forKey:@"documentSort"];
+    [dic setObject:@"44" forKey:@"documentSort"];
 
     [[NetworkRequest shared] getRequest:dic serverUrl:Api_FileList success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [MBProgressHUD hideHUDForView:self.view];
@@ -229,6 +399,34 @@
             self.dwgMutableArray = [dataMutableArray[1] mutableCopy];
             self.rarMutableArray = [dataMutableArray[2] mutableCopy];
             self.otherMutableArray = [dataMutableArray[3] mutableCopy];
+            self.flatSurfaceMutableArray = [dataMutableArray[4] mutableCopy];
+            self.partitionMutableArray = [dataMutableArray[5] mutableCopy];
+            self.diagramMutableArray = [dataMutableArray[7] mutableCopy];
+            
+            if ([self.flatSurfaceMutableArray count] > 0) {
+                self.flatSurfaceBtn.userInteractionEnabled = true;
+                [self.flatSurfaceBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            }else{
+                self.flatSurfaceBtn.userInteractionEnabled = false;
+                [self.flatSurfaceBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+            }
+            
+            if ([self.partitionMutableArray count] > 0) {
+                self.partitionBtn.userInteractionEnabled = true;
+                [self.partitionBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            }else{
+                self.partitionBtn.userInteractionEnabled = false;
+                [self.partitionBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+            }
+            
+            if ([self.diagramMutableArray count] > 0) {
+                self.diagramBtn.userInteractionEnabled = true;
+                [self.diagramBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            }else{
+                self.diagramBtn.userInteractionEnabled = false;
+                [self.diagramBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+            }
+            
             // 合并
             [self.loadingFileModelMutableArray addObjectsFromArray:[self.pdfMutableArray copy]];
             [self.loadingFileModelMutableArray addObjectsFromArray:[self.dwgMutableArray copy]];
@@ -250,7 +448,7 @@
 - (void)batchFileLoadingInterface{
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setObject:[Configure singletonInstance].currentProjectModel.projectId forKey:@"projectId"];
-    [dic setObject:@"41" forKey:@"documentSort"];
+    [dic setObject:@"44" forKey:@"documentSort"];
     
     __block NSString *files = @"";
     [self.loadingFileModelMutableArray enumerateObjectsUsingBlock:^(LoadingFileModel *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -313,5 +511,6 @@
         
     }
 }
+
 
 @end

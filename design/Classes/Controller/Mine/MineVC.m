@@ -123,13 +123,16 @@
             Configure *configure = [Configure singletonInstance];
             configure.personInfoModel = nil;
             
-            NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-            NSString *accountpath = [doc stringByAppendingPathComponent:@"account.archive"];
+            NSString *doc = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+
             NSFileManager* fileManager=[NSFileManager defaultManager];
-            BOOL accountpathHave=[[NSFileManager defaultManager] fileExistsAtPath:accountpath];
-            if (accountpathHave) {
-                [fileManager removeItemAtPath:accountpath error:nil];
+            NSArray *DirectoryArray = [fileManager contentsOfDirectoryAtPath:doc error:nil];
+            for (int a = 0; a<[DirectoryArray count]; a++) {
+                NSString *fileName = DirectoryArray[a];
+                NSString *fullPath = [doc stringByAppendingPathComponent:fileName];
+                [fileManager removeItemAtPath:fullPath error:nil];
             }
+
             LoginTableViewController *loginTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginTableViewController"];
             [UIApplication sharedApplication].keyWindow.rootViewController = loginTableViewController;
             

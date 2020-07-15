@@ -19,8 +19,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    self.planTitleLabel.text =@"akljdf;ajs;djf;asjdf;aj;dsf";
-    self.planTimeLabel.text =@"周期时间：akljdf;ajs;djf;asjdf;aj;dsf";
+    self.planTitleLabel.text =@"";
+    self.planTimeLabel.text =@"计划周期：";
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -36,6 +36,13 @@
         cell = [[PlanListTVC alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellidentifier];
     }
     return cell;
+}
+
+- (void)setScheduleListModel:(ScheduleListModel *)scheduleListModel{
+    _scheduleListModel = scheduleListModel;
+    self.planTitleLabel.text = scheduleListModel.workContent;
+    self.planTimeLabel.text = [NSString stringWithFormat:@"计划周期：%@",scheduleListModel.planningTime];
+    
 }
 
 @end

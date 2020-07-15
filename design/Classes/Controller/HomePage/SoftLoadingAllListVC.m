@@ -1,14 +1,15 @@
 //
-//  ConceptSchemeHistoryListVC.m
+//  SoftLoadingAllListVC.m
 //  design
 //
-//  Created by panwei on 2020/7/9.
-//
+//  Created by panwei on 7/15/20.
+//  178 42 128
 
-#import "ConceptSchemeHistoryListVC.h"
+#import "SoftLoadingAllListVC.h"
 #import "LoadingFileTVC.h"
 #import "UIView+Extension.h"
 #import "Macro.h"
+#import "ConceptSchemeHistoryListVC.h"
 #import "MJRefresh.h"
 #import "MBProgressHUD+PW.h"
 #import "NetworkRequest.h"
@@ -20,10 +21,11 @@
 #import "LoadingFileModel.h"
 #import <QuickLook/QuickLook.h>
 
-@interface ConceptSchemeHistoryListVC ()<UITableViewDataSource,UITableViewDelegate,MBProgressHUDDelegate,QLPreviewControllerDataSource,QLPreviewControllerDelegate,LoadingFileTVCDelegate>
+@interface SoftLoadingAllListVC ()<UITableViewDataSource,UITableViewDelegate,MBProgressHUDDelegate,QLPreviewControllerDataSource,QLPreviewControllerDelegate,LoadingFileTVCDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *fileListTV;
 @property (weak, nonatomic) IBOutlet UIView *loadingFileView;
+@property (weak, nonatomic) IBOutlet UIView *checkHistoryFileView;
 @property (nonatomic,strong) NSMutableArray *loadingFileModelMutableArray;
 @property (nonatomic,strong) NSMutableArray *pdfMutableArray;
 @property (nonatomic,strong) NSMutableArray *dwgMutableArray;
@@ -33,14 +35,14 @@
 
 @end
 
-@implementation ConceptSchemeHistoryListVC
+@implementation SoftLoadingAllListVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setupSettings];
     [MBProgressHUD showOnlyChrysanthemumWithView:self.view delegateTarget:self];
-    [self conceptSchemeHistoryInterface];
+    [self softLoadingInterface];
 }
 
 - (void)setupSettings{
@@ -51,12 +53,14 @@
         
     }];
     self.fileListTV.mj_footer = footer;
-    [footer setTitle:@"暂无更多历史文件" forState:MJRefreshStateNoMoreData];
-    [self.fileListTV.mj_footer setState:(MJRefreshStateNoMoreData)];
-    
-    [self.loadingFileView setRoundedView:self.loadingFileView cornerRadius:10 borderWidth:4 borderColor:[UIColor lightGrayColor]];
+    [footer setTitle:@"暂无更多施工图文件" forState:MJRefreshStateNoMoreData];
+    [self.loadingFileView setRoundedView:self.loadingFileView cornerRadius:10 borderWidth:4 borderColor:PWColor(178, 42, 128)];
+    [self.checkHistoryFileView setRoundedView:self.checkHistoryFileView cornerRadius:10 borderWidth:4 borderColor:PWColor(178, 42, 128)];
     UITapGestureRecognizer *loadingFileViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(loadingFileViewGesture:)];
     [self.loadingFileView addGestureRecognizer:loadingFileViewTap];
+    UITapGestureRecognizer *checkHistoryFileViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(checkHistoryFileViewGesture:)];
+    [self.checkHistoryFileView addGestureRecognizer:checkHistoryFileViewTap];
+    [self.fileListTV.mj_footer setState:(MJRefreshStateNoMoreData)];
     
     UIView *footerView = [[UIView alloc] init];
     footerView.backgroundColor = PWColor(244, 244, 244);
@@ -107,7 +111,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    LoadingFileTVC *loadingFileTVC = [LoadingFileTVC cellWithTableView:tableView cellidentifier:@"LoadingFileTVCWithConceptSchemeHistory"];
+    LoadingFileTVC *loadingFileTVC = [LoadingFileTVC cellWithTableView:tableView cellidentifier:@"LoadingFileTVCWithSoftLoading"];
     loadingFileTVC.delegate = self;
     loadingFileTVC.currentIndexPath = indexPath;
     loadingFileTVC.loadingFileModel = self.loadingFileModelMutableArray[indexPath.row];
@@ -184,6 +188,7 @@
     }
 }
 
+
 - (void)loadingFileViewGesture:(UITapGestureRecognizer*)recognizer {
     __block BOOL haveChecked = false;
     [self.loadingFileModelMutableArray enumerateObjectsUsingBlock:^(LoadingFileModel *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -201,26 +206,21 @@
     }
 }
 
+- (void)checkHistoryFileViewGesture:(UITapGestureRecognizer*)recognizer {
+    ConceptSchemeHistoryListVC *conceptSchemeHistoryListVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ConceptSchemeHistoryListVC"];
+    conceptSchemeHistoryListVC.viewControllerType = ViewControllerTypeWithSoftLoading;
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = item;
+    [self.navigationController pushViewController:conceptSchemeHistoryListVC animated:true];
+}
+
 #pragma mark - 文件列表
-- (void)conceptSchemeHistoryInterface{
+- (void)softLoadingInterface{
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setObject:[Configure singletonInstance].currentProjectModel.projectId forKey:@"projectId"];
-    if (self.viewControllerType == ViewControllerTypeWithConceptScheme) {
-        [dic setObject:@"41" forKey:@"documentSort"];
-    }else if (self.viewControllerType == ViewControllerTypeWithPlaneFigure){
-        [dic setObject:@"42" forKey:@"documentSort"];
-    }else if (self.viewControllerType == ViewControllerTypeWithDesignSketch){
-        [dic setObject:@"43" forKey:@"documentSort"];
-    }else if (self.viewControllerType == ViewControllerTypeWithConstructionPlans){
-        [dic setObject:@"44" forKey:@"documentSort"];
-    }else if (self.viewControllerType == ViewControllerTypeWithSoftLoading){
-        [dic setObject:@"45" forKey:@"documentSort"];
-    }else if (self.viewControllerType == ViewControllerTypeWithOtherFile){
-        [dic setObject:@"46" forKey:@"documentSort"];
-    }
-    
+    [dic setObject:@"45" forKey:@"documentSort"];
 
-    [[NetworkRequest shared] getRequest:dic serverUrl:Api_FileHistoryList success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[NetworkRequest shared] getRequest:dic serverUrl:Api_FileList success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [MBProgressHUD hideHUDForView:self.view];
         ResponseObjectModel *responseObjectModel = [ResponseObjectModel mj_objectWithKeyValues:responseObject];
         if ([responseObjectModel.msg isEqualToString:@"success"]) {
@@ -250,19 +250,7 @@
 - (void)batchFileLoadingInterface{
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setObject:[Configure singletonInstance].currentProjectModel.projectId forKey:@"projectId"];
-    if (self.viewControllerType == ViewControllerTypeWithConceptScheme) {
-        [dic setObject:@"41" forKey:@"documentSort"];
-    }else if (self.viewControllerType == ViewControllerTypeWithPlaneFigure){
-        [dic setObject:@"42" forKey:@"documentSort"];
-    }else if (self.viewControllerType == ViewControllerTypeWithDesignSketch){
-        [dic setObject:@"43" forKey:@"documentSort"];
-    }else if (self.viewControllerType == ViewControllerTypeWithConstructionPlans){
-        [dic setObject:@"44" forKey:@"documentSort"];
-    }else if (self.viewControllerType == ViewControllerTypeWithSoftLoading){
-        [dic setObject:@"45" forKey:@"documentSort"];
-    }else if (self.viewControllerType == ViewControllerTypeWithOtherFile){
-        [dic setObject:@"46" forKey:@"documentSort"];
-    }
+    [dic setObject:@"45" forKey:@"documentSort"];
     
     __block NSString *files = @"";
     [self.loadingFileModelMutableArray enumerateObjectsUsingBlock:^(LoadingFileModel *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -276,7 +264,7 @@
     }];
     [dic setObject:files forKey:@"files"];
 
-    [[NetworkRequest shared] getRequest:dic serverUrl:Api_FileHistoryBatchLoading success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[NetworkRequest shared] getRequest:dic serverUrl:Api_FileBatchLoading success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         ResponseObjectModel *responseObjectModel = [ResponseObjectModel mj_objectWithKeyValues:responseObject];
         if ([responseObjectModel.msg isEqualToString:@"success"]) {
             NSString *urlStr = responseObject[@"data"];
@@ -325,5 +313,6 @@
         
     }
 }
+
 
 @end

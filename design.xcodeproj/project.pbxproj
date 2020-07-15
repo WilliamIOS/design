@@ -68,13 +68,20 @@
 		60FA951524BBF1FF009578AC /* ProjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FA951424BBF1FF009578AC /* ProjectModel.m */; };
 		60FA951824BC3492009578AC /* LoadingFileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FA951724BC3492009578AC /* LoadingFileModel.m */; };
 		60FA954B24BD5A12009578AC /* UIViewController+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FA954924BD5A12009578AC /* UIViewController+Extension.m */; };
+		60FA955124BDB626009578AC /* PlaneFigureListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FA955024BDB626009578AC /* PlaneFigureListVC.m */; };
+		60FA955424BDDE1C009578AC /* DesignSketchListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FA955324BDDE1C009578AC /* DesignSketchListVC.m */; };
+		60FA955724BDE4E6009578AC /* ConstructionPlansListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FA955624BDE4E6009578AC /* ConstructionPlansListVC.m */; };
+		60FA955A24BECFA2009578AC /* SoftLoadingAllListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FA955924BECFA2009578AC /* SoftLoadingAllListVC.m */; };
+		60FA955D24BED3F6009578AC /* OtherFileListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FA955C24BED3F6009578AC /* OtherFileListVC.m */; };
+		60FA956024BEE872009578AC /* ScheduleListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FA955F24BEE872009578AC /* ScheduleListModel.m */; };
+		60FA956324BEEA82009578AC /* ProjectScheduleDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FA956224BEEA82009578AC /* ProjectScheduleDetailVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		11173E853284B6A9AEC231A4 /* Pods-design.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-design.release.xcconfig"; path = "Target Support Files/Pods-design/Pods-design.release.xcconfig"; sourceTree = "<group>"; };
 		2AE6FE5027FE11D1494762F3 /* Pods_design.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_design.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		592A576F26DE123A44C55432 /* Pods-design.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-design.debug.xcconfig"; path = "Target Support Files/Pods-design/Pods-design.debug.xcconfig"; sourceTree = "<group>"; };
-		6077324E24AEFA7100192576 /* design.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = design.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6077324E24AEFA7100192576 /* 半元设计.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "半元设计.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6077325124AEFA7100192576 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6077325224AEFA7100192576 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6077325424AEFA7100192576 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
@@ -195,6 +202,20 @@
 		60FA951724BC3492009578AC /* LoadingFileModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadingFileModel.m; sourceTree = "<group>"; };
 		60FA954924BD5A12009578AC /* UIViewController+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Extension.m"; sourceTree = "<group>"; };
 		60FA954A24BD5A12009578AC /* UIViewController+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Extension.h"; sourceTree = "<group>"; };
+		60FA954F24BDB626009578AC /* PlaneFigureListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaneFigureListVC.h; sourceTree = "<group>"; };
+		60FA955024BDB626009578AC /* PlaneFigureListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaneFigureListVC.m; sourceTree = "<group>"; };
+		60FA955224BDDE1C009578AC /* DesignSketchListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DesignSketchListVC.h; sourceTree = "<group>"; };
+		60FA955324BDDE1C009578AC /* DesignSketchListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DesignSketchListVC.m; sourceTree = "<group>"; };
+		60FA955524BDE4E6009578AC /* ConstructionPlansListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstructionPlansListVC.h; sourceTree = "<group>"; };
+		60FA955624BDE4E6009578AC /* ConstructionPlansListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConstructionPlansListVC.m; sourceTree = "<group>"; };
+		60FA955824BECFA2009578AC /* SoftLoadingAllListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoftLoadingAllListVC.h; sourceTree = "<group>"; };
+		60FA955924BECFA2009578AC /* SoftLoadingAllListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoftLoadingAllListVC.m; sourceTree = "<group>"; };
+		60FA955B24BED3F6009578AC /* OtherFileListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OtherFileListVC.h; sourceTree = "<group>"; };
+		60FA955C24BED3F6009578AC /* OtherFileListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OtherFileListVC.m; sourceTree = "<group>"; };
+		60FA955E24BEE872009578AC /* ScheduleListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleListModel.h; sourceTree = "<group>"; };
+		60FA955F24BEE872009578AC /* ScheduleListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleListModel.m; sourceTree = "<group>"; };
+		60FA956124BEEA82009578AC /* ProjectScheduleDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectScheduleDetailVC.h; sourceTree = "<group>"; };
+		60FA956224BEEA82009578AC /* ProjectScheduleDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectScheduleDetailVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,7 +260,7 @@
 		6077324F24AEFA7100192576 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6077324E24AEFA7100192576 /* design.app */,
+				6077324E24AEFA7100192576 /* 半元设计.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -269,20 +290,6 @@
 				6077325A24AEFA7100192576 /* Main.storyboard */,
 			);
 			path = InterfaceBuider;
-			sourceTree = "<group>";
-		};
-		607732AF24B71BA800192576 /* AddressBook */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = AddressBook;
-			sourceTree = "<group>";
-		};
-		607732B024B71BA800192576 /* Schedule */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Schedule;
 			sourceTree = "<group>";
 		};
 		607732B124B71D2800192576 /* MBProgressHUD+PW */ = {
@@ -382,6 +389,8 @@
 				60FA951424BBF1FF009578AC /* ProjectModel.m */,
 				60FA951624BC3492009578AC /* LoadingFileModel.h */,
 				60FA951724BC3492009578AC /* LoadingFileModel.m */,
+				60FA955E24BEE872009578AC /* ScheduleListModel.h */,
+				60FA955F24BEE872009578AC /* ScheduleListModel.m */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -493,10 +502,22 @@
 				607732A524B70E5000192576 /* ConceptSchemeListVC.m */,
 				60B4FAA124B75C830072FEE7 /* ConceptSchemeHistoryListVC.h */,
 				60B4FAA224B75C830072FEE7 /* ConceptSchemeHistoryListVC.m */,
+				60FA954F24BDB626009578AC /* PlaneFigureListVC.h */,
+				60FA955024BDB626009578AC /* PlaneFigureListVC.m */,
+				60FA955224BDDE1C009578AC /* DesignSketchListVC.h */,
+				60FA955324BDDE1C009578AC /* DesignSketchListVC.m */,
+				60FA955524BDE4E6009578AC /* ConstructionPlansListVC.h */,
+				60FA955624BDE4E6009578AC /* ConstructionPlansListVC.m */,
 				607732D524B810F600192576 /* SoftLoadingListVC.h */,
 				607732D624B810F600192576 /* SoftLoadingListVC.m */,
+				60FA955824BECFA2009578AC /* SoftLoadingAllListVC.h */,
+				60FA955924BECFA2009578AC /* SoftLoadingAllListVC.m */,
+				60FA955B24BED3F6009578AC /* OtherFileListVC.h */,
+				60FA955C24BED3F6009578AC /* OtherFileListVC.m */,
 				607732DB24B85ED300192576 /* ProjectScheduleVC.h */,
 				607732DC24B85ED300192576 /* ProjectScheduleVC.m */,
+				60FA956124BEEA82009578AC /* ProjectScheduleDetailVC.h */,
+				60FA956224BEEA82009578AC /* ProjectScheduleDetailVC.m */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -530,8 +551,6 @@
 			children = (
 				60E7EB5824B3576A0056A252 /* HomePage */,
 				60E7EB5924B3576A0056A252 /* Mine */,
-				607732AF24B71BA800192576 /* AddressBook */,
-				607732B024B71BA800192576 /* Schedule */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -590,7 +609,7 @@
 			);
 			name = design;
 			productName = design;
-			productReference = 6077324E24AEFA7100192576 /* design.app */;
+			productReference = 6077324E24AEFA7100192576 /* 半元设计.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -697,13 +716,16 @@
 				6077331224BAB2B700192576 /* PlanListTVC.m in Sources */,
 				6077330624B863CC00192576 /* FSCalendarSeparatorDecorationView.m in Sources */,
 				607732D724B810F600192576 /* SoftLoadingListVC.m in Sources */,
+				60FA955424BDDE1C009578AC /* DesignSketchListVC.m in Sources */,
 				60ADEDDD24B4ABE400629EC3 /* LoginTableViewController.m in Sources */,
+				60FA956324BEEA82009578AC /* ProjectScheduleDetailVC.m in Sources */,
 				6077330324B863CC00192576 /* FSCalendar.m in Sources */,
 				6077330C24B863CC00192576 /* FSCalendarAppearance.m in Sources */,
 				607732A324B6CBDB00192576 /* ProjectScheduleTVC.m in Sources */,
 				6077330824B863CC00192576 /* FSCalendarConstants.m in Sources */,
 				60E7EB6E24B35A100056A252 /* AddressBookNavigationController.m in Sources */,
 				6077330924B863CC00192576 /* FSCalendarCalculator.m in Sources */,
+				60FA956024BEE872009578AC /* ScheduleListModel.m in Sources */,
 				607732D424B71DEA00192576 /* ServerApi.m in Sources */,
 				60B4FAA324B75C830072FEE7 /* ConceptSchemeHistoryListVC.m in Sources */,
 				607732A924B7156D00192576 /* Configure.m in Sources */,
@@ -717,6 +739,7 @@
 				60FA951824BC3492009578AC /* LoadingFileModel.m in Sources */,
 				607732FF24B863CC00192576 /* FSCalendarDelegationProxy.m in Sources */,
 				6077325924AEFA7100192576 /* ViewController.m in Sources */,
+				60FA955D24BED3F6009578AC /* OtherFileListVC.m in Sources */,
 				607732B924B71D2900192576 /* MBProgressHUD+PW.m in Sources */,
 				607732DD24B85ED300192576 /* ProjectScheduleVC.m in Sources */,
 				60E7EB6824B359CA0056A252 /* ScheduleNavigationController.m in Sources */,
@@ -731,14 +754,17 @@
 				6077325324AEFA7100192576 /* AppDelegate.m in Sources */,
 				60FA954B24BD5A12009578AC /* UIViewController+Extension.m in Sources */,
 				607732CD24B71DA700192576 /* AFNetworkReachabilityManager.m in Sources */,
+				60FA955124BDB626009578AC /* PlaneFigureListVC.m in Sources */,
 				607732CC24B71DA700192576 /* AFURLRequestSerialization.m in Sources */,
 				60E7EB6124B359810056A252 /* HomePageListNavigationController.m in Sources */,
 				6077330424B863CC00192576 /* FSCalendarCollectionViewLayout.m in Sources */,
 				607732DA24B8131B00192576 /* SoftLoadingNameCVC.m in Sources */,
 				60E7EB6424B359A00056A252 /* HomePageListVC.m in Sources */,
 				6077330024B863CC00192576 /* FSCalendarDelegationFactory.m in Sources */,
+				60FA955724BDE4E6009578AC /* ConstructionPlansListVC.m in Sources */,
 				6077326424AEFA7300192576 /* main.m in Sources */,
 				60ADEDE424B4C1B700629EC3 /* UIView+Extension.m in Sources */,
+				60FA955A24BECFA2009578AC /* SoftLoadingAllListVC.m in Sources */,
 				6077325624AEFA7100192576 /* SceneDelegate.m in Sources */,
 				607732C924B71DA700192576 /* AFURLResponseSerialization.m in Sources */,
 			);
@@ -889,7 +915,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.company.design;
-				PRODUCT_NAME = design;
+				PRODUCT_NAME = "半元设计";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/**",
@@ -911,7 +937,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.company.design;
-				PRODUCT_NAME = design;
+				PRODUCT_NAME = "半元设计";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/**",

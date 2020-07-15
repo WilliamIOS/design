@@ -11,10 +11,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol LoadingFileTVCDelegate <NSObject>
+
+- (void)didpreviewBtn:(LoadingFileModel*)loadingFileModel currentIndexPath:(NSIndexPath*)currentIndexPath;
+
+@end
+
 @interface LoadingFileTVC : UITableViewCell
 
-@property (nonatomic,assign) ViewControllerType viewControllerType;
+@property (nonatomic, assign) id<LoadingFileTVCDelegate> delegate;
 
+@property (nonatomic,strong) NSIndexPath *currentIndexPath;
+@property (nonatomic,assign) ViewControllerType viewControllerType;
 @property (nonatomic,strong) LoadingFileModel *loadingFileModel;
 
 + (instancetype)cellWithTableView:(UITableView *)tableView cellidentifier:(NSString*)cellidentifierName;

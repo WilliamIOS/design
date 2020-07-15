@@ -33,6 +33,13 @@ sizeWithAttributes:@{NSFontAttributeName:font}] : CGSizeZero;
 
 
 typedef NS_ENUM(NSInteger, ViewControllerType) {
-    ViewControllerTypeWithConceptScheme
+    ViewControllerTypeWithConceptScheme,
+    ViewControllerTypeWithPlaneFigure,
+    ViewControllerTypeWithDesignSketch,
+    ViewControllerTypeWithConstructionPlans,
+    ViewControllerTypeWithSoftLoading,
+    ViewControllerTypeWithOtherFile
 };
+
+
 

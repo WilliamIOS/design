@@ -6,10 +6,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ScheduleListModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PlanListTVC : UITableViewCell
+
+@property (nonatomic,strong) ScheduleListModel *scheduleListModel;
 
 + (instancetype)cellWithTableView:(UITableView *)tableView cellidentifier:(NSString*)cellidentifierName;
 

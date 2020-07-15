@@ -18,7 +18,7 @@
 + (void)showChrysanthemumWithView:(UIView*)targetView delegateTarget:(id)delegate{
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:targetView animated:YES];
     targetView.userInteractionEnabled = NO;
-    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
+//    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
 //    hud.bezelView.backgroundColor = [UIColor darkGrayColor];
     hud.detailsLabel.text = @"请稍等...";
 //    hud.detailsLabel.textColor = [UIColor whiteColor];
@@ -35,7 +35,7 @@
 + (void)showOnlyChrysanthemumWithView:(UIView*)targetView delegateTarget:(id)delegate{
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:targetView animated:YES];  
     targetView.userInteractionEnabled = NO;
-    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
+//    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
 //    hud.bezelView.backgroundColor = [UIColor darkGrayColor];
     [hud.detailsLabel setFont:[UIFont systemFontOfSize:18]];
     hud.delegate = delegate;
@@ -51,7 +51,7 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:targetView animated:YES];
     targetView.userInteractionEnabled = NO;
     hud.backgroundColor = [UIColor whiteColor];
-    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
+//    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
 //    hud.bezelView.backgroundColor = [UIColor lightGrayColor];
     [hud.detailsLabel setFont:[UIFont systemFontOfSize:18]];
     hud.delegate = delegate;
@@ -65,7 +65,7 @@
 + (MBProgressHUD *)showChrysanthemumWithView:(UIView *)targetView hintMsg:(NSString *)msg delegateTarget:(id)delegate{
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:targetView animated:YES];
     targetView.userInteractionEnabled = NO;
-    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
+//    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
 //    hud.bezelView.backgroundColor = [UIColor darkGrayColor];
 //    hud.detailsLabel.textColor = [UIColor whiteColor];
     hud.detailsLabel.text = msg;

@@ -38,7 +38,7 @@
 
 - (void)setupSettings{
     self.tableView.backgroundColor= [UIColor whiteColor];
-    UIImageView*imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"login_background"]];
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"login_background"]];
     self.tableView.backgroundView = imageView;
     [self.loginBtn addTarget:self action:@selector(loginBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.accountNameTextField addTarget:self action:@selector(accountNameTextFieldValueChanged:)  forControlEvents:UIControlEventAllEditingEvents];
@@ -85,7 +85,7 @@
             Configure *configure = [Configure singletonInstance];
             configure.personInfoModel = personInfoModel;
             // 写入沙盒
-            NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+            NSString *doc = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
             NSString *path = [doc stringByAppendingPathComponent:@"account.archive"];
             [NSKeyedArchiver archiveRootObject:personInfoModel toFile:path];
             

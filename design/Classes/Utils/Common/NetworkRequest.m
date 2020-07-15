@@ -35,7 +35,7 @@
     }
     
     url = [NSString stringWithFormat:@"%@%@",Base_URL_Project,url];
-
+    
     self.manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [self.manager.requestSerializer requestWithMethod:@"GET" URLString:url parameters:param error:nil];
     self.manager.responseSerializer = [AFJSONResponseSerializer serializer];
