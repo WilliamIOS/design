@@ -231,8 +231,6 @@
                         total =  total || true;
                     }else if ([loadingCopyFileModel.updateName isEqualToString:@"定制艺术品图纸"] && [loadingCopyFileModel.status isEqualToString:@"1"]) {
                         total =  total || true;
-                    }else if ([loadingCopyFileModel.updateName isEqualToString:@"图纸变更"] && [loadingCopyFileModel.status isEqualToString:@"1"]) {
-                        total =  total || true;
                     }else{
                         
                     }

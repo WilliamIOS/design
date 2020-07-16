@@ -14,6 +14,10 @@
 #import <QuickLook/QuickLook.h>
 #import "Configure.h"
 #import "LoadingFileModel.h"
+#import "NetworkRequest.h"
+#import "ResponseObjectModel.h"
+#import "ServerApi.h"
+#import "MJExtension.h"
 
 @interface SoftLoadingNameCVC()<QLPreviewControllerDataSource,QLPreviewControllerDelegate>
 
@@ -197,10 +201,18 @@
             }
         }
     }
-    
 }
 
 - (void)titleLabelGesture:(UITapGestureRecognizer*)recognizer {
+    NSMutableArray *remindDataMutableArray = [Configure singletonInstance].remindDataMutableArray;
+    for (int i = 0; i < [remindDataMutableArray count]; i++) {
+        LoadingFileModel *loadingFileModel = remindDataMutableArray[i];
+        if ([loadingFileModel.updateName isEqualToString:self.btnNameStr]) {
+            [self updateRemindStatusInterface:loadingFileModel targetView:self.remindStatusView];
+            break;
+        }
+    }
+    
     UIViewController *topViewController = [UIViewController topViewController];
     [MBProgressHUD showOnlyChrysanthemumWithView:topViewController.view delegateTarget:topViewController];
     LoadingFileModel *loadingFileModel = self.currentDataMutableArray[0];
@@ -285,6 +297,26 @@
             }
         }];
     }
+}
+
+#pragma mark - 提醒状态变更
+- (void)updateRemindStatusInterface:(LoadingFileModel*)loadingFileModel targetView:(UIView*)redDoteView{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [dic setObject:[Configure singletonInstance].currentProjectModel.projectId forKey:@"projectId"];
+    [dic setObject:loadingFileModel.fileId forKey:@"updateId"];
+
+    [[NetworkRequest shared] getRequest:dic serverUrl:Api_UpdateRemindStatus success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        ResponseObjectModel *responseObjectModel = [ResponseObjectModel mj_objectWithKeyValues:responseObject];
+        if ([responseObjectModel.msg isEqualToString:@"success"]) {
+            loadingFileModel.status = @"0";
+            redDoteView.hidden = true;
+            
+        }else{
+            
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+
+    }];
 }
 
 #pragma mark - QLPreviewControllerDataSource

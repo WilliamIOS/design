@@ -190,7 +190,6 @@
         }else if ([loadingFileModel.updateName isEqualToString:@"隔墙图"]){
         }else if ([loadingFileModel.updateName isEqualToString:@"水电图"]){
         }else{
-            
         }
     }
 
@@ -584,16 +583,13 @@
     [dic setObject:loadingFileModel.fileId forKey:@"updateId"];
 
     [[NetworkRequest shared] getRequest:dic serverUrl:Api_UpdateRemindStatus success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        [MBProgressHUD hideHUDForView:self.view];
         ResponseObjectModel *responseObjectModel = [ResponseObjectModel mj_objectWithKeyValues:responseObject];
         if ([responseObjectModel.msg isEqualToString:@"success"]) {
             loadingFileModel.status = @"0";
             redDoteView.hidden = true;
-            
         }else{
-            [MBProgressHUD showMessage:responseObjectModel.msg targetView:self.view delegateTarget:self];
+            
         }
-        [self.fileListTV reloadData];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 
