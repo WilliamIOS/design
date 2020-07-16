@@ -22,10 +22,15 @@
 #import "MJExtension.h"
 #import "ServerApi.h"
 #import "PersonInfoModel.h"
+#import "LoadingFileModel.h"
+#import <QuickLook/QuickLook.h>
+#import "UITabBar+Badge.h"
 
-@interface HomePageListVC ()<UITableViewDelegate,UITableViewDataSource,HomePageBtnsTVCDelegate,ProjectScheduleTVCDelegate,MBProgressHUDDelegate>
+@interface HomePageListVC ()<UITableViewDelegate,UITableViewDataSource,HomePageBtnsTVCDelegate,ProjectScheduleTVCDelegate,MBProgressHUDDelegate,QLPreviewControllerDataSource,QLPreviewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *homePageTV;
+@property (nonatomic,strong) NSMutableArray *previewListMutableArray;
+@property (nonatomic,strong) LoadingFileModel *willPreviewLoadingFileModel;
 
 @end
 
@@ -35,6 +40,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setupSettings];
+    // 预览
+    [self previewListInterface];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    // 未读状态
+    [self remindStatusListInterface];
 }
 
 - (void)setupSettings{
@@ -43,6 +57,13 @@
     self.homePageTV.delegate = self;
     self.homePageTV.estimatedRowHeight = 300.0f;//估算高度
     self.homePageTV.rowHeight = UITableViewAutomaticDimension;
+}
+
+- (NSMutableArray*)previewListMutableArray{
+    if (!_previewListMutableArray) {
+        self.previewListMutableArray = [NSMutableArray array];
+    }
+    return _previewListMutableArray;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -58,6 +79,7 @@
     if (indexPath.section == 0) {
        HomePageBtnsTVC *homePageBtnsTVC = [HomePageBtnsTVC cellWithTableView:tableView cellidentifier:@"HomePageBtnsTVC"];
         homePageBtnsTVC.delegate = self;
+        homePageBtnsTVC.refresh = true;
         cell = homePageBtnsTVC;
 
     }else if (indexPath.section == 1){
@@ -77,6 +99,17 @@
         h = 10.0f;
     }
     return h;
+}
+
+#pragma mark - QLPreviewControllerDataSource
+-(NSInteger)numberOfPreviewItemsInPreviewController:(QLPreviewController *)controller{
+    return 1;
+}
+
+- (id<QLPreviewItem>)previewController:(QLPreviewController *)controller previewItemAtIndex:(NSInteger)index{
+    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *path = [cachesPath stringByAppendingPathComponent:self.willPreviewLoadingFileModel.documentName];
+    return [NSURL fileURLWithPath:path];;
 }
 
 #pragma mark - HomePageBtnsTVCDelegate
@@ -127,12 +160,95 @@
     [self oneClickToDownloadInterface];
 }
 
+// 概念方案preview
+- (void)didConceptSchemePreviewImageViewPreview{
+    if (self.previewListMutableArray[0] != nil) {
+        LoadingFileModel *loadingFileModel = self.previewListMutableArray[0];
+        [self previewFile:loadingFileModel];
+    }
+}
+
+// 平面图preview
+- (void)didPlaneFigurePreviewImageViewPreview{
+    if (self.previewListMutableArray[1] != nil) {
+        LoadingFileModel *loadingFileModel = self.previewListMutableArray[1];
+        [self previewFile:loadingFileModel];
+    }
+}
+
+// 效果图preview
+- (void)didDesignSketchPreviewImageViewPreview{
+    if (self.previewListMutableArray[2] != nil) {
+        LoadingFileModel *loadingFileModel = self.previewListMutableArray[2];
+        [self previewFile:loadingFileModel];
+    }
+}
+
 #pragma mark - ProjectScheduleTVCDelegate
 - (void)didscheduleCalendarBtn{
    ProjectScheduleVC *projectScheduleVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ProjectScheduleVC"];
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = item;
     [self.navigationController pushViewController:projectScheduleVC animated:true];
+}
+
+#pragma mark - 预览
+- (void)previewFile:(LoadingFileModel*)loadingFileModel{
+    self.willPreviewLoadingFileModel = loadingFileModel;
+    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
+    NSFileManager * manager = [NSFileManager defaultManager];
+    BOOL pathHave = [manager fileExistsAtPath:path];
+    
+    if (pathHave) {
+        if ([QLPreviewController canPreviewItem:(id<QLPreviewItem>)[NSURL fileURLWithPath:path]]) {
+            QLPreviewController *previewController = [[QLPreviewController alloc] init];
+            previewController.delegate = self;
+            previewController.dataSource = self;
+            [self presentViewController:previewController animated:YES completion:nil];
+            
+        }else{
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"文件无法预览" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            [alertController addAction:confirmAction];
+            [self presentViewController:alertController animated:YES completion:nil];
+        }
+        
+    }else{
+        [MBProgressHUD showOnlyChrysanthemumWithView:self.view delegateTarget:self];
+        __weak typeof(self) weakSelf = self;
+        [loadingFileModel fileLoading:^(NSURLResponse * _Nonnull response, NSURL * _Nonnull filePath, NSError * _Nonnull error) {
+            [MBProgressHUD hideHUDForView:weakSelf.view];
+            if (error == nil) {
+
+                NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+                NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
+                if ([QLPreviewController canPreviewItem:(id<QLPreviewItem>)[NSURL fileURLWithPath:path]]) {
+                    QLPreviewController *previewController = [[QLPreviewController alloc] init];
+                    previewController.delegate = self;
+                    previewController.dataSource = self;
+                    [self presentViewController:previewController animated:YES completion:nil];
+                    
+                }else{
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"文件无法预览" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                        
+                    }];
+                    [alertController addAction:confirmAction];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                }
+            }else{
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"文件加载出现意外" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    
+                }];
+                [alertController addAction:confirmAction];
+                [self presentViewController:alertController animated:YES completion:nil];
+            }
+        }];
+    }
 }
 
 #pragma mark - 一键下载
@@ -177,6 +293,59 @@
     }];
     // 4. 开启下载任务
     [downloadTask resume];
+}
+
+#pragma mark - 概念，平面，效果图的pdf文件列表
+- (void)previewListInterface{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [dic setObject:[Configure singletonInstance].currentProjectModel.projectId forKey:@"projectId"];
+    
+    [[NetworkRequest shared] getRequest:dic serverUrl:Api_PreviewList success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        ResponseObjectModel *responseObjectModel = [ResponseObjectModel mj_objectWithKeyValues:responseObject];
+        if ([responseObjectModel.msg isEqualToString:@"success"]) {
+            for (int i = 0; i < 3; i++) {
+                NSArray *dataArray = responseObject[@"data"];
+                NSArray *singleArray = dataArray[i];
+                LoadingFileModel *loadingFileModel = [LoadingFileModel mj_objectWithKeyValues:singleArray[0]];
+                [self.previewListMutableArray addObject:loadingFileModel];
+            }
+            
+        }else{
+
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+}
+
+#pragma mark - 新提醒状态列表
+- (void)remindStatusListInterface{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [dic setObject:[Configure singletonInstance].currentProjectModel.projectId forKey:@"projectId"];
+    
+    [[NetworkRequest shared] getRequest:dic serverUrl:Api_RemindStatusList success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        ResponseObjectModel *responseObjectModel = [ResponseObjectModel mj_objectWithKeyValues:responseObject];
+        if ([responseObjectModel.msg isEqualToString:@"success"]) {            
+            NSMutableArray *remindDataMutableArray = [LoadingFileModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            [Configure singletonInstance].remindDataMutableArray = remindDataMutableArray;
+            NSIndexSet *reloadSet = [NSIndexSet indexSetWithIndex:0];
+            [self.homePageTV reloadSections:reloadSet withRowAnimation:UITableViewRowAnimationNone];
+            for (int a = 0; a < [remindDataMutableArray count]; a++) {
+                LoadingFileModel *loadingFileModel = remindDataMutableArray[a];
+                if ([loadingFileModel.updateName isEqualToString:@"变更日程"]) {
+                    if ([loadingFileModel.status isEqualToString:@"1"]) {
+                        [self.tabBarController.tabBar showBadgeOnItemIndex:1];
+                    }else{
+                        [self.tabBarController.tabBar hideBadgeOnItemIndex:1];
+                    }
+                }
+            }
+            
+        }else{
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    }];
 }
 
 #pragma mark - MBProgressHUDDelegate

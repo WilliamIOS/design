@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,strong,nullable) PersonInfoModel *personInfoModel;
 @property (nonatomic,strong,nullable) ProjectModel *currentProjectModel;
+@property (nonatomic,strong,nullable) NSMutableArray *remindDataMutableArray;
 
 
 + (instancetype)singletonInstance;

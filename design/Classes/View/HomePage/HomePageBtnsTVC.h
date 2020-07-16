@@ -19,11 +19,17 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)didOtherFileBtn;
 - (void)didAllLoadingBtn;
 
+- (void)didConceptSchemePreviewImageViewPreview;
+- (void)didPlaneFigurePreviewImageViewPreview;
+- (void)didDesignSketchPreviewImageViewPreview;
+
 @end
 
 @interface HomePageBtnsTVC : UITableViewCell
 
 @property (nonatomic, assign) id<HomePageBtnsTVCDelegate> delegate;
+
+@property (nonatomic,assign) BOOL refresh;
 
 + (instancetype)cellWithTableView:(UITableView *)tableView cellidentifier:(NSString*)cellidentifierName;
 

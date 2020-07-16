@@ -19,11 +19,13 @@
 #import "LoginTableViewController.h"
 #import "ProjectModel.h"
 #import "NetworkRequest.h"
+#import "MJRefresh.h"
 
 @interface MineVC ()<UITableViewDelegate,UITableViewDataSource,MBProgressHUDDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *projectListTV;
 @property (weak, nonatomic) IBOutlet UIButton *signoutBtn;
+@property (nonatomic,strong) NSMutableArray *prjectDataListTotalMutableArray;
 @property (nonatomic,strong) NSMutableArray *prjectDataListMutableArray;
 
 @end
@@ -44,6 +46,17 @@
     self.projectListTV.delegate = self;
     self.projectListTV.estimatedRowHeight = 100.0f;//估算高度
     self.projectListTV.rowHeight = UITableViewAutomaticDimension;
+    
+    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        self.prjectDataListMutableArray = [self.prjectDataListTotalMutableArray mutableCopy];
+        [self.projectListTV.mj_footer setState:(MJRefreshStateNoMoreData)];
+        [self.projectListTV reloadData];
+    }];
+    self.projectListTV.mj_footer = footer;
+    [footer setTitle:@"暂无更多项目" forState:MJRefreshStateNoMoreData];
+    [footer setTitle:@"更多" forState:MJRefreshStateIdle];
+    [self.projectListTV.mj_footer setState:(MJRefreshStateIdle)];
+    
     [self.signoutBtn addTarget:self action:@selector(signoutBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
 }
@@ -53,6 +66,13 @@
         self.prjectDataListMutableArray = [NSMutableArray array];
     }
     return _prjectDataListMutableArray;
+}
+
+- (NSMutableArray*)prjectDataListTotalMutableArray{
+    if (!_prjectDataListTotalMutableArray) {
+        self.prjectDataListTotalMutableArray = [NSMutableArray array];
+    }
+    return _prjectDataListTotalMutableArray;
 }
 
 - (void)signoutBtnClick:(id)sender{
@@ -100,7 +120,16 @@
         [MBProgressHUD hideHUDForView:self.view];
         ResponseObjectModel *responseObjectModel = [ResponseObjectModel mj_objectWithKeyValues:responseObject];
         if ([responseObjectModel.msg isEqualToString:@"success"]) {
-            self.prjectDataListMutableArray = [ProjectModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            self.prjectDataListTotalMutableArray = [ProjectModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            if ([self.prjectDataListTotalMutableArray count] > 3) {
+                [self.prjectDataListMutableArray addObject:self.prjectDataListTotalMutableArray[0]];
+                [self.prjectDataListMutableArray addObject:self.prjectDataListTotalMutableArray[1]];
+                [self.prjectDataListMutableArray addObject:self.prjectDataListTotalMutableArray[2]];
+                [self.projectListTV.mj_footer setState:(MJRefreshStateIdle)];
+            }else{
+                self.prjectDataListMutableArray = [self.prjectDataListTotalMutableArray mutableCopy];
+                [self.projectListTV.mj_footer setState:(MJRefreshStateNoMoreData)];
+            }
             
         }else{
             [MBProgressHUD showMessage:responseObjectModel.msg targetView:self.view delegateTarget:self];

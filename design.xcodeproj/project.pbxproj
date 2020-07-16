@@ -75,6 +75,7 @@
 		60FA955D24BED3F6009578AC /* OtherFileListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FA955C24BED3F6009578AC /* OtherFileListVC.m */; };
 		60FA956024BEE872009578AC /* ScheduleListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FA955F24BEE872009578AC /* ScheduleListModel.m */; };
 		60FA956324BEEA82009578AC /* ProjectScheduleDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FA956224BEEA82009578AC /* ProjectScheduleDetailVC.m */; };
+		60FA956624C04BBA009578AC /* UITabBar+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FA956524C04BBA009578AC /* UITabBar+Badge.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -216,6 +217,8 @@
 		60FA955F24BEE872009578AC /* ScheduleListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleListModel.m; sourceTree = "<group>"; };
 		60FA956124BEEA82009578AC /* ProjectScheduleDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectScheduleDetailVC.h; sourceTree = "<group>"; };
 		60FA956224BEEA82009578AC /* ProjectScheduleDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectScheduleDetailVC.m; sourceTree = "<group>"; };
+		60FA956424C04BBA009578AC /* UITabBar+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+Badge.h"; sourceTree = "<group>"; };
+		60FA956524C04BBA009578AC /* UITabBar+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+Badge.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -426,6 +429,8 @@
 				60ADEDE324B4C1B700629EC3 /* UIView+Extension.m */,
 				60FA954A24BD5A12009578AC /* UIViewController+Extension.h */,
 				60FA954924BD5A12009578AC /* UIViewController+Extension.m */,
+				60FA956424C04BBA009578AC /* UITabBar+Badge.h */,
+				60FA956524C04BBA009578AC /* UITabBar+Badge.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -755,6 +760,7 @@
 				60FA954B24BD5A12009578AC /* UIViewController+Extension.m in Sources */,
 				607732CD24B71DA700192576 /* AFNetworkReachabilityManager.m in Sources */,
 				60FA955124BDB626009578AC /* PlaneFigureListVC.m in Sources */,
+				60FA956624C04BBA009578AC /* UITabBar+Badge.m in Sources */,
 				607732CC24B71DA700192576 /* AFURLRequestSerialization.m in Sources */,
 				60E7EB6124B359810056A252 /* HomePageListNavigationController.m in Sources */,
 				6077330424B863CC00192576 /* FSCalendarCollectionViewLayout.m in Sources */,

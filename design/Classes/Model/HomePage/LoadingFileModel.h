@@ -27,6 +27,10 @@ typedef void(^FileLoadingSuccessHandle)(NSURLResponse *response, NSURL *filePath
 @property (nonatomic,strong) NSString *tenantCode;
 @property (nonatomic,strong) NSString *updateDate;
 @property (nonatomic,strong) NSString *updater;
+@property (nonatomic,strong) NSString *updateName;
+
+// 1是更新提示，0是已读不提示
+@property (nonatomic,strong) NSString *status;
 // 文件名后缀
 @property (nonatomic,strong) NSString *fileSuffixStr;
 // 是否选中

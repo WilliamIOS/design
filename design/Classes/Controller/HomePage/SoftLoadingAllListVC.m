@@ -53,7 +53,7 @@
         
     }];
     self.fileListTV.mj_footer = footer;
-    [footer setTitle:@"暂无更多施工图文件" forState:MJRefreshStateNoMoreData];
+    [footer setTitle:@"暂无更多软装材料文件" forState:MJRefreshStateNoMoreData];
     [self.loadingFileView setRoundedView:self.loadingFileView cornerRadius:10 borderWidth:4 borderColor:PWColor(178, 42, 128)];
     [self.checkHistoryFileView setRoundedView:self.checkHistoryFileView cornerRadius:10 borderWidth:4 borderColor:PWColor(178, 42, 128)];
     UITapGestureRecognizer *loadingFileViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(loadingFileViewGesture:)];

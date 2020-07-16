@@ -39,6 +39,8 @@ NSString *const Api_ScheduleDetail= @"project/projectSchedule/getBodyById";
 NSString *const Api_RemindStatusList = @"project/updatename/getListByProIdAndStatus";
 /**变更提醒状态*/
 NSString *const Api_UpdateRemindStatus = @"project/updatestatus";
+/**查询概念，平面，效果图的pdf文件列表*/
+NSString *const Api_PreviewList = @"project/projectFiles/getpdfFilesList";
 
 
 @implementation ServerApi

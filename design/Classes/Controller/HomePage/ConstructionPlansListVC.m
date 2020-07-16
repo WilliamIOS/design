@@ -43,6 +43,10 @@
 // 水电图
 @property (nonatomic,strong) NSMutableArray *diagramMutableArray;
 
+@property (weak, nonatomic) IBOutlet UIView *remindStatusFlatSurfaceView;
+@property (weak, nonatomic) IBOutlet UIView *remindStatusPartitionSurfaceView;
+@property (weak, nonatomic) IBOutlet UIView *remindStatusDiagramView;
+
 @end
 
 @implementation ConstructionPlansListVC
@@ -63,7 +67,7 @@
         
     }];
     self.fileListTV.mj_footer = footer;
-    [footer setTitle:@"暂无更多概念方案文件" forState:MJRefreshStateNoMoreData];
+    [footer setTitle:@"暂无更多施工图文件" forState:MJRefreshStateNoMoreData];
     [self.loadingFileView setRoundedView:self.loadingFileView cornerRadius:10 borderWidth:4 borderColor:PWColor(225, 188, 2)];
     [self.checkHistoryFileView setRoundedView:self.checkHistoryFileView cornerRadius:10 borderWidth:4 borderColor:PWColor(225, 188, 2)];
     UITapGestureRecognizer *loadingFileViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(loadingFileViewGesture:)];
@@ -83,6 +87,39 @@
     [self.flatSurfaceBtn addTarget:self action:@selector(flatSurfaceBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.partitionBtn addTarget:self action:@selector(partitionBtnurfaceBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.diagramBtn addTarget:self action:@selector(diagramBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.remindStatusFlatSurfaceView.hidden = false;
+    self.remindStatusPartitionSurfaceView.hidden = false;
+    self.remindStatusDiagramView.hidden = false;
+    
+    NSMutableArray *remindDataMutableArray = [Configure singletonInstance].remindDataMutableArray;
+    for (int i = 0; i < [remindDataMutableArray count]; i++) {
+        LoadingFileModel *loadingFileModel = remindDataMutableArray[i];
+        if ([loadingFileModel.updateName isEqualToString:@"施工平顶面"]) {
+            if ([loadingFileModel.status isEqualToString:@"1"]) {
+                self.remindStatusFlatSurfaceView.hidden = false;
+            }else{
+                self.remindStatusFlatSurfaceView.hidden = true;
+            }
+            
+        }else if ([loadingFileModel.updateName isEqualToString:@"隔墙图"]){
+            if ([loadingFileModel.status isEqualToString:@"1"]) {
+                self.remindStatusPartitionSurfaceView.hidden = false;
+            }else{
+                self.remindStatusPartitionSurfaceView.hidden = true;
+            }
+            
+        }else if ([loadingFileModel.updateName isEqualToString:@"水电图"]){
+            if ([loadingFileModel.status isEqualToString:@"1"]) {
+                self.remindStatusDiagramView.hidden = false;
+            }else{
+                self.remindStatusDiagramView.hidden = true;
+            }
+            
+        }else{
+            
+        }
+    }
 }
 
 - (NSMutableArray*)loadingFileModelMutableArray{
@@ -143,6 +180,20 @@
 
 - (void)flatSurfaceBtnClick:(id)sender{
     [MBProgressHUD showOnlyChrysanthemumWithView:self.view delegateTarget:self];
+    
+    NSMutableArray *remindDataMutableArray = [Configure singletonInstance].remindDataMutableArray;
+    for (int i = 0; i < [remindDataMutableArray count]; i++) {
+        LoadingFileModel *loadingFileModel = remindDataMutableArray[i];
+        if ([loadingFileModel.updateName isEqualToString:@"施工平顶面"]) {
+            [self updateRemindStatusInterface:loadingFileModel targetView:self.remindStatusFlatSurfaceView];
+            break;
+        }else if ([loadingFileModel.updateName isEqualToString:@"隔墙图"]){
+        }else if ([loadingFileModel.updateName isEqualToString:@"水电图"]){
+        }else{
+            
+        }
+    }
+
     LoadingFileModel *loadingFileModel = self.flatSurfaceMutableArray[0];
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
@@ -167,6 +218,19 @@
 
 - (void)partitionBtnurfaceBtnClick:(id)sender{
     [MBProgressHUD showOnlyChrysanthemumWithView:self.view delegateTarget:self];
+    NSMutableArray *remindDataMutableArray = [Configure singletonInstance].remindDataMutableArray;
+    for (int i = 0; i < [remindDataMutableArray count]; i++) {
+        LoadingFileModel *loadingFileModel = remindDataMutableArray[i];
+        if ([loadingFileModel.updateName isEqualToString:@"施工平顶面"]) {
+            
+        }else if ([loadingFileModel.updateName isEqualToString:@"隔墙图"]){
+            [self updateRemindStatusInterface:loadingFileModel targetView:self.remindStatusPartitionSurfaceView];
+            break;
+        }else if ([loadingFileModel.updateName isEqualToString:@"水电图"]){
+        }else{
+            
+        }
+    }
     LoadingFileModel *loadingFileModel = self.partitionMutableArray[0];
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
@@ -191,6 +255,18 @@
 
 - (void)diagramBtnClick:(id)sender{
     [MBProgressHUD showOnlyChrysanthemumWithView:self.view delegateTarget:self];
+    NSMutableArray *remindDataMutableArray = [Configure singletonInstance].remindDataMutableArray;
+    for (int i = 0; i < [remindDataMutableArray count]; i++) {
+        LoadingFileModel *loadingFileModel = remindDataMutableArray[i];
+        if ([loadingFileModel.updateName isEqualToString:@"施工平顶面"]) {
+        }else if ([loadingFileModel.updateName isEqualToString:@"隔墙图"]){
+        }else if ([loadingFileModel.updateName isEqualToString:@"水电图"]){
+            [self updateRemindStatusInterface:loadingFileModel targetView:self.remindStatusDiagramView];
+            break;
+        }else{
+            
+        }
+    }
     LoadingFileModel *loadingFileModel = self.diagramMutableArray[0];
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
@@ -499,6 +575,29 @@
     }];
     // 4. 开启下载任务
     [downloadTask resume];
+}
+
+#pragma mark - 提醒状态变更
+- (void)updateRemindStatusInterface:(LoadingFileModel*)loadingFileModel targetView:(UIView*)redDoteView{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [dic setObject:[Configure singletonInstance].currentProjectModel.projectId forKey:@"projectId"];
+    [dic setObject:loadingFileModel.fileId forKey:@"updateId"];
+
+    [[NetworkRequest shared] getRequest:dic serverUrl:Api_UpdateRemindStatus success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [MBProgressHUD hideHUDForView:self.view];
+        ResponseObjectModel *responseObjectModel = [ResponseObjectModel mj_objectWithKeyValues:responseObject];
+        if ([responseObjectModel.msg isEqualToString:@"success"]) {
+            loadingFileModel.status = @"0";
+            redDoteView.hidden = true;
+            
+        }else{
+            [MBProgressHUD showMessage:responseObjectModel.msg targetView:self.view delegateTarget:self];
+        }
+        [self.fileListTV reloadData];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+
+    }];
 }
 
 #pragma mark - MBProgressHUDDelegate

@@ -39,7 +39,8 @@ extern NSString *const Api_ScheduleDetail;
 extern NSString *const Api_RemindStatusList;
 /**变更提醒状态*/
 extern NSString *const Api_UpdateRemindStatus;
-
+/**查询概念，平面，效果图的pdf文件列表*/
+extern NSString *const Api_PreviewList;
 
 @interface ServerApi : NSObject
 

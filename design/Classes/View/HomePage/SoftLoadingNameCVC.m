@@ -12,12 +12,17 @@
 #import "UIViewController+Extension.h"
 #import "MBProgressHUD+PW.h"
 #import <QuickLook/QuickLook.h>
+#import "Configure.h"
+#import "LoadingFileModel.h"
 
 @interface SoftLoadingNameCVC()<QLPreviewControllerDataSource,QLPreviewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (nonatomic,strong) NSMutableArray *currentDataMutableArray;
 @property (nonatomic,strong) LoadingFileModel *willPreviewLoadingFileModel;
+
+@property (weak, nonatomic) IBOutlet UIView *remindStatusView;
+
 
 @end
 
@@ -115,6 +120,83 @@
     }
     UITapGestureRecognizer *titleLabelTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(titleLabelGesture:)];
     [self.titleLabel addGestureRecognizer:titleLabelTap];
+    
+    self.remindStatusView.hidden = true;
+    NSMutableArray *remindDataMutableArray = [Configure singletonInstance].remindDataMutableArray;
+    for (int i = 0; i < [remindDataMutableArray count]; i++) {
+        LoadingFileModel *loadingFileModel = remindDataMutableArray[i];
+        if ([loadingFileModel.updateName isEqualToString:@"家具清单"]) {
+            if ([btnNameStr isEqualToString:@"家具清单"] && [loadingFileModel.status isEqualToString:@"1"]) {
+                self.remindStatusView.hidden = false;
+                break;
+            }
+        }else if([loadingFileModel.updateName isEqualToString:@"装饰灯具清单"]){
+            if ([btnNameStr isEqualToString:@"装饰灯具清单"] && [loadingFileModel.status isEqualToString:@"1"]) {
+                self.remindStatusView.hidden = false;
+                break;
+            }
+        }else if([loadingFileModel.updateName isEqualToString:@"工程灯具清单"]){
+            if ([btnNameStr isEqualToString:@"工程灯具清单"] && [loadingFileModel.status isEqualToString:@"1"]) {
+                self.remindStatusView.hidden = false;
+                break;
+            }
+        }else if([loadingFileModel.updateName isEqualToString:@"软装清单"]){
+            if ([btnNameStr isEqualToString:@"软装清单"] && [loadingFileModel.status isEqualToString:@"1"]) {
+                self.remindStatusView.hidden = false;
+                break;
+            }
+        }else if([loadingFileModel.updateName isEqualToString:@"窗帘清单"]){
+            if ([btnNameStr isEqualToString:@"软装清单"] && [loadingFileModel.status isEqualToString:@"1"]) {
+                self.remindStatusView.hidden = false;
+                break;
+            }
+        }else if([loadingFileModel.updateName isEqualToString:@"五金清单"]){
+            if ([btnNameStr isEqualToString:@"五金清单"] && [loadingFileModel.status isEqualToString:@"1"]) {
+                self.remindStatusView.hidden = false;
+                break;
+            }
+        }else if([loadingFileModel.updateName isEqualToString:@"洁具清单"]){
+            if ([btnNameStr isEqualToString:@"具清单"] && [loadingFileModel.status isEqualToString:@"1"]) {
+                self.remindStatusView.hidden = false;
+                break;
+            }
+        }else if([loadingFileModel.updateName isEqualToString:@"主材清单"]){
+            if ([btnNameStr isEqualToString:@"主材清单"] && [loadingFileModel.status isEqualToString:@"1"]) {
+                self.remindStatusView.hidden = false;
+                break;
+            }
+        }else if([loadingFileModel.updateName isEqualToString:@"材料样板"]){
+            if ([btnNameStr isEqualToString:@"材料样板"] && [loadingFileModel.status isEqualToString:@"1"]) {
+                self.remindStatusView.hidden = false;
+                break;
+            }
+        }else if([loadingFileModel.updateName isEqualToString:@"定制家具CAD图纸"]){
+            if ([btnNameStr isEqualToString:@"定制家具CAD图纸"] && [loadingFileModel.status isEqualToString:@"1"]) {
+                self.remindStatusView.hidden = false;
+                break;
+            }
+        }else if([loadingFileModel.updateName isEqualToString:@"花灯深化CAD图纸"]){
+            if ([btnNameStr isEqualToString:@"花灯深化CAD图纸"] && [loadingFileModel.status isEqualToString:@"1"]) {
+                self.remindStatusView.hidden = false;
+                break;
+            }
+        }else if([loadingFileModel.updateName isEqualToString:@"工程灯具点位CAD图纸"]){
+            if ([btnNameStr isEqualToString:@"工程灯具点位CAD图纸"] && [loadingFileModel.status isEqualToString:@"1"]) {
+                self.remindStatusView.hidden = false;
+                break;
+            }
+        }else if([loadingFileModel.updateName isEqualToString:@"定制艺术品图纸"]){
+            if ([btnNameStr isEqualToString:@"定制艺术品图纸"] && [loadingFileModel.status isEqualToString:@"1"]) {
+                self.remindStatusView.hidden = false;
+                break;
+            }
+        }else if([loadingFileModel.updateName isEqualToString:@"图纸变更"]){
+            if ([btnNameStr isEqualToString:@"图纸变更"] && [loadingFileModel.status isEqualToString:@"1"]) {
+                self.remindStatusView.hidden = false;
+                break;
+            }
+        }
+    }
     
 }
 
