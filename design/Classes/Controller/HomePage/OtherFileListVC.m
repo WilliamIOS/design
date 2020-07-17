@@ -43,6 +43,7 @@
     [self setupSettings];
     [MBProgressHUD showOnlyChrysanthemumWithView:self.view delegateTarget:self];
     [self otherFileInterface];
+    [self remindStatusHandle];
 }
 
 - (void)setupSettings{
@@ -301,6 +302,38 @@
     }];
     // 4. 开启下载任务
     [downloadTask resume];
+}
+
+- (void)remindStatusHandle{
+    NSMutableArray *remindDataMutableArray = [Configure singletonInstance].remindDataMutableArray;
+    for (int i = 0; i < [remindDataMutableArray count]; i++) {
+        LoadingFileModel *loadingFileModel = remindDataMutableArray[i];
+        if ([loadingFileModel.updateName isEqualToString:@"其他文件"]) {
+            if ([loadingFileModel.status isEqualToString:@"1"]) {
+                [self updateRemindStatusInterface:loadingFileModel];
+            }
+            break;
+        }else{
+        }
+    }
+}
+
+#pragma mark - 提醒状态变更
+- (void)updateRemindStatusInterface:(LoadingFileModel*)loadingFileModel{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [dic setObject:[Configure singletonInstance].currentProjectModel.projectId forKey:@"projectId"];
+    [dic setObject:loadingFileModel.fileId forKey:@"updateId"];
+
+    [[NetworkRequest shared] getRequest:dic serverUrl:Api_UpdateRemindStatus success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        ResponseObjectModel *responseObjectModel = [ResponseObjectModel mj_objectWithKeyValues:responseObject];
+        if ([responseObjectModel.msg isEqualToString:@"success"]) {
+            loadingFileModel.status = @"0";
+        }else{
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+
+    }];
 }
 
 #pragma mark - MBProgressHUDDelegate
