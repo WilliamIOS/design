@@ -913,15 +913,17 @@
 			baseConfigurationReference = 592A576F26DE123A44C55432 /* Pods-design.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 9X7C849RMQ;
 				INFOPLIST_FILE = design/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.company.design;
+				PRODUCT_BUNDLE_IDENTIFIER = com.company.designtest;
 				PRODUCT_NAME = "半元设计";
+				PROVISIONING_PROFILE_SPECIFIER = designtest;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/**",
@@ -935,15 +937,17 @@
 			baseConfigurationReference = 11173E853284B6A9AEC231A4 /* Pods-design.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 9X7C849RMQ;
 				INFOPLIST_FILE = design/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.company.design;
+				PRODUCT_BUNDLE_IDENTIFIER = com.company.designtest;
 				PRODUCT_NAME = "半元设计";
+				PROVISIONING_PROFILE_SPECIFIER = designtest;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/**",

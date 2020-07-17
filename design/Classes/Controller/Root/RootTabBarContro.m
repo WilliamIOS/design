@@ -40,6 +40,7 @@
     // UITabBarItem默认/选中标题的颜色
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor grayColor]} forState:UIControlStateNormal];
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:PWColor(235, 141, 26)} forState:UIControlStateSelected];
+    self.tabBar.tintColor = PWColor(235, 141, 26);
     [[UINavigationBar appearance] setTranslucent:NO];
 }
 

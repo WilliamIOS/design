@@ -71,7 +71,7 @@
 
 #pragma mark - UICollectionViewDelegate
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return  CGSizeMake(currentScreenW*0.5, 60);
+    return  CGSizeMake(currentScreenW*0.5, 50);
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
