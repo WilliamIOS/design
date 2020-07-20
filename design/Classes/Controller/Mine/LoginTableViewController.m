@@ -40,6 +40,7 @@
     self.tableView.backgroundColor= [UIColor whiteColor];
     UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"login_background_transparent"]];
     self.tableView.backgroundView = imageView;
+
     
     [self.loginBtn addTarget:self action:@selector(loginBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.accountNameTextField addTarget:self action:@selector(accountNameTextFieldValueChanged:)  forControlEvents:UIControlEventAllEditingEvents];
@@ -92,7 +93,7 @@
             
             RootTabBarContro *rootTabBarContro = [self.storyboard instantiateViewControllerWithIdentifier:@"RootTabBarContro"];
             [UIApplication sharedApplication].keyWindow.rootViewController = rootTabBarContro;
-            rootTabBarContro.selectedIndex = 3;
+            rootTabBarContro.selectedIndex = 4;
             
         }else{
             [MBProgressHUD showMessage:responseObjectModel.msg targetView:self.view delegateTarget:self];
