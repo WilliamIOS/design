@@ -40,7 +40,6 @@
     self.tableView.backgroundColor= [UIColor whiteColor];
     UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"login_background_transparent"]];
     self.tableView.backgroundView = imageView;
-//    self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"login_background"]];
     
     [self.loginBtn addTarget:self action:@selector(loginBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.accountNameTextField addTarget:self action:@selector(accountNameTextFieldValueChanged:)  forControlEvents:UIControlEventAllEditingEvents];

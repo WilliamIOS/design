@@ -7,6 +7,11 @@
 
 #import "AppDelegate.h"
 #import "RootTabBarContro.h"
+#import "LoginTableViewController.h"
+#import "PersonInfoModel.h"
+#import "Configure.h"
+#import "MineVC.h"
+
 
 @interface AppDelegate ()
 
@@ -17,6 +22,24 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+//    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    // 从沙盒中获取用户信息
+//    NSString *doc = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+//    NSString *path = [doc stringByAppendingPathComponent:@"account.archive"];
+//    PersonInfoModel *personInfoModel = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+//    if (personInfoModel != nil) {
+//        Configure *configure = [Configure singletonInstance];
+//        configure.personInfoModel = personInfoModel;
+//        RootTabBarContro *rootTabBarContro = [mainStoryboard instantiateViewControllerWithIdentifier:@"RootTabBarContro"];
+//        self.window.rootViewController = rootTabBarContro;
+//        [self.window makeKeyAndVisible];
+//        rootTabBarContro.selectedIndex = 3;
+//        
+//    }else{
+//        LoginTableViewController *loginTableViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"LoginTableViewController"];
+//        self.window.rootViewController = loginTableViewController;
+//        [self.window makeKeyAndVisible];
+//    }
 
     return YES;
 }
