@@ -163,24 +163,33 @@
 // 概念方案preview
 - (void)didConceptSchemePreviewImageViewPreview{
     if (self.previewListMutableArray[0] != nil) {
-        LoadingFileModel *loadingFileModel = self.previewListMutableArray[0];
-        [self previewFile:loadingFileModel];
+        NSArray *singleArray = self.previewListMutableArray[0];
+        if ([singleArray count] >0) {
+            LoadingFileModel *loadingFileModel = [LoadingFileModel mj_objectWithKeyValues:singleArray[0]];
+            [self previewFile:loadingFileModel];
+        }
     }
 }
 
 // 平面图preview
 - (void)didPlaneFigurePreviewImageViewPreview{
     if (self.previewListMutableArray[1] != nil) {
-        LoadingFileModel *loadingFileModel = self.previewListMutableArray[1];
-        [self previewFile:loadingFileModel];
+        NSArray *singleArray = self.previewListMutableArray[1];
+        if ([singleArray count] >0) {
+            LoadingFileModel *loadingFileModel = [LoadingFileModel mj_objectWithKeyValues:singleArray[0]];
+            [self previewFile:loadingFileModel];
+        }
     }
 }
 
 // 效果图preview
 - (void)didDesignSketchPreviewImageViewPreview{
     if (self.previewListMutableArray[2] != nil) {
-        LoadingFileModel *loadingFileModel = self.previewListMutableArray[2];
-        [self previewFile:loadingFileModel];
+        NSArray *singleArray = self.previewListMutableArray[2];
+        if ([singleArray count] >0) {
+            LoadingFileModel *loadingFileModel = [LoadingFileModel mj_objectWithKeyValues:singleArray[0]];
+            [self previewFile:loadingFileModel];
+        }
     }
 }
 
@@ -306,16 +315,12 @@
             for (int i = 0; i < 3; i++) {
                 NSArray *dataArray = responseObject[@"data"];
                 NSArray *singleArray = dataArray[i];
-                LoadingFileModel *loadingFileModel = [LoadingFileModel mj_objectWithKeyValues:singleArray[0]];
-                [self.previewListMutableArray addObject:loadingFileModel];
+                [self.previewListMutableArray addObject:singleArray];
             }
-            
-        }else{
 
+        }else{
         }
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
     }];
 }
 
@@ -326,7 +331,7 @@
     
     [[NetworkRequest shared] getRequest:dic serverUrl:Api_RemindStatusList success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         ResponseObjectModel *responseObjectModel = [ResponseObjectModel mj_objectWithKeyValues:responseObject];
-        if ([responseObjectModel.msg isEqualToString:@"success"]) {            
+        if ([responseObjectModel.msg isEqualToString:@"success"]) {
             NSMutableArray *remindDataMutableArray = [LoadingFileModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
             [Configure singletonInstance].remindDataMutableArray = remindDataMutableArray;
             NSIndexSet *reloadSet = [NSIndexSet indexSetWithIndex:0];
@@ -335,9 +340,9 @@
                 LoadingFileModel *loadingFileModel = remindDataMutableArray[a];
                 if ([loadingFileModel.updateName isEqualToString:@"变更日程"]) {
                     if ([loadingFileModel.status isEqualToString:@"1"]) {
-                        [self.tabBarController.tabBar showBadgeOnItemIndex:1];
+                        [self.tabBarController.tabBar showBadgeOnItemIndex:2];
                     }else{
-                        [self.tabBarController.tabBar hideBadgeOnItemIndex:1];
+                        [self.tabBarController.tabBar hideBadgeOnItemIndex:2];
                     }
                 }
             }

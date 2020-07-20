@@ -7,6 +7,7 @@
 
 #import "MineProjectTVC.h"
 #import "UIView+Extension.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface MineProjectTVC()
 
@@ -50,7 +51,19 @@
     self.projectTitleLabel.text = projectModel.projectName;
     NSArray *createDateArray = [projectModel.createDate componentsSeparatedByString:@" "];
     self.projectTimeLabel.text = createDateArray[0];
-    
+    NSString *url = projectModel.imageAddress;
+    if (![url isEqualToString:@""] && url != nil) {
+    NSString * urlStr = [projectModel.imageAddress stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+        [self.projectImageView sd_setImageWithURL:[NSURL URLWithString:urlStr] placeholderImage:[UIImage imageNamed:@"topListImg"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            if (error != nil) {
+                /**下载失败*/
+                self.projectImageView.image = [UIImage imageNamed:@"topListImg"];
+            }else{
+                /**下载成功*/
+                self.projectImageView.image = image;
+            }
+        }];
+    }
 }
 
 @end

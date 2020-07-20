@@ -58,7 +58,6 @@
     [self.projectListTV.mj_footer setState:(MJRefreshStateIdle)];
     
     [self.signoutBtn addTarget:self action:@selector(signoutBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    
 }
 
 - (NSMutableArray*)prjectDataListMutableArray{

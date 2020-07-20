@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		22FDF753B435C4E1814A4AAE /* Pods_design.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE6FE5027FE11D1494762F3 /* Pods_design.framework */; };
+		607407A824C59E9E0039E21C /* PanoramicNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 607407A524C59E9E0039E21C /* PanoramicNavigationController.m */; };
+		607407A924C59E9E0039E21C /* PanoramicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 607407A624C59E9E0039E21C /* PanoramicVC.m */; };
 		6077325324AEFA7100192576 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6077325224AEFA7100192576 /* AppDelegate.m */; };
-		6077325624AEFA7100192576 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6077325524AEFA7100192576 /* SceneDelegate.m */; };
 		6077325924AEFA7100192576 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6077325824AEFA7100192576 /* ViewController.m */; };
 		6077325C24AEFA7100192576 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6077325A24AEFA7100192576 /* Main.storyboard */; };
 		6077325E24AEFA7300192576 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6077325D24AEFA7300192576 /* Assets.xcassets */; };
@@ -82,11 +83,13 @@
 		11173E853284B6A9AEC231A4 /* Pods-design.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-design.release.xcconfig"; path = "Target Support Files/Pods-design/Pods-design.release.xcconfig"; sourceTree = "<group>"; };
 		2AE6FE5027FE11D1494762F3 /* Pods_design.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_design.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		592A576F26DE123A44C55432 /* Pods-design.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-design.debug.xcconfig"; path = "Target Support Files/Pods-design/Pods-design.debug.xcconfig"; sourceTree = "<group>"; };
+		607407A424C59E9E0039E21C /* PanoramicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanoramicVC.h; sourceTree = "<group>"; };
+		607407A524C59E9E0039E21C /* PanoramicNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanoramicNavigationController.m; sourceTree = "<group>"; };
+		607407A624C59E9E0039E21C /* PanoramicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanoramicVC.m; sourceTree = "<group>"; };
+		607407A724C59E9E0039E21C /* PanoramicNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanoramicNavigationController.h; sourceTree = "<group>"; };
 		6077324E24AEFA7100192576 /* 半元设计.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "半元设计.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6077325124AEFA7100192576 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6077325224AEFA7100192576 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6077325424AEFA7100192576 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		6077325524AEFA7100192576 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		6077325724AEFA7100192576 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		6077325824AEFA7100192576 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6077325B24AEFA7100192576 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -250,6 +253,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		607407A324C59E9E0039E21C /* Panoramic */ = {
+			isa = PBXGroup;
+			children = (
+				607407A424C59E9E0039E21C /* PanoramicVC.h */,
+				607407A524C59E9E0039E21C /* PanoramicNavigationController.m */,
+				607407A624C59E9E0039E21C /* PanoramicVC.m */,
+				607407A724C59E9E0039E21C /* PanoramicNavigationController.h */,
+			);
+			path = Panoramic;
+			sourceTree = "<group>";
+		};
 		6077324524AEFA7100192576 = {
 			isa = PBXGroup;
 			children = (
@@ -275,8 +289,6 @@
 				6077327224AEFEF000192576 /* InterfaceBuider */,
 				6077325124AEFA7100192576 /* AppDelegate.h */,
 				6077325224AEFA7100192576 /* AppDelegate.m */,
-				6077325424AEFA7100192576 /* SceneDelegate.h */,
-				6077325524AEFA7100192576 /* SceneDelegate.m */,
 				6077325724AEFA7100192576 /* ViewController.h */,
 				6077325824AEFA7100192576 /* ViewController.m */,
 				6077325D24AEFA7300192576 /* Assets.xcassets */,
@@ -476,6 +488,7 @@
 		60E7EB4C24B3576A0056A252 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				607407A324C59E9E0039E21C /* Panoramic */,
 				60E7EB4D24B3576A0056A252 /* Schedule */,
 				60E7EB4E24B3576A0056A252 /* HomePage */,
 				60E7EB4F24B3576A0056A252 /* Mine */,
@@ -717,9 +730,11 @@
 				6077330724B863CC00192576 /* FSCalendarExtensions.m in Sources */,
 				6077331B24BAD16200192576 /* ResponseObjectModel.m in Sources */,
 				6077330224B863CC00192576 /* FSCalendarStickyHeader.m in Sources */,
+				607407A824C59E9E0039E21C /* PanoramicNavigationController.m in Sources */,
 				60E7EB6B24B359EF0056A252 /* ScheduleVC.m in Sources */,
 				6077331224BAB2B700192576 /* PlanListTVC.m in Sources */,
 				6077330624B863CC00192576 /* FSCalendarSeparatorDecorationView.m in Sources */,
+				607407A924C59E9E0039E21C /* PanoramicVC.m in Sources */,
 				607732D724B810F600192576 /* SoftLoadingListVC.m in Sources */,
 				60FA955424BDDE1C009578AC /* DesignSketchListVC.m in Sources */,
 				60ADEDDD24B4ABE400629EC3 /* LoginTableViewController.m in Sources */,
@@ -771,7 +786,6 @@
 				6077326424AEFA7300192576 /* main.m in Sources */,
 				60ADEDE424B4C1B700629EC3 /* UIView+Extension.m in Sources */,
 				60FA955A24BECFA2009578AC /* SoftLoadingAllListVC.m in Sources */,
-				6077325624AEFA7100192576 /* SceneDelegate.m in Sources */,
 				607732C924B71DA700192576 /* AFURLResponseSerialization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
