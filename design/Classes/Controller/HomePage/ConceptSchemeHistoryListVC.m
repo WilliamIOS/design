@@ -20,7 +20,7 @@
 #import "LoadingFileModel.h"
 #import <QuickLook/QuickLook.h>
 
-@interface ConceptSchemeHistoryListVC ()<UITableViewDataSource,UITableViewDelegate,MBProgressHUDDelegate,QLPreviewControllerDataSource,QLPreviewControllerDelegate,LoadingFileTVCDelegate>
+@interface ConceptSchemeHistoryListVC ()<UITableViewDataSource,UITableViewDelegate,MBProgressHUDDelegate,QLPreviewControllerDataSource,QLPreviewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *fileListTV;
 @property (weak, nonatomic) IBOutlet UIView *loadingFileView;
@@ -108,25 +108,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     LoadingFileTVC *loadingFileTVC = [LoadingFileTVC cellWithTableView:tableView cellidentifier:@"LoadingFileTVCWithConceptSchemeHistory"];
-    loadingFileTVC.delegate = self;
     loadingFileTVC.currentIndexPath = indexPath;
     loadingFileTVC.loadingFileModel = self.loadingFileModelMutableArray[indexPath.row];
     return loadingFileTVC;
 }
 
-#pragma mark - QLPreviewControllerDataSource
--(NSInteger)numberOfPreviewItemsInPreviewController:(QLPreviewController *)controller{
-    return 1;
-}
-
-- (id<QLPreviewItem>)previewController:(QLPreviewController *)controller previewItemAtIndex:(NSInteger)index{
-    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *path = [cachesPath stringByAppendingPathComponent:self.willPreviewLoadingFileModel.documentName];
-    return [NSURL fileURLWithPath:path];;
-}
-
-#pragma mark - LoadingFileTVCDelegate
-- (void)didpreviewBtn:(LoadingFileModel *)loadingFileModel currentIndexPath:(NSIndexPath *)currentIndexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    LoadingFileModel *loadingFileModel = self.loadingFileModelMutableArray[indexPath.row];
     self.willPreviewLoadingFileModel = loadingFileModel;
     NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
     NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
@@ -155,7 +143,7 @@
         [loadingFileModel fileLoading:^(NSURLResponse * _Nonnull response, NSURL * _Nonnull filePath, NSError * _Nonnull error) {
             [MBProgressHUD hideHUDForView:weakSelf.view];
             if (error == nil) {
-                [self.fileListTV reloadRowsAtIndexPaths:[NSArray arrayWithObject:currentIndexPath] withRowAnimation:UITableViewRowAnimationNone];
+                [self.fileListTV reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
                 NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
                 NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
                 if ([QLPreviewController canPreviewItem:(id<QLPreviewItem>)[NSURL fileURLWithPath:path]]) {
@@ -182,6 +170,17 @@
             }
         }];
     }
+}
+
+#pragma mark - QLPreviewControllerDataSource
+-(NSInteger)numberOfPreviewItemsInPreviewController:(QLPreviewController *)controller{
+    return 1;
+}
+
+- (id<QLPreviewItem>)previewController:(QLPreviewController *)controller previewItemAtIndex:(NSInteger)index{
+    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *path = [cachesPath stringByAppendingPathComponent:self.willPreviewLoadingFileModel.documentName];
+    return [NSURL fileURLWithPath:path];;
 }
 
 - (void)loadingFileViewGesture:(UITapGestureRecognizer*)recognizer {

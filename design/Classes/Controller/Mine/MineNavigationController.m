@@ -16,8 +16,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    UIViewController *mineVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MineVC"];
-    self.viewControllers = @[mineVC];
+    UIViewController *personalCentreVC = [self.storyboard instantiateViewControllerWithIdentifier:@"PersonalCentreVC"];
+    self.viewControllers = @[personalCentreVC];
     [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
 }
 

@@ -16,8 +16,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    UIViewController *addressBookVC = [self.storyboard instantiateViewControllerWithIdentifier:@"AddressBookVC"];
-    self.viewControllers = @[addressBookVC];
+    UIViewController *addressBookListVC = [self.storyboard instantiateViewControllerWithIdentifier:@"AddressBookListVC"];
+    self.viewControllers = @[addressBookListVC];
     [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
 }
 

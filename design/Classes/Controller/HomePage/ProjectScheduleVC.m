@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *planListTV;
 @property (nonatomic,strong) NSMutableArray *scheduleListModelMutableArray;
 
+
 @end
 
 @implementation ProjectScheduleVC
@@ -54,6 +55,9 @@
     
     UIView *footerView = [[UIView alloc] init];
     self.planListTV.tableFooterView = footerView;
+}
+
+- (IBAction)insertBtn:(id)sender {
 }
 
 - (NSMutableArray*)scheduleListModelMutableArray{

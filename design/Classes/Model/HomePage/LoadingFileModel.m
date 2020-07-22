@@ -18,6 +18,7 @@
 - (void)fileLoading:(FileLoadingSuccessHandle)fileLoadingSuccessHandle{
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
     NSString * urlStr = [self.documentUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     NSURL *URL = [NSURL URLWithString:urlStr];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];

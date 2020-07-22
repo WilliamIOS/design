@@ -16,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *fileTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLable;
 @property (weak, nonatomic) IBOutlet UIButton *transmitBtn;
-@property (weak, nonatomic) IBOutlet UIButton *previewBtn;
 
 @end
 
@@ -46,7 +45,6 @@
 - (void)setupSetings{
     [self.checkBtn addTarget:self action:@selector(checkBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.transmitBtn addTarget:self action:@selector(transmitBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.previewBtn addTarget:self action:@selector(previewBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.transmitBtn setTitle:@"" forState:UIControlStateNormal];
     
 }
@@ -96,9 +94,9 @@
     self.loadingFileModel.isChecked = btn.selected;
 }
 
-- (void)previewBtnClick:(id)sender{
-    [self.delegate didpreviewBtn:self.loadingFileModel currentIndexPath:self.currentIndexPath];
-}
+//- (void)previewBtnClick:(id)sender{
+//    [self.delegate didpreviewBtn:self.loadingFileModel currentIndexPath:self.currentIndexPath];
+//}
 
 - (void)transmitBtnClick:(id)sender{
     UIButton *btn = (UIButton*)sender;

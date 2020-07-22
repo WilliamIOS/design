@@ -16,6 +16,7 @@
 #import "RootTabBarContro.h"
 #import "PersonInfoModel.h"
 #import "Configure.h"
+#import "MineVC.h"
 
 @interface LoginTableViewController ()<MBProgressHUDDelegate>
 
@@ -30,8 +31,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    ServerApi *serverApi = [[ServerApi alloc] init];
-    [serverApi setupBaseUrl];
     [self setupSettings];
 
 }
@@ -91,9 +90,13 @@
             NSString *path = [doc stringByAppendingPathComponent:@"account.archive"];
             [NSKeyedArchiver archiveRootObject:personInfoModel toFile:path];
             
-            RootTabBarContro *rootTabBarContro = [self.storyboard instantiateViewControllerWithIdentifier:@"RootTabBarContro"];
-            [UIApplication sharedApplication].keyWindow.rootViewController = rootTabBarContro;
-            rootTabBarContro.selectedIndex = 4;
+//            RootTabBarContro *rootTabBarContro = [self.storyboard instantiateViewControllerWithIdentifier:@"RootTabBarContro"];
+//            [UIApplication sharedApplication].keyWindow.rootViewController = rootTabBarContro;
+//            rootTabBarContro.selectedIndex = 4;
+            
+            MineVC *mineVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MineVC"];
+            UINavigationController *avi = [[UINavigationController alloc] initWithRootViewController:mineVC];
+            [UIApplication sharedApplication].keyWindow.rootViewController = avi;
             
         }else{
             [MBProgressHUD showMessage:responseObjectModel.msg targetView:self.view delegateTarget:self];

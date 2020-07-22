@@ -93,7 +93,6 @@
         [self.manager.requestSerializer setValue:token forHTTPHeaderField:@"token"];
     }
     
-
     __block NSString *logUrl = @"";
     [param enumerateKeysAndObjectsUsingBlock:^(NSString *  _Nonnull key, NSString *  _Nonnull obj, BOOL * _Nonnull stop) {
         if ([logUrl isEqualToString:@""] || logUrl == nil) {

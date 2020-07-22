@@ -10,6 +10,15 @@
 		22FDF753B435C4E1814A4AAE /* Pods_design.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE6FE5027FE11D1494762F3 /* Pods_design.framework */; };
 		607407A824C59E9E0039E21C /* PanoramicNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 607407A524C59E9E0039E21C /* PanoramicNavigationController.m */; };
 		607407A924C59E9E0039E21C /* PanoramicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 607407A624C59E9E0039E21C /* PanoramicVC.m */; };
+		607407AC24C6B8760039E21C /* PersonalCentreVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 607407AB24C6B8760039E21C /* PersonalCentreVC.m */; };
+		607407AF24C6CF6B0039E21C /* ScheduleListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 607407AE24C6CF6B0039E21C /* ScheduleListVC.m */; };
+		607407B224C6CFA20039E21C /* ScheduleDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 607407B124C6CFA20039E21C /* ScheduleDetailVC.m */; };
+		607407B524C6CFBC0039E21C /* ScheduleInsertVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 607407B424C6CFBC0039E21C /* ScheduleInsertVC.m */; };
+		607407B824C6CFD60039E21C /* AddressBookListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 607407B724C6CFD60039E21C /* AddressBookListVC.m */; };
+		607407BC24C6DA150039E21C /* ScheduleListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 607407BB24C6DA140039E21C /* ScheduleListTVC.m */; };
+		607407C024C805E20039E21C /* ChangeScheduleListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 607407BF24C805E20039E21C /* ChangeScheduleListModel.m */; };
+		607407C324C80D2F0039E21C /* ScheduleDetailHeaderTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 607407C224C80D2F0039E21C /* ScheduleDetailHeaderTVC.m */; };
+		607407C624C80DE60039E21C /* ScheduleDetailSeparateTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 607407C524C80DE60039E21C /* ScheduleDetailSeparateTVC.m */; };
 		6077325324AEFA7100192576 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6077325224AEFA7100192576 /* AppDelegate.m */; };
 		6077325924AEFA7100192576 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6077325824AEFA7100192576 /* ViewController.m */; };
 		6077325C24AEFA7100192576 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6077325A24AEFA7100192576 /* Main.storyboard */; };
@@ -87,6 +96,24 @@
 		607407A524C59E9E0039E21C /* PanoramicNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanoramicNavigationController.m; sourceTree = "<group>"; };
 		607407A624C59E9E0039E21C /* PanoramicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanoramicVC.m; sourceTree = "<group>"; };
 		607407A724C59E9E0039E21C /* PanoramicNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanoramicNavigationController.h; sourceTree = "<group>"; };
+		607407AA24C6B8760039E21C /* PersonalCentreVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalCentreVC.h; sourceTree = "<group>"; };
+		607407AB24C6B8760039E21C /* PersonalCentreVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalCentreVC.m; sourceTree = "<group>"; };
+		607407AD24C6CF6B0039E21C /* ScheduleListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleListVC.h; sourceTree = "<group>"; };
+		607407AE24C6CF6B0039E21C /* ScheduleListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleListVC.m; sourceTree = "<group>"; };
+		607407B024C6CFA20039E21C /* ScheduleDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleDetailVC.h; sourceTree = "<group>"; };
+		607407B124C6CFA20039E21C /* ScheduleDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleDetailVC.m; sourceTree = "<group>"; };
+		607407B324C6CFBC0039E21C /* ScheduleInsertVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleInsertVC.h; sourceTree = "<group>"; };
+		607407B424C6CFBC0039E21C /* ScheduleInsertVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleInsertVC.m; sourceTree = "<group>"; };
+		607407B624C6CFD60039E21C /* AddressBookListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressBookListVC.h; sourceTree = "<group>"; };
+		607407B724C6CFD60039E21C /* AddressBookListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressBookListVC.m; sourceTree = "<group>"; };
+		607407BA24C6DA140039E21C /* ScheduleListTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleListTVC.h; sourceTree = "<group>"; };
+		607407BB24C6DA140039E21C /* ScheduleListTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleListTVC.m; sourceTree = "<group>"; };
+		607407BE24C805E20039E21C /* ChangeScheduleListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeScheduleListModel.h; sourceTree = "<group>"; };
+		607407BF24C805E20039E21C /* ChangeScheduleListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeScheduleListModel.m; sourceTree = "<group>"; };
+		607407C124C80D2F0039E21C /* ScheduleDetailHeaderTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleDetailHeaderTVC.h; sourceTree = "<group>"; };
+		607407C224C80D2F0039E21C /* ScheduleDetailHeaderTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleDetailHeaderTVC.m; sourceTree = "<group>"; };
+		607407C424C80DE60039E21C /* ScheduleDetailSeparateTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleDetailSeparateTVC.h; sourceTree = "<group>"; };
+		607407C524C80DE60039E21C /* ScheduleDetailSeparateTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleDetailSeparateTVC.m; sourceTree = "<group>"; };
 		6077324E24AEFA7100192576 /* 半元设计.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "半元设计.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6077325124AEFA7100192576 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6077325224AEFA7100192576 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -256,12 +283,34 @@
 		607407A324C59E9E0039E21C /* Panoramic */ = {
 			isa = PBXGroup;
 			children = (
-				607407A424C59E9E0039E21C /* PanoramicVC.h */,
-				607407A524C59E9E0039E21C /* PanoramicNavigationController.m */,
-				607407A624C59E9E0039E21C /* PanoramicVC.m */,
 				607407A724C59E9E0039E21C /* PanoramicNavigationController.h */,
+				607407A524C59E9E0039E21C /* PanoramicNavigationController.m */,
+				607407A424C59E9E0039E21C /* PanoramicVC.h */,
+				607407A624C59E9E0039E21C /* PanoramicVC.m */,
 			);
 			path = Panoramic;
+			sourceTree = "<group>";
+		};
+		607407B924C6D9F00039E21C /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				607407BA24C6DA140039E21C /* ScheduleListTVC.h */,
+				607407BB24C6DA140039E21C /* ScheduleListTVC.m */,
+				607407C124C80D2F0039E21C /* ScheduleDetailHeaderTVC.h */,
+				607407C224C80D2F0039E21C /* ScheduleDetailHeaderTVC.m */,
+				607407C424C80DE60039E21C /* ScheduleDetailSeparateTVC.h */,
+				607407C524C80DE60039E21C /* ScheduleDetailSeparateTVC.m */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		607407BD24C805CF0039E21C /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				607407BE24C805E20039E21C /* ChangeScheduleListModel.h */,
+				607407BF24C805E20039E21C /* ChangeScheduleListModel.m */,
+			);
+			path = Schedule;
 			sourceTree = "<group>";
 		};
 		6077324524AEFA7100192576 = {
@@ -381,20 +430,11 @@
 		6077331324BAD14F00192576 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6077331424BAD14F00192576 /* Schedule */,
+				607407BD24C805CF0039E21C /* Schedule */,
 				6077331524BAD14F00192576 /* HomePage */,
 				6077331624BAD14F00192576 /* Common */,
-				6077331724BAD14F00192576 /* Mine */,
-				6077331824BAD14F00192576 /* AddressBook */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		6077331424BAD14F00192576 /* Schedule */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Schedule;
 			sourceTree = "<group>";
 		};
 		6077331524BAD14F00192576 /* HomePage */ = {
@@ -417,20 +457,6 @@
 				6077331A24BAD16200192576 /* ResponseObjectModel.m */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		6077331724BAD14F00192576 /* Mine */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Mine;
-			sourceTree = "<group>";
-		};
-		6077331824BAD14F00192576 /* AddressBook */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = AddressBook;
 			sourceTree = "<group>";
 		};
 		60ADEDE124B4C1B700629EC3 /* Category */ = {
@@ -505,6 +531,12 @@
 				60E7EB6724B359CA0056A252 /* ScheduleNavigationController.m */,
 				60E7EB6924B359EF0056A252 /* ScheduleVC.h */,
 				60E7EB6A24B359EF0056A252 /* ScheduleVC.m */,
+				607407AD24C6CF6B0039E21C /* ScheduleListVC.h */,
+				607407AE24C6CF6B0039E21C /* ScheduleListVC.m */,
+				607407B024C6CFA20039E21C /* ScheduleDetailVC.h */,
+				607407B124C6CFA20039E21C /* ScheduleDetailVC.m */,
+				607407B324C6CFBC0039E21C /* ScheduleInsertVC.h */,
+				607407B424C6CFBC0039E21C /* ScheduleInsertVC.m */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -545,6 +577,8 @@
 			children = (
 				60E7EB7224B35A490056A252 /* MineNavigationController.h */,
 				60E7EB7324B35A490056A252 /* MineNavigationController.m */,
+				607407AA24C6B8760039E21C /* PersonalCentreVC.h */,
+				607407AB24C6B8760039E21C /* PersonalCentreVC.m */,
 				60E7EB7524B35A5E0056A252 /* MineVC.h */,
 				60E7EB7624B35A5E0056A252 /* MineVC.m */,
 				60ADEDDB24B4ABE400629EC3 /* LoginTableViewController.h */,
@@ -560,6 +594,8 @@
 				60E7EB6D24B35A100056A252 /* AddressBookNavigationController.m */,
 				60E7EB6F24B35A2F0056A252 /* AddressBookVC.h */,
 				60E7EB7024B35A2F0056A252 /* AddressBookVC.m */,
+				607407B624C6CFD60039E21C /* AddressBookListVC.h */,
+				607407B724C6CFD60039E21C /* AddressBookListVC.m */,
 			);
 			path = AddressBook;
 			sourceTree = "<group>";
@@ -567,6 +603,7 @@
 		60E7EB5624B3576A0056A252 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				607407B924C6D9F00039E21C /* Schedule */,
 				60E7EB5824B3576A0056A252 /* HomePage */,
 				60E7EB5924B3576A0056A252 /* Mine */,
 			);
@@ -722,12 +759,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				607407C024C805E20039E21C /* ChangeScheduleListModel.m in Sources */,
 				6077330A24B863CC00192576 /* FSCalendarHeaderView.m in Sources */,
 				60B4FAA024B759DE0072FEE7 /* PersonInfoModel.m in Sources */,
 				607732CE24B71DA700192576 /* AFSecurityPolicy.m in Sources */,
 				607732D124B71DCC00192576 /* NetworkRequest.m in Sources */,
 				607732CB24B71DA700192576 /* AFURLSessionManager.m in Sources */,
 				6077330724B863CC00192576 /* FSCalendarExtensions.m in Sources */,
+				607407BC24C6DA150039E21C /* ScheduleListTVC.m in Sources */,
 				6077331B24BAD16200192576 /* ResponseObjectModel.m in Sources */,
 				6077330224B863CC00192576 /* FSCalendarStickyHeader.m in Sources */,
 				607407A824C59E9E0039E21C /* PanoramicNavigationController.m in Sources */,
@@ -738,12 +777,14 @@
 				607732D724B810F600192576 /* SoftLoadingListVC.m in Sources */,
 				60FA955424BDDE1C009578AC /* DesignSketchListVC.m in Sources */,
 				60ADEDDD24B4ABE400629EC3 /* LoginTableViewController.m in Sources */,
+				607407C324C80D2F0039E21C /* ScheduleDetailHeaderTVC.m in Sources */,
 				60FA956324BEEA82009578AC /* ProjectScheduleDetailVC.m in Sources */,
 				6077330324B863CC00192576 /* FSCalendar.m in Sources */,
 				6077330C24B863CC00192576 /* FSCalendarAppearance.m in Sources */,
 				607732A324B6CBDB00192576 /* ProjectScheduleTVC.m in Sources */,
 				6077330824B863CC00192576 /* FSCalendarConstants.m in Sources */,
 				60E7EB6E24B35A100056A252 /* AddressBookNavigationController.m in Sources */,
+				607407B524C6CFBC0039E21C /* ScheduleInsertVC.m in Sources */,
 				6077330924B863CC00192576 /* FSCalendarCalculator.m in Sources */,
 				60FA956024BEE872009578AC /* ScheduleListModel.m in Sources */,
 				607732D424B71DEA00192576 /* ServerApi.m in Sources */,
@@ -769,12 +810,15 @@
 				60FA951524BBF1FF009578AC /* ProjectModel.m in Sources */,
 				607732CA24B71DA700192576 /* AFHTTPSessionManager.m in Sources */,
 				60E7EB7424B35A490056A252 /* MineNavigationController.m in Sources */,
+				607407AF24C6CF6B0039E21C /* ScheduleListVC.m in Sources */,
 				6077330B24B863CC00192576 /* FSCalendarTransitionCoordinator.m in Sources */,
 				607732FE24B863CC00192576 /* FSCalendarCollectionView.m in Sources */,
 				6077325324AEFA7100192576 /* AppDelegate.m in Sources */,
 				60FA954B24BD5A12009578AC /* UIViewController+Extension.m in Sources */,
 				607732CD24B71DA700192576 /* AFNetworkReachabilityManager.m in Sources */,
 				60FA955124BDB626009578AC /* PlaneFigureListVC.m in Sources */,
+				607407C624C80DE60039E21C /* ScheduleDetailSeparateTVC.m in Sources */,
+				607407B224C6CFA20039E21C /* ScheduleDetailVC.m in Sources */,
 				60FA956624C04BBA009578AC /* UITabBar+Badge.m in Sources */,
 				607732CC24B71DA700192576 /* AFURLRequestSerialization.m in Sources */,
 				60E7EB6124B359810056A252 /* HomePageListNavigationController.m in Sources */,
@@ -783,8 +827,10 @@
 				60E7EB6424B359A00056A252 /* HomePageListVC.m in Sources */,
 				6077330024B863CC00192576 /* FSCalendarDelegationFactory.m in Sources */,
 				60FA955724BDE4E6009578AC /* ConstructionPlansListVC.m in Sources */,
+				607407B824C6CFD60039E21C /* AddressBookListVC.m in Sources */,
 				6077326424AEFA7300192576 /* main.m in Sources */,
 				60ADEDE424B4C1B700629EC3 /* UIView+Extension.m in Sources */,
+				607407AC24C6B8760039E21C /* PersonalCentreVC.m in Sources */,
 				60FA955A24BECFA2009578AC /* SoftLoadingAllListVC.m in Sources */,
 				607732C924B71DA700192576 /* AFURLResponseSerialization.m in Sources */,
 			);

@@ -50,9 +50,6 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     [self.selectedViewController viewWillAppear:animated];
-    
-    ServerApi *serverApi = [[ServerApi alloc] init];
-    [serverApi setupBaseUrl];
 }
 
 /**
@@ -72,7 +69,7 @@
     [self addOneChlildVc:addressBookNavigationController tabBarItemTitle:@"项目通讯录" imageName:@"tongxun" selectedImageName:@"tongxunCheck"];
     
     UINavigationController *mineNavigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"MineNavigationController"];
-    [self addOneChlildVc:mineNavigationController tabBarItemTitle:@"我的项目" imageName:@"liebiao" selectedImageName:@"liebiao"];
+    [self addOneChlildVc:mineNavigationController tabBarItemTitle:@"我的" imageName:@"mine_normal" selectedImageName:@"mine_selected"];
 }
 
 /**

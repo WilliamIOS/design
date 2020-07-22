@@ -16,8 +16,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    UIViewController *scheduleVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ScheduleVC"];
-    self.viewControllers = @[scheduleVC];
+    UIViewController *scheduleListVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ScheduleListVC"];
+    self.viewControllers = @[scheduleListVC];
     [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
 }
 

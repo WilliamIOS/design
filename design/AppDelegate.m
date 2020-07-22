@@ -11,7 +11,7 @@
 #import "PersonInfoModel.h"
 #import "Configure.h"
 #import "MineVC.h"
-
+#import "ServerApi.h"
 
 @interface AppDelegate ()
 
@@ -28,13 +28,21 @@
     NSString *doc = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
     NSString *path = [doc stringByAppendingPathComponent:@"account.archive"];
     PersonInfoModel *personInfoModel = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    
+    ServerApi *serverApi = [[ServerApi alloc] init];
+    [serverApi setupBaseUrl];
+    
     if (personInfoModel != nil) {
         Configure *configure = [Configure singletonInstance];
         configure.personInfoModel = personInfoModel;
-        RootTabBarContro *rootTabBarContro = [mainStoryboard instantiateViewControllerWithIdentifier:@"RootTabBarContro"];
-        self.window.rootViewController = rootTabBarContro;
+//        RootTabBarContro *rootTabBarContro = [mainStoryboard instantiateViewControllerWithIdentifier:@"RootTabBarContro"];
+        
+        MineVC *mineVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"MineVC"];
+        UINavigationController *avi = [[UINavigationController alloc] initWithRootViewController:mineVC];
+        [UIApplication sharedApplication].keyWindow.rootViewController = avi;
+        
+        self.window.rootViewController = avi;
         [self.window makeKeyAndVisible];
-        rootTabBarContro.selectedIndex = 4;
         
     }else{
         LoginTableViewController *loginTableViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"LoginTableViewController"];

@@ -21,7 +21,7 @@
 #import "LoadingFileModel.h"
 #import <QuickLook/QuickLook.h>
 
-@interface ConceptSchemeListVC ()<UITableViewDataSource,UITableViewDelegate,MBProgressHUDDelegate,QLPreviewControllerDataSource,QLPreviewControllerDelegate,LoadingFileTVCDelegate>
+@interface ConceptSchemeListVC ()<UITableViewDataSource,UITableViewDelegate,MBProgressHUDDelegate,QLPreviewControllerDataSource,QLPreviewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *fileListTV;
 @property (weak, nonatomic) IBOutlet UIView *loadingFileView;
@@ -43,7 +43,6 @@
     [self setupSettings];
     [MBProgressHUD showOnlyChrysanthemumWithView:self.view delegateTarget:self];
     [self conceptSchemeInterface];
-    
     [self remindStatusHandle];
 }
 
@@ -56,17 +55,19 @@
     }];
     self.fileListTV.mj_footer = footer;
     [footer setTitle:@"暂无更多概念方案文件" forState:MJRefreshStateNoMoreData];
+    [self.fileListTV.mj_footer setState:(MJRefreshStateNoMoreData)];
     [self.loadingFileView setRoundedView:self.loadingFileView cornerRadius:10 borderWidth:4 borderColor:PWColor(33, 136, 184)];
     [self.checkHistoryFileView setRoundedView:self.checkHistoryFileView cornerRadius:10 borderWidth:4 borderColor:PWColor(33, 136, 184)];
     UITapGestureRecognizer *loadingFileViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(loadingFileViewGesture:)];
     [self.loadingFileView addGestureRecognizer:loadingFileViewTap];
     UITapGestureRecognizer *checkHistoryFileViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(checkHistoryFileViewGesture:)];
     [self.checkHistoryFileView addGestureRecognizer:checkHistoryFileViewTap];
-    [self.fileListTV.mj_footer setState:(MJRefreshStateNoMoreData)];
+    
     
     UIView *footerView = [[UIView alloc] init];
     footerView.backgroundColor = PWColor(244, 244, 244);
     self.fileListTV.tableFooterView = footerView;
+                        
 }
 
 - (NSMutableArray*)loadingFileModelMutableArray{
@@ -114,25 +115,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     LoadingFileTVC *loadingFileTVC = [LoadingFileTVC cellWithTableView:tableView cellidentifier:@"LoadingFileTVCWithConceptScheme"];
-    loadingFileTVC.delegate = self;
     loadingFileTVC.currentIndexPath = indexPath;
     loadingFileTVC.loadingFileModel = self.loadingFileModelMutableArray[indexPath.row];
     return loadingFileTVC;
 }
 
-#pragma mark - QLPreviewControllerDataSource
--(NSInteger)numberOfPreviewItemsInPreviewController:(QLPreviewController *)controller{
-    return 1;
-}
-
-- (id<QLPreviewItem>)previewController:(QLPreviewController *)controller previewItemAtIndex:(NSInteger)index{
-    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *path = [cachesPath stringByAppendingPathComponent:self.willPreviewLoadingFileModel.documentName];
-    return [NSURL fileURLWithPath:path];;
-}
-
-#pragma mark - LoadingFileTVCDelegate
-- (void)didpreviewBtn:(LoadingFileModel *)loadingFileModel currentIndexPath:(NSIndexPath *)currentIndexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    LoadingFileModel *loadingFileModel = self.loadingFileModelMutableArray[indexPath.row];
     self.willPreviewLoadingFileModel = loadingFileModel;
     NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
     NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
@@ -161,7 +150,7 @@
         [loadingFileModel fileLoading:^(NSURLResponse * _Nonnull response, NSURL * _Nonnull filePath, NSError * _Nonnull error) {
             [MBProgressHUD hideHUDForView:weakSelf.view];
             if (error == nil) {
-                [self.fileListTV reloadRowsAtIndexPaths:[NSArray arrayWithObject:currentIndexPath] withRowAnimation:UITableViewRowAnimationNone];
+                [self.fileListTV reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
                 NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
                 NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
                 if ([QLPreviewController canPreviewItem:(id<QLPreviewItem>)[NSURL fileURLWithPath:path]]) {
@@ -190,6 +179,16 @@
     }
 }
 
+#pragma mark - QLPreviewControllerDataSource
+-(NSInteger)numberOfPreviewItemsInPreviewController:(QLPreviewController *)controller{
+    return 1;
+}
+
+- (id<QLPreviewItem>)previewController:(QLPreviewController *)controller previewItemAtIndex:(NSInteger)index{
+    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *path = [cachesPath stringByAppendingPathComponent:self.willPreviewLoadingFileModel.documentName];
+    return [NSURL fileURLWithPath:path];;
+}
 
 - (void)loadingFileViewGesture:(UITapGestureRecognizer*)recognizer {
     __block BOOL haveChecked = false;
