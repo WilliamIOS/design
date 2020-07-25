@@ -47,6 +47,12 @@ extern NSString *const Api_ChangeScheduleList;
 extern NSString *const Api_ChangeScheduleDetail;
 /**变更日程文件*/
 extern NSString *const Api_ChangeScheduleFileList;
+/**项目通讯录*/
+extern NSString *const Api_CommunicationList;
+/**上传变更日程的图片文件*/
+extern NSString *const Api_UploadImgFile;
+/**新增变更日程*/
+extern NSString *const Api_ScheduleInsert;
 
 @interface ServerApi : NSObject
 

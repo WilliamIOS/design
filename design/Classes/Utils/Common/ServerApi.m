@@ -47,7 +47,12 @@ NSString *const Api_ChangeScheduleList = @"project/changeschedule/getProById";
 NSString *const Api_ChangeScheduleDetail = @"project/changeschedule/getChangeById";
 /**变更日程文件*/
 NSString *const Api_ChangeScheduleFileList = @"project/files/getChangeFiles";
-
+/**项目通讯录*/
+NSString *const Api_CommunicationList = @"project/communication/getProById";
+/**上传变更日程的图片文件*/
+NSString *const Api_UploadImgFile = @"project/changeschedule/uploadImgFile";
+/**新增变更日程*/
+NSString *const Api_ScheduleInsert = @"project/changeschedule/saveNew";
 
 @implementation ServerApi
 

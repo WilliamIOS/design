@@ -19,6 +19,20 @@
 		607407C024C805E20039E21C /* ChangeScheduleListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 607407BF24C805E20039E21C /* ChangeScheduleListModel.m */; };
 		607407C324C80D2F0039E21C /* ScheduleDetailHeaderTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 607407C224C80D2F0039E21C /* ScheduleDetailHeaderTVC.m */; };
 		607407C624C80DE60039E21C /* ScheduleDetailSeparateTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 607407C524C80DE60039E21C /* ScheduleDetailSeparateTVC.m */; };
+		607407CA24C927870039E21C /* AddressBookListHeaderTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 607407C924C927870039E21C /* AddressBookListHeaderTVC.m */; };
+		607407CD24C927970039E21C /* AddressBookListContentTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 607407CC24C927970039E21C /* AddressBookListContentTVC.m */; };
+		607407D124C93AE30039E21C /* AddressBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 607407D024C93AE30039E21C /* AddressBookModel.m */; };
+		607407D424C95A060039E21C /* DownloadFileListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 607407D324C95A060039E21C /* DownloadFileListVC.m */; };
+		607407DA24C965640039E21C /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 607407D924C965640039E21C /* FileManager.m */; };
+		607407DD24CA79A80039E21C /* LocalFileInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 607407DC24CA79A80039E21C /* LocalFileInfoModel.m */; };
+		607407E024CAB1030039E21C /* ScheduleInsertHeaderTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 607407DF24CAB1030039E21C /* ScheduleInsertHeaderTVC.m */; };
+		607407E324CAB1240039E21C /* ScheduleInsertPicTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 607407E224CAB1240039E21C /* ScheduleInsertPicTVC.m */; };
+		607407E624CAB1550039E21C /* ScheduleInsertPicNormalCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 607407E524CAB1550039E21C /* ScheduleInsertPicNormalCVC.m */; };
+		607407E924CACD630039E21C /* UploadMediaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 607407E824CACD630039E21C /* UploadMediaModel.m */; };
+		607407EC24CB13EE0039E21C /* ImageDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 607407EB24CB13EE0039E21C /* ImageDetailVC.m */; };
+		607407EF24CB14130039E21C /* VedioDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 607407EE24CB14130039E21C /* VedioDetailVC.m */; };
+		607407F324CB1ECF0039E21C /* UITextView+YLTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 607407F224CB1ECF0039E21C /* UITextView+YLTextView.m */; };
+		607407F624CB22360039E21C /* ScheduleInsertModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 607407F524CB22360039E21C /* ScheduleInsertModel.m */; };
 		6077325324AEFA7100192576 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6077325224AEFA7100192576 /* AppDelegate.m */; };
 		6077325924AEFA7100192576 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6077325824AEFA7100192576 /* ViewController.m */; };
 		6077325C24AEFA7100192576 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6077325A24AEFA7100192576 /* Main.storyboard */; };
@@ -114,6 +128,34 @@
 		607407C224C80D2F0039E21C /* ScheduleDetailHeaderTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleDetailHeaderTVC.m; sourceTree = "<group>"; };
 		607407C424C80DE60039E21C /* ScheduleDetailSeparateTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleDetailSeparateTVC.h; sourceTree = "<group>"; };
 		607407C524C80DE60039E21C /* ScheduleDetailSeparateTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleDetailSeparateTVC.m; sourceTree = "<group>"; };
+		607407C824C927870039E21C /* AddressBookListHeaderTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressBookListHeaderTVC.h; sourceTree = "<group>"; };
+		607407C924C927870039E21C /* AddressBookListHeaderTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressBookListHeaderTVC.m; sourceTree = "<group>"; };
+		607407CB24C927970039E21C /* AddressBookListContentTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressBookListContentTVC.h; sourceTree = "<group>"; };
+		607407CC24C927970039E21C /* AddressBookListContentTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressBookListContentTVC.m; sourceTree = "<group>"; };
+		607407CF24C93AE30039E21C /* AddressBookModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressBookModel.h; sourceTree = "<group>"; };
+		607407D024C93AE30039E21C /* AddressBookModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressBookModel.m; sourceTree = "<group>"; };
+		607407D224C95A060039E21C /* DownloadFileListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownloadFileListVC.h; sourceTree = "<group>"; };
+		607407D324C95A060039E21C /* DownloadFileListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownloadFileListVC.m; sourceTree = "<group>"; };
+		607407D824C965640039E21C /* FileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
+		607407D924C965640039E21C /* FileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileManager.m; sourceTree = "<group>"; };
+		607407DB24CA79A80039E21C /* LocalFileInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalFileInfoModel.h; sourceTree = "<group>"; };
+		607407DC24CA79A80039E21C /* LocalFileInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalFileInfoModel.m; sourceTree = "<group>"; };
+		607407DE24CAB1030039E21C /* ScheduleInsertHeaderTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleInsertHeaderTVC.h; sourceTree = "<group>"; };
+		607407DF24CAB1030039E21C /* ScheduleInsertHeaderTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleInsertHeaderTVC.m; sourceTree = "<group>"; };
+		607407E124CAB1240039E21C /* ScheduleInsertPicTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleInsertPicTVC.h; sourceTree = "<group>"; };
+		607407E224CAB1240039E21C /* ScheduleInsertPicTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleInsertPicTVC.m; sourceTree = "<group>"; };
+		607407E424CAB1550039E21C /* ScheduleInsertPicNormalCVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleInsertPicNormalCVC.h; sourceTree = "<group>"; };
+		607407E524CAB1550039E21C /* ScheduleInsertPicNormalCVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleInsertPicNormalCVC.m; sourceTree = "<group>"; };
+		607407E724CACD630039E21C /* UploadMediaModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UploadMediaModel.h; sourceTree = "<group>"; };
+		607407E824CACD630039E21C /* UploadMediaModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UploadMediaModel.m; sourceTree = "<group>"; };
+		607407EA24CB13EE0039E21C /* ImageDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageDetailVC.h; sourceTree = "<group>"; };
+		607407EB24CB13EE0039E21C /* ImageDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageDetailVC.m; sourceTree = "<group>"; };
+		607407ED24CB14130039E21C /* VedioDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VedioDetailVC.h; sourceTree = "<group>"; };
+		607407EE24CB14130039E21C /* VedioDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VedioDetailVC.m; sourceTree = "<group>"; };
+		607407F124CB1ECF0039E21C /* UITextView+YLTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+YLTextView.h"; sourceTree = "<group>"; };
+		607407F224CB1ECF0039E21C /* UITextView+YLTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+YLTextView.m"; sourceTree = "<group>"; };
+		607407F424CB22360039E21C /* ScheduleInsertModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleInsertModel.h; sourceTree = "<group>"; };
+		607407F524CB22360039E21C /* ScheduleInsertModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleInsertModel.m; sourceTree = "<group>"; };
 		6077324E24AEFA7100192576 /* 半元设计.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "半元设计.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6077325124AEFA7100192576 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6077325224AEFA7100192576 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -300,6 +342,12 @@
 				607407C224C80D2F0039E21C /* ScheduleDetailHeaderTVC.m */,
 				607407C424C80DE60039E21C /* ScheduleDetailSeparateTVC.h */,
 				607407C524C80DE60039E21C /* ScheduleDetailSeparateTVC.m */,
+				607407DE24CAB1030039E21C /* ScheduleInsertHeaderTVC.h */,
+				607407DF24CAB1030039E21C /* ScheduleInsertHeaderTVC.m */,
+				607407E124CAB1240039E21C /* ScheduleInsertPicTVC.h */,
+				607407E224CAB1240039E21C /* ScheduleInsertPicTVC.m */,
+				607407E424CAB1550039E21C /* ScheduleInsertPicNormalCVC.h */,
+				607407E524CAB1550039E21C /* ScheduleInsertPicNormalCVC.m */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -309,8 +357,41 @@
 			children = (
 				607407BE24C805E20039E21C /* ChangeScheduleListModel.h */,
 				607407BF24C805E20039E21C /* ChangeScheduleListModel.m */,
+				607407E724CACD630039E21C /* UploadMediaModel.h */,
+				607407E824CACD630039E21C /* UploadMediaModel.m */,
+				607407F424CB22360039E21C /* ScheduleInsertModel.h */,
+				607407F524CB22360039E21C /* ScheduleInsertModel.m */,
 			);
 			path = Schedule;
+			sourceTree = "<group>";
+		};
+		607407C724C9276A0039E21C /* AddressBook */ = {
+			isa = PBXGroup;
+			children = (
+				607407C824C927870039E21C /* AddressBookListHeaderTVC.h */,
+				607407C924C927870039E21C /* AddressBookListHeaderTVC.m */,
+				607407CB24C927970039E21C /* AddressBookListContentTVC.h */,
+				607407CC24C927970039E21C /* AddressBookListContentTVC.m */,
+			);
+			path = AddressBook;
+			sourceTree = "<group>";
+		};
+		607407CE24C93AD00039E21C /* AddressBook */ = {
+			isa = PBXGroup;
+			children = (
+				607407CF24C93AE30039E21C /* AddressBookModel.h */,
+				607407D024C93AE30039E21C /* AddressBookModel.m */,
+			);
+			path = AddressBook;
+			sourceTree = "<group>";
+		};
+		607407F024CB1ECF0039E21C /* YLTextView */ = {
+			isa = PBXGroup;
+			children = (
+				607407F124CB1ECF0039E21C /* UITextView+YLTextView.h */,
+				607407F224CB1ECF0039E21C /* UITextView+YLTextView.m */,
+			);
+			path = YLTextView;
 			sourceTree = "<group>";
 		};
 		6077324524AEFA7100192576 = {
@@ -430,6 +511,7 @@
 		6077331324BAD14F00192576 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				607407CE24C93AD00039E21C /* AddressBook */,
 				607407BD24C805CF0039E21C /* Schedule */,
 				6077331524BAD14F00192576 /* HomePage */,
 				6077331624BAD14F00192576 /* Common */,
@@ -455,6 +537,8 @@
 			children = (
 				6077331924BAD16200192576 /* ResponseObjectModel.h */,
 				6077331A24BAD16200192576 /* ResponseObjectModel.m */,
+				607407DB24CA79A80039E21C /* LocalFileInfoModel.h */,
+				607407DC24CA79A80039E21C /* LocalFileInfoModel.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -462,6 +546,7 @@
 		60ADEDE124B4C1B700629EC3 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				607407F024CB1ECF0039E21C /* YLTextView */,
 				607732B124B71D2800192576 /* MBProgressHUD+PW */,
 				60ADEDE224B4C1B700629EC3 /* UIView+Extension.h */,
 				60ADEDE324B4C1B700629EC3 /* UIView+Extension.m */,
@@ -507,6 +592,8 @@
 				607732D324B71DEA00192576 /* ServerApi.m */,
 				60B4FA9E24B759DE0072FEE7 /* PersonInfoModel.h */,
 				60B4FA9F24B759DE0072FEE7 /* PersonInfoModel.m */,
+				607407D824C965640039E21C /* FileManager.h */,
+				607407D924C965640039E21C /* FileManager.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -537,6 +624,10 @@
 				607407B124C6CFA20039E21C /* ScheduleDetailVC.m */,
 				607407B324C6CFBC0039E21C /* ScheduleInsertVC.h */,
 				607407B424C6CFBC0039E21C /* ScheduleInsertVC.m */,
+				607407EA24CB13EE0039E21C /* ImageDetailVC.h */,
+				607407EB24CB13EE0039E21C /* ImageDetailVC.m */,
+				607407ED24CB14130039E21C /* VedioDetailVC.h */,
+				607407EE24CB14130039E21C /* VedioDetailVC.m */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -583,6 +674,8 @@
 				60E7EB7624B35A5E0056A252 /* MineVC.m */,
 				60ADEDDB24B4ABE400629EC3 /* LoginTableViewController.h */,
 				60ADEDDC24B4ABE400629EC3 /* LoginTableViewController.m */,
+				607407D224C95A060039E21C /* DownloadFileListVC.h */,
+				607407D324C95A060039E21C /* DownloadFileListVC.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -603,6 +696,7 @@
 		60E7EB5624B3576A0056A252 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				607407C724C9276A0039E21C /* AddressBook */,
 				607407B924C6D9F00039E21C /* Schedule */,
 				60E7EB5824B3576A0056A252 /* HomePage */,
 				60E7EB5924B3576A0056A252 /* Mine */,
@@ -764,6 +858,7 @@
 				60B4FAA024B759DE0072FEE7 /* PersonInfoModel.m in Sources */,
 				607732CE24B71DA700192576 /* AFSecurityPolicy.m in Sources */,
 				607732D124B71DCC00192576 /* NetworkRequest.m in Sources */,
+				607407EF24CB14130039E21C /* VedioDetailVC.m in Sources */,
 				607732CB24B71DA700192576 /* AFURLSessionManager.m in Sources */,
 				6077330724B863CC00192576 /* FSCalendarExtensions.m in Sources */,
 				607407BC24C6DA150039E21C /* ScheduleListTVC.m in Sources */,
@@ -772,15 +867,18 @@
 				607407A824C59E9E0039E21C /* PanoramicNavigationController.m in Sources */,
 				60E7EB6B24B359EF0056A252 /* ScheduleVC.m in Sources */,
 				6077331224BAB2B700192576 /* PlanListTVC.m in Sources */,
+				607407E624CAB1550039E21C /* ScheduleInsertPicNormalCVC.m in Sources */,
 				6077330624B863CC00192576 /* FSCalendarSeparatorDecorationView.m in Sources */,
 				607407A924C59E9E0039E21C /* PanoramicVC.m in Sources */,
 				607732D724B810F600192576 /* SoftLoadingListVC.m in Sources */,
 				60FA955424BDDE1C009578AC /* DesignSketchListVC.m in Sources */,
+				607407F624CB22360039E21C /* ScheduleInsertModel.m in Sources */,
 				60ADEDDD24B4ABE400629EC3 /* LoginTableViewController.m in Sources */,
 				607407C324C80D2F0039E21C /* ScheduleDetailHeaderTVC.m in Sources */,
 				60FA956324BEEA82009578AC /* ProjectScheduleDetailVC.m in Sources */,
 				6077330324B863CC00192576 /* FSCalendar.m in Sources */,
 				6077330C24B863CC00192576 /* FSCalendarAppearance.m in Sources */,
+				607407D424C95A060039E21C /* DownloadFileListVC.m in Sources */,
 				607732A324B6CBDB00192576 /* ProjectScheduleTVC.m in Sources */,
 				6077330824B863CC00192576 /* FSCalendarConstants.m in Sources */,
 				60E7EB6E24B35A100056A252 /* AddressBookNavigationController.m in Sources */,
@@ -789,6 +887,7 @@
 				60FA956024BEE872009578AC /* ScheduleListModel.m in Sources */,
 				607732D424B71DEA00192576 /* ServerApi.m in Sources */,
 				60B4FAA324B75C830072FEE7 /* ConceptSchemeHistoryListVC.m in Sources */,
+				607407CA24C927870039E21C /* AddressBookListHeaderTVC.m in Sources */,
 				607732A924B7156D00192576 /* Configure.m in Sources */,
 				6077330524B863CC00192576 /* FSCalendarWeekdayView.m in Sources */,
 				60E7EB5E24B358CC0056A252 /* RootTabBarContro.m in Sources */,
@@ -796,14 +895,17 @@
 				6077330124B863CC00192576 /* FSCalendarCell.m in Sources */,
 				60B4FA9D24B753710072FEE7 /* LoadingFileTVC.m in Sources */,
 				60ADEDE024B4BE6F00629EC3 /* MineProjectTVC.m in Sources */,
+				607407EC24CB13EE0039E21C /* ImageDetailVC.m in Sources */,
 				60E7EB7124B35A2F0056A252 /* AddressBookVC.m in Sources */,
 				60FA951824BC3492009578AC /* LoadingFileModel.m in Sources */,
 				607732FF24B863CC00192576 /* FSCalendarDelegationProxy.m in Sources */,
 				6077325924AEFA7100192576 /* ViewController.m in Sources */,
+				607407D124C93AE30039E21C /* AddressBookModel.m in Sources */,
 				60FA955D24BED3F6009578AC /* OtherFileListVC.m in Sources */,
 				607732B924B71D2900192576 /* MBProgressHUD+PW.m in Sources */,
 				607732DD24B85ED300192576 /* ProjectScheduleVC.m in Sources */,
 				60E7EB6824B359CA0056A252 /* ScheduleNavigationController.m in Sources */,
+				607407F324CB1ECF0039E21C /* UITextView+YLTextView.m in Sources */,
 				607732A624B70E5100192576 /* ConceptSchemeListVC.m in Sources */,
 				60E7EB7724B35A5E0056A252 /* MineVC.m in Sources */,
 				607732B824B71D2900192576 /* MBProgressHUD.m in Sources */,
@@ -811,14 +913,18 @@
 				607732CA24B71DA700192576 /* AFHTTPSessionManager.m in Sources */,
 				60E7EB7424B35A490056A252 /* MineNavigationController.m in Sources */,
 				607407AF24C6CF6B0039E21C /* ScheduleListVC.m in Sources */,
+				607407DD24CA79A80039E21C /* LocalFileInfoModel.m in Sources */,
 				6077330B24B863CC00192576 /* FSCalendarTransitionCoordinator.m in Sources */,
 				607732FE24B863CC00192576 /* FSCalendarCollectionView.m in Sources */,
 				6077325324AEFA7100192576 /* AppDelegate.m in Sources */,
 				60FA954B24BD5A12009578AC /* UIViewController+Extension.m in Sources */,
 				607732CD24B71DA700192576 /* AFNetworkReachabilityManager.m in Sources */,
 				60FA955124BDB626009578AC /* PlaneFigureListVC.m in Sources */,
+				607407E024CAB1030039E21C /* ScheduleInsertHeaderTVC.m in Sources */,
 				607407C624C80DE60039E21C /* ScheduleDetailSeparateTVC.m in Sources */,
+				607407DA24C965640039E21C /* FileManager.m in Sources */,
 				607407B224C6CFA20039E21C /* ScheduleDetailVC.m in Sources */,
+				607407E924CACD630039E21C /* UploadMediaModel.m in Sources */,
 				60FA956624C04BBA009578AC /* UITabBar+Badge.m in Sources */,
 				607732CC24B71DA700192576 /* AFURLRequestSerialization.m in Sources */,
 				60E7EB6124B359810056A252 /* HomePageListNavigationController.m in Sources */,
@@ -827,12 +933,14 @@
 				60E7EB6424B359A00056A252 /* HomePageListVC.m in Sources */,
 				6077330024B863CC00192576 /* FSCalendarDelegationFactory.m in Sources */,
 				60FA955724BDE4E6009578AC /* ConstructionPlansListVC.m in Sources */,
+				607407E324CAB1240039E21C /* ScheduleInsertPicTVC.m in Sources */,
 				607407B824C6CFD60039E21C /* AddressBookListVC.m in Sources */,
 				6077326424AEFA7300192576 /* main.m in Sources */,
 				60ADEDE424B4C1B700629EC3 /* UIView+Extension.m in Sources */,
 				607407AC24C6B8760039E21C /* PersonalCentreVC.m in Sources */,
 				60FA955A24BECFA2009578AC /* SoftLoadingAllListVC.m in Sources */,
 				607732C924B71DA700192576 /* AFURLResponseSerialization.m in Sources */,
+				607407CD24C927970039E21C /* AddressBookListContentTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,6 +20,7 @@
 #import "Configure.h"
 #import "LoadingFileModel.h"
 #import <QuickLook/QuickLook.h>
+#import "FileManager.h"
 
 @interface ConstructionPlansListVC ()<UITableViewDataSource,UITableViewDelegate,MBProgressHUDDelegate,QLPreviewControllerDataSource,QLPreviewControllerDelegate>
 
@@ -203,8 +204,11 @@
     NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress *downloadProgress) {
         
     } destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
-        NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-        NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
+//        NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+//        NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
+        FileManager *fileManager = [[FileManager alloc] init];
+        NSString *path = [fileManager jointFilePath:loadingFileModel.documentName];
+        
         return [NSURL fileURLWithPath:path];
         
     } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
@@ -240,8 +244,11 @@
     NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress *downloadProgress) {
         
     } destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
-        NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-        NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
+//        NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+//        NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
+        
+        FileManager *fileManager = [[FileManager alloc] init];
+        NSString *path = [fileManager jointFilePath:loadingFileModel.documentName];
         return [NSURL fileURLWithPath:path];
         
     } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
@@ -276,8 +283,11 @@
     NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress *downloadProgress) {
         
     } destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
-        NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-        NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
+//        NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+//        NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
+        
+        FileManager *fileManager = [[FileManager alloc] init];
+        NSString *path = [fileManager jointFilePath:loadingFileModel.documentName];
         return [NSURL fileURLWithPath:path];
         
     } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
@@ -291,8 +301,12 @@
 
 - (void)preview:(LoadingFileModel*)loadingFileModel{
     self.willPreviewLoadingFileModel = loadingFileModel;
-    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
+//    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+//    NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
+    
+    FileManager *fileManager = [[FileManager alloc] init];
+    NSString *path = [fileManager jointFilePath:loadingFileModel.documentName];
+    
     NSFileManager * manager = [NSFileManager defaultManager];
     BOOL pathHave = [manager fileExistsAtPath:path];
     
@@ -318,8 +332,12 @@
         [loadingFileModel fileLoading:^(NSURLResponse * _Nonnull response, NSURL * _Nonnull filePath, NSError * _Nonnull error) {
             [MBProgressHUD hideHUDForView:weakSelf.view];
             if (error == nil) {
-                NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-                NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
+//                NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+//                NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
+                
+                FileManager *fileManager = [[FileManager alloc] init];
+                NSString *path = [fileManager jointFilePath:loadingFileModel.documentName];
+                
                 if ([QLPreviewController canPreviewItem:(id<QLPreviewItem>)[NSURL fileURLWithPath:path]]) {
                     QLPreviewController *previewController = [[QLPreviewController alloc] init];
                     previewController.delegate = self;
@@ -365,8 +383,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     LoadingFileModel *loadingFileModel = self.loadingFileModelMutableArray[indexPath.row];
     self.willPreviewLoadingFileModel = loadingFileModel;
-    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
+//    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+//    NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
+    
+    FileManager *fileManager = [[FileManager alloc] init];
+    NSString *path = [fileManager jointFilePath:loadingFileModel.documentName];
+    
     NSFileManager * manager = [NSFileManager defaultManager];
     BOOL pathHave = [manager fileExistsAtPath:path];
     
@@ -393,8 +415,11 @@
             [MBProgressHUD hideHUDForView:weakSelf.view];
             if (error == nil) {
                 [self.fileListTV reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
-                NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-                NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
+//                NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+//                NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
+                
+                FileManager *fileManager = [[FileManager alloc] init];
+                NSString *path = [fileManager jointFilePath:loadingFileModel.documentName];
                 if ([QLPreviewController canPreviewItem:(id<QLPreviewItem>)[NSURL fileURLWithPath:path]]) {
                     QLPreviewController *previewController = [[QLPreviewController alloc] init];
                     previewController.delegate = self;
@@ -427,8 +452,11 @@
 }
 
 - (id<QLPreviewItem>)previewController:(QLPreviewController *)controller previewItemAtIndex:(NSInteger)index{
-    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *path = [cachesPath stringByAppendingPathComponent:self.willPreviewLoadingFileModel.documentName];
+//    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+//    NSString *path = [cachesPath stringByAppendingPathComponent:self.willPreviewLoadingFileModel.documentName];
+    
+    FileManager *fileManager = [[FileManager alloc] init];
+    NSString *path = [fileManager jointFilePath:self.willPreviewLoadingFileModel.documentName];
     return [NSURL fileURLWithPath:path];;
 }
 
@@ -562,8 +590,10 @@
     NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress *downloadProgress) {
         
     } destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
-        NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-        NSString *path = [documentPath stringByAppendingPathComponent:response.suggestedFilename];
+//        NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+//        NSString *path = [documentPath stringByAppendingPathComponent:response.suggestedFilename];
+        FileManager *fileManager = [[FileManager alloc] init];
+        NSString *path = [fileManager jointFilePath:response.suggestedFilename];
         return [NSURL fileURLWithPath:path];
         
     } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {

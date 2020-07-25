@@ -20,6 +20,7 @@
 #import "ProjectModel.h"
 #import "NetworkRequest.h"
 #import "MJRefresh.h"
+#import "FileManager.h"
 
 @interface MineVC ()<UITableViewDelegate,UITableViewDataSource,MBProgressHUDDelegate>
 
@@ -89,8 +90,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     ProjectModel *selectedProjectModel = self.prjectDataListMutableArray[indexPath.row];
     [Configure singletonInstance].currentProjectModel = selectedProjectModel;
-    RootTabBarContro *rootTabBarContro = [self.storyboard instantiateViewControllerWithIdentifier:@"RootTabBarContro"];
-    [UIApplication sharedApplication].keyWindow.rootViewController = rootTabBarContro;
+    
+    NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *fileDirectoryName = [NSString stringWithFormat:@"%@_%@",[Configure singletonInstance].currentProjectModel.projectId,[Configure singletonInstance].personInfoModel.username];
+    NSString *path = [documentPath stringByAppendingPathComponent:fileDirectoryName];
+    FileManager *fileManager = [[FileManager alloc] init];
+    
+    BOOL suc =  [fileManager creatDir:path];
+    if (suc){
+        RootTabBarContro *rootTabBarContro = [self.storyboard instantiateViewControllerWithIdentifier:@"RootTabBarContro"];
+        [UIApplication sharedApplication].keyWindow.rootViewController = rootTabBarContro;
+    }
 }
 
 - (void)myProjectInterface{

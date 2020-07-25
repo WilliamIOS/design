@@ -21,6 +21,7 @@
 #import "ProjectModel.h"
 #import "NetworkRequest.h"
 #import "MJRefresh.h"
+#import "DownloadFileListVC.h"
 
 @interface PersonalCentreVC ()<MBProgressHUDDelegate>
 
@@ -53,6 +54,13 @@
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = item;
     [self.navigationController pushViewController:mineVC animated:true];
+}
+
+- (void)allDownloadFileBtnClick:(id)sender{
+    DownloadFileListVC *downloadFileListVC = [self.storyboard instantiateViewControllerWithIdentifier:@"DownloadFileListVC"];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = item;
+    [self.navigationController pushViewController:downloadFileListVC animated:true];
 }
 
 - (void)signoutBtnClick:(id)sender{

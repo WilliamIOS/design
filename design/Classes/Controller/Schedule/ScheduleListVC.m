@@ -36,6 +36,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setupSettings];
+
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     [MBProgressHUD showOnlyChrysanthemumWithView:self.view delegateTarget:self];
     [self changeScheduleListInterface];
 }

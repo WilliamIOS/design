@@ -8,6 +8,7 @@
 #import "LoadingFileTVC.h"
 #import "UIViewController+Extension.h"
 #import "MBProgressHUD+PW.h"
+#import "FileManager.h"
 
 @interface LoadingFileTVC()
 
@@ -75,8 +76,11 @@
         self.fileImageView.image = [UIImage imageNamed:@"otherFile"];
     }
     
-    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
+//    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+//    NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
+    
+    FileManager *fileManager = [[FileManager alloc] init];
+    NSString *path = [fileManager jointFilePath:loadingFileModel.documentName];
     NSFileManager * manager = [NSFileManager defaultManager];
     BOOL pathHave = [manager fileExistsAtPath:path];
     if (pathHave) {
@@ -121,9 +125,12 @@
 }
 
 - (void)share{
-    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *path = [cachesPath stringByAppendingPathComponent:self.loadingFileModel.documentName];
-//    NSString *path  = [[NSBundle mainBundle] pathForResource:@"sharing" ofType:@"zip"];
+//    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+//    NSString *path = [cachesPath stringByAppendingPathComponent:self.loadingFileModel.documentName];
+    
+    FileManager *fileManager = [[FileManager alloc] init];
+    NSString *path = [fileManager jointFilePath:self.loadingFileModel.documentName];
+
     NSURL *fileURL = [NSURL fileURLWithPath:path];
     NSArray *activityItems = @[fileURL];
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];

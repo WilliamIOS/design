@@ -23,6 +23,9 @@
 #import "ScheduleDetailHeaderTVC.h"
 #import "ScheduleDetailSeparateTVC.h"
 #import "UITabBar+Badge.h"
+#import "FileManager.h"
+#import "ScheduleInsertPicTVC.h"
+#import "UploadMediaModel.h"
 
 @interface ScheduleDetailVC ()<UITableViewDataSource,UITableViewDelegate,MBProgressHUDDelegate,QLPreviewControllerDataSource,QLPreviewControllerDelegate>
 
@@ -34,6 +37,8 @@
 @property (nonatomic,strong) NSMutableArray *rarMutableArray;
 @property (nonatomic,strong) NSMutableArray *otherMutableArray;
 @property (nonatomic,strong) LoadingFileModel *willPreviewLoadingFileModel;
+// 存放documentUrl地址
+@property (nonatomic,strong) NSMutableArray *documentUrlMutableArray;
 
 @end
 
@@ -83,6 +88,13 @@
     return _otherMutableArray;
 }
 
+- (NSMutableArray*)documentUrlMutableArray{
+    if (!_documentUrlMutableArray) {
+        self.documentUrlMutableArray = [NSMutableArray array];
+    }
+    return _documentUrlMutableArray;
+}
+
 - (void)setupSettings{
     self.navigationItem.title = [Configure singletonInstance].currentProjectModel.projectName;
     self.scheduleDetailTV.delegate = self;
@@ -100,42 +112,113 @@
     [self.loadingFileView setRoundedView:self.loadingFileView cornerRadius:10 borderWidth:4 borderColor:PWColor(30, 133, 95)];
     UITapGestureRecognizer *loadingFileViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(loadingFileViewGesture:)];
     [self.loadingFileView addGestureRecognizer:loadingFileViewTap];
+    
+    if (![self.changeScheduleListModel.documentUrl isEqualToString:@""] && self.changeScheduleListModel.documentUrl != nil) {
+        NSArray *array = [self.changeScheduleListModel.documentUrl componentsSeparatedByString:@","];
+        for (int a = 0; a < [array count]; a++) {
+            NSString *url = array[a];
+            NSArray *urlArray = [url componentsSeparatedByString:@"."];
+            NSString *str = [self stringToLower:urlArray[[urlArray count]-1]];
+            UploadMediaModel *uploadMediaModel = [[UploadMediaModel alloc] init];
+            if ([str isEqualToString:@"png"] || [str isEqualToString:@"jpg"] || [str isEqualToString:@"jpeg"]) {
+                uploadMediaModel.mediaType = @"0";
+                uploadMediaModel.mediaUrl = url;
+            }else{
+                uploadMediaModel.mediaType = @"1";
+                uploadMediaModel.mediaUrl = url;
+            }
+            [self.documentUrlMutableArray addObject:uploadMediaModel];
+        }
+    }
+}
+
+- (NSString *)stringToLower:(NSString *)str{
+    for(NSInteger i = 0 ; i < str.length ; i++) {
+        if([str characterAtIndex:i] >='A'& [str characterAtIndex:i] <='Z') {
+            char temp = [str characterAtIndex:i]+32;
+            NSRange range =NSMakeRange(i,1);
+            str = [str stringByReplacingCharactersInRange:range withString:[NSString stringWithFormat:@"%c",temp]];
+        }
+    }
+    return str;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
+    NSInteger num = 2;
+    if ([self.documentUrlMutableArray count] > 0) {
+        num = 3;
+    }
+    return num;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     NSInteger num = 0;
-    if (section == 0) {
-        num = 1;
-        
+    if ([self.documentUrlMutableArray count] > 0) {
+        if (section == 0) {
+            num = 1;
+            
+        }else if(section == 1){
+            num = 1;
+        }else{
+            num = [self.loadingFileModelMutableArray count] + 1;
+        }
     }else{
-        num = [self.loadingFileModelMutableArray count] + 1;
+        if (section == 0) {
+            num = 1;
+            
+        }else{
+            num = [self.loadingFileModelMutableArray count] + 1;
+        }
     }
     return num;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell;
-    if (indexPath.section == 0) {
-        ScheduleDetailHeaderTVC *scheduleDetailHeaderTVC = [ScheduleDetailHeaderTVC cellWithTableView:tableView cellidentifier:@"ScheduleDetailHeaderTVC"];
-        scheduleDetailHeaderTVC.changeScheduleListModel = self.changeScheduleListModel;
-        cell = scheduleDetailHeaderTVC;
-        
-    }else{
-        if (indexPath.row == 0) {
-            ScheduleDetailSeparateTVC *scheduleDetailSeparateTVC = [ScheduleDetailSeparateTVC cellWithTableView:tableView cellidentifier:@"ScheduleDetailSeparateTVC"];
-            cell = scheduleDetailSeparateTVC;
+    if ([self.documentUrlMutableArray count] > 0) {
+        if (indexPath.section == 0) {
+            ScheduleDetailHeaderTVC *scheduleDetailHeaderTVC = [ScheduleDetailHeaderTVC cellWithTableView:tableView cellidentifier:@"ScheduleDetailHeaderTVC"];
+            scheduleDetailHeaderTVC.changeScheduleListModel = self.changeScheduleListModel;
+            cell = scheduleDetailHeaderTVC;
+            
+        }else if (indexPath.section == 1){
+            ScheduleInsertPicTVC *scheduleInsertPicTVC = [ScheduleInsertPicTVC cellWithTableView:tableView cellidentifier:@"ScheduleInsertPicTVCWithScheduleDetail"];
+            scheduleInsertPicTVC.picMutableArray = self.documentUrlMutableArray;
+            cell = scheduleInsertPicTVC;
             
         }else{
-            LoadingFileTVC *loadingFileTVC = [LoadingFileTVC cellWithTableView:tableView cellidentifier:@"LoadingFileTVCWithScheduleDetail"];
-            loadingFileTVC.currentIndexPath = indexPath;
-            loadingFileTVC.loadingFileModel = self.loadingFileModelMutableArray[indexPath.row - 1];
-            return loadingFileTVC;
+            if (indexPath.row == 0) {
+                ScheduleDetailSeparateTVC *scheduleDetailSeparateTVC = [ScheduleDetailSeparateTVC cellWithTableView:tableView cellidentifier:@"ScheduleDetailSeparateTVC"];
+                cell = scheduleDetailSeparateTVC;
+                
+            }else{
+                LoadingFileTVC *loadingFileTVC = [LoadingFileTVC cellWithTableView:tableView cellidentifier:@"LoadingFileTVCWithScheduleDetail"];
+                loadingFileTVC.currentIndexPath = indexPath;
+                loadingFileTVC.loadingFileModel = self.loadingFileModelMutableArray[indexPath.row - 1];
+                return loadingFileTVC;
+            }
+        }
+        
+    }else{
+        if (indexPath.section == 0) {
+            ScheduleDetailHeaderTVC *scheduleDetailHeaderTVC = [ScheduleDetailHeaderTVC cellWithTableView:tableView cellidentifier:@"ScheduleDetailHeaderTVC"];
+            scheduleDetailHeaderTVC.changeScheduleListModel = self.changeScheduleListModel;
+            cell = scheduleDetailHeaderTVC;
+            
+        }else{
+            if (indexPath.row == 0) {
+                ScheduleDetailSeparateTVC *scheduleDetailSeparateTVC = [ScheduleDetailSeparateTVC cellWithTableView:tableView cellidentifier:@"ScheduleDetailSeparateTVC"];
+                cell = scheduleDetailSeparateTVC;
+                
+            }else{
+                LoadingFileTVC *loadingFileTVC = [LoadingFileTVC cellWithTableView:tableView cellidentifier:@"LoadingFileTVCWithScheduleDetail"];
+                loadingFileTVC.currentIndexPath = indexPath;
+                loadingFileTVC.loadingFileModel = self.loadingFileModelMutableArray[indexPath.row - 1];
+                return loadingFileTVC;
+            }
         }
     }
+    
     return cell;
 }
 
@@ -151,8 +234,10 @@
     if (indexPath.section == 1 && indexPath.row != 0) {
         LoadingFileModel *loadingFileModel = self.loadingFileModelMutableArray[indexPath.row - 1];
         self.willPreviewLoadingFileModel = loadingFileModel;
-        NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-        NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
+//        NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+//        NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
+        FileManager *fileManager = [[FileManager alloc] init];
+        NSString *path = [fileManager jointFilePath:loadingFileModel.documentName];
         NSFileManager * manager = [NSFileManager defaultManager];
         BOOL pathHave = [manager fileExistsAtPath:path];
         
@@ -179,8 +264,11 @@
                 [MBProgressHUD hideHUDForView:weakSelf.view];
                 if (error == nil) {
                     [self.scheduleDetailTV reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
-                    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-                    NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
+//                    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+//                    NSString *path = [cachesPath stringByAppendingPathComponent:loadingFileModel.documentName];
+                    FileManager *fileManager = [[FileManager alloc] init];
+                    NSString *path = [fileManager jointFilePath:loadingFileModel.documentName];
+                    
                     if ([QLPreviewController canPreviewItem:(id<QLPreviewItem>)[NSURL fileURLWithPath:path]]) {
                         QLPreviewController *previewController = [[QLPreviewController alloc] init];
                         previewController.delegate = self;
@@ -214,8 +302,10 @@
 }
 
 - (id<QLPreviewItem>)previewController:(QLPreviewController *)controller previewItemAtIndex:(NSInteger)index{
-    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *path = [cachesPath stringByAppendingPathComponent:self.willPreviewLoadingFileModel.documentName];
+//    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+//    NSString *path = [cachesPath stringByAppendingPathComponent:self.willPreviewLoadingFileModel.documentName];
+    FileManager *fileManager = [[FileManager alloc] init];
+    NSString *path = [fileManager jointFilePath:self.willPreviewLoadingFileModel.documentName];
     return [NSURL fileURLWithPath:path];;
 }
 
@@ -311,8 +401,12 @@
     NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress *downloadProgress) {
         
     } destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
-        NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-        NSString *path = [documentPath stringByAppendingPathComponent:response.suggestedFilename];
+//        NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+//        NSString *path = [documentPath stringByAppendingPathComponent:response.suggestedFilename];
+        
+        FileManager *fileManager = [[FileManager alloc] init];
+        NSString *path = [fileManager jointFilePath:response.suggestedFilename];
+        
         return [NSURL fileURLWithPath:path];
         
     } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
