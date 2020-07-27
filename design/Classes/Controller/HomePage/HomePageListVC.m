@@ -300,14 +300,13 @@
     NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress *downloadProgress) {
         
     } destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
-//        NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-//        NSString *path = [documentPath stringByAppendingPathComponent:response.suggestedFilename];
         FileManager *fileManager = [[FileManager alloc] init];
         NSString *path = [fileManager jointFilePath:response.suggestedFilename];
         return [NSURL fileURLWithPath:path];
         
     } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
         [MBProgressHUD hideHUDForView:weakSelf.view];
+        [MBProgressHUD showMessage:@"下载成功" targetView:weakSelf.view delegateTarget:self];
         
     }];
     // 4. 开启下载任务

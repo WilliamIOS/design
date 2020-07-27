@@ -22,6 +22,9 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.phoneLabel.userInteractionEnabled = true;
+    UITapGestureRecognizer *phoneLabelTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(phoneLabelGesture:)];
+    [self.phoneLabel addGestureRecognizer:phoneLabelTap];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -46,6 +49,16 @@
     self.linkmanLabel.text = addressBookModel.contact;
     self.phoneLabel.text = addressBookModel.phone;
     self.emailLabel.text = addressBookModel.mail;
+    
+
+}
+
+- (void)phoneLabelGesture:(UITapGestureRecognizer*)recognizer {
+    NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",self.addressBookModel.phone];
+    NSDictionary *dic = [NSDictionary dictionary];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str] options:dic completionHandler:^(BOOL success) {
+        
+    }];
 }
 
 @end

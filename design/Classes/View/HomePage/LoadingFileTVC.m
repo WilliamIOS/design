@@ -69,7 +69,7 @@
     }else if ([loadingFileModel.fileSuffixStr isEqualToString:@"dwg"]) {
         self.fileImageView.image = [UIImage imageNamed:@"cad"];
         
-    }else if ([loadingFileModel.fileSuffixStr isEqualToString:@"rar"]) {
+    }else if ([loadingFileModel.fileSuffixStr isEqualToString:@"rar"] || [loadingFileModel.fileSuffixStr isEqualToString:@"zip"]) {
         self.fileImageView.image = [UIImage imageNamed:@"rar"];
         
     }else{
