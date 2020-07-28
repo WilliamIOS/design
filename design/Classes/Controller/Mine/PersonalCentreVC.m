@@ -64,7 +64,7 @@
 }
 
 - (void)signoutBtnClick:(id)sender{
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"确定要退出登录吗？" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"确定要退出登录吗？" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [MBProgressHUD showOnlyChrysanthemumWithView:self.view delegateTarget:self];
         [self signoutInterface];
@@ -84,7 +84,7 @@
     [[NetworkRequest shared] postRequest:dic serverUrl:Api_Signout success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [MBProgressHUD hideHUDForView:self.view];
         ResponseObjectModel *responseObjectModel = [ResponseObjectModel mj_objectWithKeyValues:responseObject];
-        if ([responseObjectModel.msg isEqualToString:@"success"]) {
+        if ([responseObjectModel.msg isEqualToString:@"success"] || [responseObjectModel.msg isEqualToString:@"success"]) {
             // 删除沙盒和内存中的用户数据
             Configure *configure = [Configure singletonInstance];
             configure.personInfoModel = nil;

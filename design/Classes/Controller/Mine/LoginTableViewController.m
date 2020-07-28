@@ -17,6 +17,8 @@
 #import "PersonInfoModel.h"
 #import "Configure.h"
 #import "MineVC.h"
+#import "LoginTableViewController.h"
+#import "UIViewController+Extension.h"
 
 @interface LoginTableViewController ()<MBProgressHUDDelegate>
 
@@ -107,6 +109,8 @@
         [MBProgressHUD showMessage:@"网络延迟请稍后再试" targetView:self.view delegateTarget:self];
     }];
 }
+
+
 
 #pragma mark - MBProgressHUDDelegate
 - (void)hudWasHidden:(MBProgressHUD *)hud{

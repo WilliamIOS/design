@@ -12,6 +12,9 @@
 #import "PersonInfoModel.h"
 #import "MJExtension.h"
 #import "RootTabBarContro.h"
+#import "ResponseObjectModel.h"
+#import "LoginTableViewController.h"
+#import "UIViewController+Extension.h"
 
 @interface NetworkRequest()
 
@@ -63,8 +66,12 @@
         
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        successHandle(task,responseObject);
-        
+        NSString *msgStr = responseObject[@"msg"];
+        if ([msgStr isEqualToString:@"token失效，请重新登陆"]) {
+             [self signout];
+        }else{
+          successHandle(task,responseObject);
+        }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failHandle(task,error);
@@ -106,8 +113,13 @@
     NSURLSessionDataTask *task = [self.manager POST:url parameters:param progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        successHandle(task,responseObject);
-        
+        NSString *msgStr = responseObject[@"msg"];
+        if ([msgStr isEqualToString:@"token失效，请重新登陆"]) {
+            [self signout];
+        }else{
+          successHandle(task,responseObject);
+        }
+
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failHandle(task,error);
         
@@ -142,6 +154,33 @@
         
     }];
     
+}
+
+- (void)signout{
+    UIViewController *topVC = [UIViewController topViewController];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"您长期没有登录，请重新登录。" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            // 删除沙盒和内存中的用户数据
+        Configure *configure = [Configure singletonInstance];
+        configure.personInfoModel = nil;
+        
+        NSString *doc = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+
+        NSFileManager* fileManager=[NSFileManager defaultManager];
+        NSArray *DirectoryArray = [fileManager contentsOfDirectoryAtPath:doc error:nil];
+        for (int a = 0; a<[DirectoryArray count]; a++) {
+            NSString *fileName = DirectoryArray[a];
+            NSString *fullPath = [doc stringByAppendingPathComponent:fileName];
+            [fileManager removeItemAtPath:fullPath error:nil];
+        }
+
+        LoginTableViewController *loginTableViewController = [topVC.storyboard instantiateViewControllerWithIdentifier:@"LoginTableViewController"];
+        [UIApplication sharedApplication].keyWindow.rootViewController = loginTableViewController;
+        
+    }];
+    [alertController addAction:confirmAction];
+    [topVC presentViewController:alertController animated:YES completion:nil];
+
 }
 
 @end

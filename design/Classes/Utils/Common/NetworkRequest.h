@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
+#import <UIKit/UIKit.h>
 
 @interface NetworkRequest : NSObject
 
