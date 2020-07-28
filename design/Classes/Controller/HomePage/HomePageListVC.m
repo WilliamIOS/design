@@ -165,33 +165,39 @@
 
 // 概念方案preview
 - (void)didConceptSchemePreviewImageViewPreview{
-    if (self.previewListMutableArray[0] != nil) {
-        NSArray *singleArray = self.previewListMutableArray[0];
-        if ([singleArray count] >0) {
-            LoadingFileModel *loadingFileModel = [LoadingFileModel mj_objectWithKeyValues:singleArray[0]];
-            [self previewFile:loadingFileModel];
+    if (self.previewListMutableArray != nil) {
+        if (self.previewListMutableArray[0] != nil) {
+            NSArray *singleArray = self.previewListMutableArray[0];
+            if ([singleArray count] >0) {
+                LoadingFileModel *loadingFileModel = [LoadingFileModel mj_objectWithKeyValues:singleArray[0]];
+                [self previewFile:loadingFileModel];
+            }
         }
     }
 }
 
 // 平面图preview
 - (void)didPlaneFigurePreviewImageViewPreview{
-    if (self.previewListMutableArray[1] != nil) {
-        NSArray *singleArray = self.previewListMutableArray[1];
-        if ([singleArray count] >0) {
-            LoadingFileModel *loadingFileModel = [LoadingFileModel mj_objectWithKeyValues:singleArray[0]];
-            [self previewFile:loadingFileModel];
+    if (self.previewListMutableArray != nil) {
+        if (self.previewListMutableArray[1] != nil) {
+            NSArray *singleArray = self.previewListMutableArray[1];
+            if ([singleArray count] >0) {
+                LoadingFileModel *loadingFileModel = [LoadingFileModel mj_objectWithKeyValues:singleArray[0]];
+                [self previewFile:loadingFileModel];
+            }
         }
     }
 }
 
 // 效果图preview
 - (void)didDesignSketchPreviewImageViewPreview{
-    if (self.previewListMutableArray[2] != nil) {
-        NSArray *singleArray = self.previewListMutableArray[2];
-        if ([singleArray count] >0) {
-            LoadingFileModel *loadingFileModel = [LoadingFileModel mj_objectWithKeyValues:singleArray[0]];
-            [self previewFile:loadingFileModel];
+    if (self.previewListMutableArray != nil) {
+        if (self.previewListMutableArray[2] != nil) {
+            NSArray *singleArray = self.previewListMutableArray[2];
+            if ([singleArray count] >0) {
+                LoadingFileModel *loadingFileModel = [LoadingFileModel mj_objectWithKeyValues:singleArray[0]];
+                [self previewFile:loadingFileModel];
+            }
         }
     }
 }
