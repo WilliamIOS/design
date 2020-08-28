@@ -52,9 +52,9 @@
         [self.manager.requestSerializer setValue:token forHTTPHeaderField:@"token"];
     }
     
-    __block NSString *logUrl = @"";
+    __block NSString *logUrl = url;
     [param enumerateKeysAndObjectsUsingBlock:^(NSString *  _Nonnull key, NSString *  _Nonnull obj, BOOL * _Nonnull stop) {
-        if ([logUrl isEqualToString:@""] || logUrl == nil) {
+        if ([logUrl isEqualToString:url]) {
             logUrl = [NSString stringWithFormat:@"%@?%@=%@",url,key,obj];
         }else{
             logUrl = [NSString stringWithFormat:@"%@&%@=%@",logUrl,key,obj];
@@ -67,7 +67,7 @@
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSString *msgStr = responseObject[@"msg"];
-        if ([msgStr isEqualToString:@"token失效，请重新登陆"]) {
+        if ([msgStr isEqualToString:@"token失效，请重新登录"] || [msgStr isEqualToString:@"token is invalid, please log in again"]) {
              [self signout];
         }else{
           successHandle(task,responseObject);
@@ -100,9 +100,9 @@
         [self.manager.requestSerializer setValue:token forHTTPHeaderField:@"token"];
     }
     
-    __block NSString *logUrl = @"";
+    __block NSString *logUrl = url;
     [param enumerateKeysAndObjectsUsingBlock:^(NSString *  _Nonnull key, NSString *  _Nonnull obj, BOOL * _Nonnull stop) {
-        if ([logUrl isEqualToString:@""] || logUrl == nil) {
+        if ([logUrl isEqualToString:url]) {
             logUrl = [NSString stringWithFormat:@"%@?%@=%@",url,key,obj];
         }else{
             logUrl = [NSString stringWithFormat:@"%@&%@=%@",logUrl,key,obj];
@@ -114,7 +114,7 @@
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSString *msgStr = responseObject[@"msg"];
-        if ([msgStr isEqualToString:@"token失效，请重新登陆"]) {
+        if ([msgStr isEqualToString:@"token失效，请重新登录"] || [msgStr isEqualToString:@"token is invalid, please log in again"]) {
             [self signout];
         }else{
           successHandle(task,responseObject);
@@ -158,29 +158,30 @@
 
 - (void)signout{
     UIViewController *topVC = [UIViewController topViewController];
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"您长期没有登录，请重新登录。" preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            // 删除沙盒和内存中的用户数据
-        Configure *configure = [Configure singletonInstance];
-        configure.personInfoModel = nil;
-        
-        NSString *doc = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+    if (![topVC isKindOfClass:UIAlertController.class]) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"您长期没有登录，请重新登录。" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                // 删除沙盒和内存中的用户数据
+            Configure *configure = [Configure singletonInstance];
+            configure.personInfoModel = nil;
+            
+            NSString *doc = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
 
-        NSFileManager* fileManager=[NSFileManager defaultManager];
-        NSArray *DirectoryArray = [fileManager contentsOfDirectoryAtPath:doc error:nil];
-        for (int a = 0; a<[DirectoryArray count]; a++) {
-            NSString *fileName = DirectoryArray[a];
-            NSString *fullPath = [doc stringByAppendingPathComponent:fileName];
-            [fileManager removeItemAtPath:fullPath error:nil];
-        }
+            NSFileManager* fileManager=[NSFileManager defaultManager];
+            NSArray *DirectoryArray = [fileManager contentsOfDirectoryAtPath:doc error:nil];
+            for (int a = 0; a<[DirectoryArray count]; a++) {
+                NSString *fileName = DirectoryArray[a];
+                NSString *fullPath = [doc stringByAppendingPathComponent:fileName];
+                [fileManager removeItemAtPath:fullPath error:nil];
+            }
 
-        LoginTableViewController *loginTableViewController = [topVC.storyboard instantiateViewControllerWithIdentifier:@"LoginTableViewController"];
-        [UIApplication sharedApplication].keyWindow.rootViewController = loginTableViewController;
-        
-    }];
-    [alertController addAction:confirmAction];
-    [topVC presentViewController:alertController animated:YES completion:nil];
-
+            LoginTableViewController *loginTableViewController = [topVC.storyboard instantiateViewControllerWithIdentifier:@"LoginTableViewController"];
+            [UIApplication sharedApplication].keyWindow.rootViewController = loginTableViewController;
+            
+        }];
+        [alertController addAction:confirmAction];
+        [topVC presentViewController:alertController animated:YES completion:nil];
+    }
 }
 
 @end
