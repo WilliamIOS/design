@@ -309,7 +309,7 @@
         
     } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
         [MBProgressHUD hideHUDForView:weakSelf.view];
-        [MBProgressHUD showMessage:@"下载成功" targetView:weakSelf.view delegateTarget:self];
+        [MBProgressHUD showMessage:@"下载完成，文件保存在“我的->已下载文件”" targetView:weakSelf.view delegateTarget:self];
         
     }];
     // 4. 开启下载任务
