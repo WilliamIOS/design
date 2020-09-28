@@ -1081,18 +1081,19 @@
 			baseConfigurationReference = 592A576F26DE123A44C55432 /* Pods-design.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 10;
-				DEVELOPMENT_TEAM = 9X7C849RMQ;
+				CURRENT_PROJECT_VERSION = 02;
+				DEVELOPMENT_TEAM = BNJH37VCSM;
 				INFOPLIST_FILE = design/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.company.designtest;
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hemu.design;
 				PRODUCT_NAME = "半元设计";
-				PROVISIONING_PROFILE_SPECIFIER = designtest;
+				PROVISIONING_PROFILE_SPECIFIER = hemu_design_distribution;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/**",
@@ -1106,18 +1107,19 @@
 			baseConfigurationReference = 11173E853284B6A9AEC231A4 /* Pods-design.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 10;
-				DEVELOPMENT_TEAM = 9X7C849RMQ;
+				CURRENT_PROJECT_VERSION = 02;
+				DEVELOPMENT_TEAM = BNJH37VCSM;
 				INFOPLIST_FILE = design/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.company.designtest;
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hemu.design;
 				PRODUCT_NAME = "半元设计";
-				PROVISIONING_PROFILE_SPECIFIER = designtest;
+				PROVISIONING_PROFILE_SPECIFIER = hemu_design_distribution;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/**",

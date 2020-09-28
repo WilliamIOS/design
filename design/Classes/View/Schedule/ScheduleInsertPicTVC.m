@@ -56,8 +56,8 @@
     [self.contentView layoutIfNeeded];
     self.picCVConstraintH.constant = self.picCollectionView.contentSize.height;
     // 刷新外部
-    NSNotification *notification =[NSNotification notificationWithName:@"ScheduleInsertVCRefreshNotification" object:nil userInfo:nil];
-    [[NSNotificationCenter defaultCenter] postNotification:notification];
+//    NSNotification *notification =[NSNotification notificationWithName:@"ScheduleInsertVCRefreshNotification" object:nil userInfo:nil];
+//    [[NSNotificationCenter defaultCenter] postNotification:notification];
 }
 
 #pragma mark - CollectionViewDataSource

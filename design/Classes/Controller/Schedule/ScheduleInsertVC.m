@@ -70,7 +70,10 @@
 }
 
 - (void)scheduleInsertVCRefreshNotificationClick:(NSNotification *)text{
-    [self.insertTV reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathWithIndex:1]] withRowAnimation:UITableViewRowAnimationNone];
+    dispatch_async(dispatch_get_main_queue(), ^{
+//        [self.insertTV reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathWithIndex:1]] withRowAnimation:UITableViewRowAnimationNone];
+
+    });
 }
 
 - (void)scheduleInsertModelUpdateClick:(NSNotification *)text{
@@ -99,7 +102,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 2;;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

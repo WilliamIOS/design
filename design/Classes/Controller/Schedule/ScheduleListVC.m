@@ -99,7 +99,9 @@
     ScheduleInsertVC *scheduleInsertVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ScheduleInsertVC"];
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = item;
-    [self.navigationController pushViewController:scheduleInsertVC  animated:true];}
+    [self.navigationController pushViewController:scheduleInsertVC  animated:true];
+    
+}
 
 #pragma mark - 变更日程列表
 - (void)changeScheduleListInterface{
